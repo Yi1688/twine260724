@@ -1,0 +1,2362 @@
+:: StoryTitle
+Before Zero
+
+
+:: StoryData
+{
+  "ifid": "A61CD338-A3CF-40AB-BA7F-915D5441705F",
+  "format": "Harlowe",
+  "format-version": "3.3.9",
+  "start": "Before Zero",
+  "zoom": 1
+}
+
+
+:: StoryStylesheet [stylesheet]
+:root {
+  --bz-ink: #1d1a16;
+  --bz-paper: #f3ead8;
+  --bz-paper-muted: #cfc1a7;
+  --bz-gold: #d2a958;
+  --bz-teal: #7ec8c0;
+  --bz-red: #b75a4d;
+  --bz-shadow: rgba(9, 8, 7, 0.55);
+  --bz-panel-dark: rgba(19, 16, 13, 0.72);
+  --bz-line: rgba(243, 234, 216, 0.24);
+  --bz-dialogue-frame-1: url("Images/dialogue-frame-1.png");
+  --bz-dialogue-frame-2: url("Images/dialogue-frame-2.png");
+  --bz-dialogue-frame-3: url("Images/dialogue-frame-3.png");
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+  background: #11100e;
+}
+
+body {
+  overflow: hidden;
+}
+
+tw-story {
+  min-height: 100vh;
+  box-sizing: border-box;
+  position: relative;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  overflow: hidden;
+  isolation: isolate;
+  color: var(--bz-paper);
+  background:
+    radial-gradient(circle at 18% 18%, rgba(126, 200, 192, 0.15), transparent 26%),
+    radial-gradient(circle at 82% 12%, rgba(210, 169, 88, 0.18), transparent 24%),
+    radial-gradient(circle at 50% 120%, rgba(255, 235, 194, 0.08), transparent 34%),
+    linear-gradient(118deg, rgba(126, 200, 192, 0.12), transparent 34%),
+    linear-gradient(245deg, rgba(210, 169, 88, 0.12), transparent 38%),
+    repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.018) 0 2px, transparent 2px 14px),
+    linear-gradient(135deg, #161410 0%, #2b2925 45%, #141312 100%);
+  font-family: "Microsoft YaHei", "PingFang SC", "Noto Sans SC", "Source Han Sans SC", system-ui, sans-serif;
+}
+
+tw-story::before,
+tw-story::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+}
+
+tw-story::before {
+  z-index: 0;
+  background:
+    radial-gradient(circle at center, transparent 42%, rgba(7, 7, 6, 0.42) 100%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.03), transparent 16%, transparent 84%, rgba(0, 0, 0, 0.08));
+}
+
+tw-story::after {
+  z-index: 0;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.06) 0.75px, transparent 0.75px);
+  background-size: 8px 8px;
+  mix-blend-mode: soft-light;
+  opacity: 0.16;
+}
+
+tw-sidebar {
+  display: none;
+}
+
+tw-passage {
+  width: 100%;
+  max-width: none;
+  position: relative;
+  z-index: 1;
+  color: inherit;
+  line-height: 1.6;
+}
+
+tw-passage img {
+  max-width: 100%;
+}
+
+tw-link,
+tw-link:visited,
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.bz-stage {
+  position: relative;
+  width: 100vw;
+  margin: 0 auto;
+}
+
+.bz-scene {
+  position: relative;
+  height: 100vh;
+  height: 100svh;
+  min-height: 0;
+  overflow: hidden;
+  border: 0;
+  border-radius: 0;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.03), transparent 22%),
+    linear-gradient(135deg, rgba(31, 26, 20, 0.96), rgba(22, 19, 17, 0.96));
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.06),
+    inset 0 -18px 36px rgba(0, 0, 0, 0.24),
+    0 32px 90px var(--bz-shadow);
+  isolation: isolate;
+}
+
+.bz-scene::before,
+.bz-scene::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.bz-scene::before {
+  background:
+    radial-gradient(circle at 78% 14%, rgba(255, 223, 163, 0.2), transparent 24%),
+    radial-gradient(circle at 18% 80%, rgba(126, 200, 192, 0.12), transparent 24%),
+    linear-gradient(180deg, rgba(0, 0, 0, 0.28), transparent 24%, transparent 68%, rgba(0, 0, 0, 0.5)),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.34), transparent 16%, transparent 84%, rgba(0, 0, 0, 0.28));
+}
+
+.bz-scene::after {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.028) 1px, transparent 1px),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.05), transparent 18%, transparent 82%, rgba(0, 0, 0, 0.08));
+  background-size: 100% 4px, 4px 100%, 100% 100%;
+  mix-blend-mode: soft-light;
+  opacity: 0.28;
+}
+
+.bz-scene-art {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transform: none;
+  transform-origin: center center;
+  filter: saturate(0.94) contrast(1.03);
+  z-index: 1;
+  animation: none;
+  will-change: auto;
+}
+
+.bz-scene-art.is-contain {
+  object-fit: contain;
+  padding: clamp(4px, 1.6vw, 18px);
+  box-sizing: border-box;
+  background: transparent;
+}
+
+.bz-scene.bz-image-only {
+  background: #000;
+  box-shadow: none;
+}
+
+.bz-scene.bz-image-only::before,
+.bz-scene.bz-image-only::after {
+  display: none;
+}
+
+.bz-scene.bz-image-only .bz-scene-art {
+  object-fit: cover;
+  object-position: center;
+  filter: none;
+  background: #000;
+}
+
+.bz-scene-art-door-echo {
+  inset: auto;
+  top: clamp(54px, 7vh, 88px);
+  left: 50%;
+  width: min(980px, 76vw);
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: contain;
+  object-position: center;
+  transform: translateX(-50%);
+  opacity: 0.24;
+  filter: saturate(0.8) contrast(1.04) brightness(0.92);
+  mix-blend-mode: screen;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.bz-scene-art-door-echo + .bz-scene-art.is-contain {
+  z-index: 3;
+}
+
+.bz-hud {
+  position: absolute;
+  top: clamp(14px, 2.2vw, 24px);
+  left: clamp(16px, 2.8vw, 34px);
+  right: clamp(16px, 2.8vw, 34px);
+  z-index: 4;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  pointer-events: none;
+}
+
+.bz-time,
+.bz-place,
+.bz-memory-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 34px;
+  padding: 0 15px 0 13px;
+  border: 1px solid rgba(243, 234, 216, 0.28);
+  border-radius: 999px;
+  color: #fff9ed;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.12), transparent),
+    rgba(18, 16, 14, 0.52);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    0 10px 24px rgba(0, 0, 0, 0.28);
+  backdrop-filter: blur(8px);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.bz-time::before,
+.bz-place::before,
+.bz-memory-tag::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: currentColor;
+  box-shadow: 0 0 14px currentColor;
+  opacity: 0.72;
+}
+
+.bz-time {
+  color: #fff0c0;
+  border-color: rgba(210, 169, 88, 0.55);
+}
+
+.bz-memory-tag {
+  color: #dffdfa;
+  border-color: rgba(126, 200, 192, 0.5);
+}
+
+.bz-time-float {
+  position: absolute;
+  top: clamp(84px, 12vh, 132px);
+  right: clamp(18px, 3vw, 34px);
+  z-index: 4;
+  width: min(180px, 24vw);
+  padding: 10px;
+  box-sizing: border-box;
+  border: 1px solid rgba(243, 234, 216, 0.22);
+  border-radius: 22px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.12), transparent 30%),
+    linear-gradient(135deg, rgba(255, 248, 232, 0.1), rgba(20, 17, 14, 0.28)),
+    rgba(14, 12, 10, 0.26);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    0 20px 36px rgba(0, 0, 0, 0.22);
+  backdrop-filter: blur(10px);
+  transform: rotate(4deg);
+  pointer-events: none;
+}
+
+.bz-time-float img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 14px;
+  box-shadow:
+    0 10px 22px rgba(0, 0, 0, 0.16),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.12);
+}
+
+.bz-final-tag {
+  position: absolute;
+  top: clamp(86px, 13vh, 140px);
+  left: clamp(18px, 3vw, 34px);
+  z-index: 4;
+  display: grid;
+  gap: 4px;
+  min-width: 142px;
+  padding: 12px 14px 13px;
+  box-sizing: border-box;
+  border: 1px solid rgba(243, 234, 216, 0.22);
+  border-radius: 18px 20px 20px 12px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.12), transparent 34%),
+    linear-gradient(135deg, rgba(210, 169, 88, 0.12), transparent 60%),
+    rgba(18, 15, 13, 0.56);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    0 18px 32px rgba(0, 0, 0, 0.22);
+  backdrop-filter: blur(8px);
+  pointer-events: none;
+}
+
+.bz-final-tag strong,
+.bz-final-tag span {
+  display: block;
+}
+
+.bz-final-tag strong {
+  color: #fff1c5;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.18em;
+}
+
+.bz-final-tag b {
+  display: block;
+  color: #fff8ec;
+  font-size: 29px;
+  line-height: 1;
+  font-weight: 900;
+  letter-spacing: 0.06em;
+}
+
+.bz-final-tag span {
+  color: rgba(255, 244, 224, 0.82);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+}
+
+.bz-title-card {
+  position: absolute;
+  z-index: 4;
+  left: clamp(26px, 7vw, 82px);
+  bottom: clamp(34px, 9vh, 82px);
+  width: min(620px, calc(100% - 52px));
+  padding: 22px 24px 22px;
+  border: 1px solid rgba(243, 234, 216, 0.18);
+  border-radius: 24px 28px 28px 18px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.06), transparent 28%),
+    linear-gradient(135deg, rgba(17, 15, 13, 0.68), rgba(29, 25, 22, 0.36));
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.05),
+    0 24px 60px rgba(0, 0, 0, 0.28);
+  backdrop-filter: blur(10px);
+  color: #fff8e8;
+  text-shadow: 0 8px 22px rgba(0, 0, 0, 0.44);
+}
+
+.bz-title-card.bz-title-card-image-only {
+  left: 50%;
+  bottom: clamp(74px, 13vh, 140px);
+  width: auto;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  backdrop-filter: none;
+  transform: translateX(-50%);
+}
+
+.bz-kicker {
+  margin-bottom: 8px;
+  color: var(--bz-teal);
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+}
+
+.bz-title-card h1 {
+  margin: 0 0 12px;
+  font-size: clamp(42px, 8vw, 92px);
+  line-height: 0.95;
+  letter-spacing: 0;
+}
+
+.bz-title-card p {
+  margin: 0 0 22px;
+  max-width: 520px;
+  color: #f5ead3;
+  font-size: clamp(16px, 2.2vw, 22px);
+  line-height: 1.7;
+  font-weight: 650;
+}
+
+.bz-start tw-link,
+.bz-choice-panel tw-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 46px;
+  padding: 0 22px;
+  border: 1px solid rgba(243, 234, 216, 0.28);
+  border-radius: 999px;
+  color: #fff8e8;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.18), transparent 42%),
+    linear-gradient(135deg, rgba(126, 200, 192, 0.1), transparent 58%),
+    rgba(20, 17, 14, 0.84);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    0 14px 32px rgba(0, 0, 0, 0.34);
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  transition: transform 140ms ease, border-color 140ms ease, background 140ms ease, box-shadow 140ms ease;
+}
+
+.bz-start tw-link:hover,
+.bz-choice-panel tw-link:hover {
+  transform: translateY(-2px);
+  border-color: rgba(126, 200, 192, 0.78);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.18), transparent 42%),
+    linear-gradient(180deg, rgba(126, 200, 192, 0.16), transparent 70%),
+    rgba(20, 17, 14, 0.86);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    0 18px 36px rgba(0, 0, 0, 0.38);
+}
+
+.bz-start tw-link {
+  position: relative;
+  isolation: isolate;
+  min-height: clamp(76px, 8vh, 92px);
+  padding: 0 clamp(54px, 6vw, 82px);
+  overflow: hidden;
+  border: 2px solid rgba(255, 232, 164, 0.62);
+  color: #fff8df;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(255, 238, 179, 0.42), transparent 42%),
+    linear-gradient(135deg, rgba(126, 200, 192, 0.24), transparent 45%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.2), transparent 42%),
+    linear-gradient(135deg, rgba(50, 41, 26, 0.98), rgba(14, 13, 12, 0.94));
+  font-size: clamp(34px, 3.2vw, 48px);
+  font-weight: 950;
+  letter-spacing: 0;
+  text-shadow:
+    0 2px 0 rgba(42, 30, 16, 0.8),
+    0 0 18px rgba(255, 231, 161, 0.44);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.18),
+    inset 0 -14px 22px rgba(0, 0, 0, 0.26),
+    0 22px 54px rgba(0, 0, 0, 0.5),
+    0 0 36px rgba(210, 169, 88, 0.42),
+    0 0 58px rgba(126, 200, 192, 0.16);
+  animation: bzStartPulse 2.6s ease-in-out infinite;
+}
+
+.bz-start tw-link::before,
+.bz-start tw-link::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+.bz-start tw-link::before {
+  z-index: 0;
+  background:
+    linear-gradient(120deg, transparent 0 34%, rgba(255, 255, 255, 0.52) 45%, transparent 56%),
+    radial-gradient(circle at 50% 50%, rgba(255, 244, 203, 0.16), transparent 58%);
+  transform: translateX(-130%);
+  animation: bzStartSweep 2.9s ease-in-out infinite;
+}
+
+.bz-start tw-link::after {
+  inset: 5px;
+  border: 1px solid rgba(255, 246, 211, 0.28);
+  box-shadow: inset 0 0 20px rgba(255, 232, 164, 0.16);
+}
+
+.bz-start tw-link:hover {
+  transform: translateY(-4px) scale(1.03);
+  border-color: rgba(255, 239, 181, 0.9);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.2),
+    inset 0 -14px 22px rgba(0, 0, 0, 0.26),
+    0 28px 64px rgba(0, 0, 0, 0.56),
+    0 0 48px rgba(210, 169, 88, 0.58),
+    0 0 70px rgba(126, 200, 192, 0.24);
+}
+
+.bz-dialogue {
+  position: absolute;
+  left: 50%;
+  bottom: clamp(64px, 8vh, 92px);
+  z-index: 5;
+  width: min(860px, calc(100% - 260px));
+  height: 176px;
+  min-height: 0;
+  max-height: 176px;
+  box-sizing: border-box;
+  padding: 42px 82px 58px;
+  color: var(--bz-ink);
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  transform: translateX(-50%);
+  cursor: pointer;
+  will-change: transform, opacity;
+}
+
+.bz-dialogue.has-speaker {
+  padding-top: 50px;
+}
+
+.bz-dialogue::before {
+  content: "";
+  position: absolute;
+  left: -18px;
+  right: -18px;
+  top: 0;
+  height: 176px;
+  z-index: -2;
+  pointer-events: none;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100% 176px;
+  filter: drop-shadow(0 16px 18px rgba(0, 0, 0, 0.28));
+}
+
+.bz-dialogue::after {
+  content: "";
+  position: absolute;
+  left: 34px;
+  right: 34px;
+  top: 22px;
+  bottom: 34px;
+  z-index: -1;
+  pointer-events: none;
+  border-radius: 20px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.16), transparent 22%),
+    linear-gradient(180deg, rgba(148, 118, 76, 0.04), rgba(95, 74, 45, 0.08));
+  mix-blend-mode: multiply;
+  opacity: 0.72;
+}
+
+.bz-dialogue.is-frame-1::before {
+  background-image: var(--bz-dialogue-frame-1);
+}
+
+.bz-dialogue.is-frame-2 {
+  width: min(860px, calc(100% - 260px));
+}
+
+.bz-dialogue.is-frame-2::before {
+  background-image: var(--bz-dialogue-frame-2);
+}
+
+.bz-dialogue.is-frame-3::before {
+  background-image: var(--bz-dialogue-frame-3);
+}
+
+.bz-speaker {
+  position: absolute;
+  top: 14px;
+  left: 42px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 30px;
+  max-width: 190px;
+  margin: 0;
+  padding: 0 17px 1px;
+  overflow: hidden;
+  box-sizing: border-box;
+  border: 1px solid rgba(118, 88, 53, 0.32);
+  border-radius: 9px 12px 12px 4px;
+  color: #5f4423;
+  background:
+    linear-gradient(180deg, rgba(255, 251, 239, 0.94), rgba(233, 214, 183, 0.86)),
+    rgba(255, 248, 232, 0.92);
+  box-shadow: 0 6px 14px rgba(84, 60, 31, 0.16);
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.38);
+  pointer-events: none;
+  transition: opacity 140ms ease, transform 140ms ease;
+  transform-origin: left center;
+}
+
+.bz-speaker.is-hidden {
+  opacity: 0;
+  transform: translateY(-4px) scale(0.98);
+}
+
+.bz-dialogue-text {
+  min-height: 48px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 0 8px 0;
+  transform: translateY(-12px);
+  color: #2d251b;
+  font-size: clamp(18px, 1.7vw, 24px);
+  font-weight: 800;
+  line-height: 1.35;
+  text-align: center;
+  text-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.42),
+    0 10px 18px rgba(255, 244, 223, 0.12);
+  text-wrap: balance;
+  white-space: pre-wrap;
+}
+
+.bz-dialogue.is-ready > .bz-line {
+  display: none;
+}
+
+.bz-dialogue-text.is-typing {
+  animation: bzTextIn 180ms ease both;
+}
+
+.bz-dialogue-text.is-typing::after {
+  content: "";
+  display: inline-block;
+  width: 2px;
+  height: 1.05em;
+  margin-left: 4px;
+  border-radius: 999px;
+  background: rgba(98, 73, 44, 0.88);
+  vertical-align: -0.08em;
+  animation: bzCursorBlink 720ms steps(1) infinite;
+}
+
+.bz-dialogue-next {
+  position: absolute;
+  left: 50%;
+  bottom: 34px;
+  width: 26px;
+  height: 18px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  transform: translateX(-50%);
+  cursor: pointer;
+}
+
+.bz-dialogue-next::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 4px;
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 9px solid #665037;
+  filter: drop-shadow(0 1px 0 rgba(255, 255, 255, 0.4));
+  transform: translateX(-50%);
+  animation: bzArrow 920ms ease-in-out infinite;
+}
+
+.bz-dialogue-next.is-hidden {
+  display: none;
+}
+
+.bz-choices {
+  position: absolute;
+  left: 50%;
+  bottom: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 9px;
+  width: calc(100% - 136px);
+  margin-top: 0;
+  transform: translateX(-50%);
+}
+
+.bz-choices tw-link,
+.bz-choices .bz-choice-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 46px;
+  padding: 0 26px;
+  border: 1px solid rgba(111, 86, 55, 0.32);
+  border-radius: 999px;
+  color: #3c2e20;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.16), transparent),
+    rgba(255, 248, 229, 0.58);
+  font-size: 18px;
+  font-weight: 850;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.25),
+    0 7px 16px rgba(89, 68, 42, 0.12);
+  transition: transform 140ms ease, background 140ms ease, border-color 140ms ease, box-shadow 140ms ease;
+  cursor: pointer;
+}
+
+.bz-choices .bz-choice-link {
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.bz-choices tw-link:hover,
+.bz-choices .bz-choice-link:hover {
+  transform: translateY(-1px);
+  border-color: rgba(91, 66, 38, 0.78);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.2), transparent),
+    rgba(255, 241, 197, 0.76);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.28),
+    0 10px 20px rgba(89, 68, 42, 0.18);
+}
+
+.bz-choices.is-hidden {
+  display: none;
+}
+
+.bz-dialogue.is-complete {
+  padding-bottom: 58px;
+}
+
+.bz-dialogue.is-complete .bz-dialogue-text {
+  min-height: 32px;
+  padding-bottom: 10px;
+}
+
+.bz-choice-panel {
+  position: absolute;
+  left: 50%;
+  bottom: clamp(26px, 5vh, 56px);
+  z-index: 5;
+  width: min(680px, calc(100% - 360px));
+  box-sizing: border-box;
+  padding: 16px 20px 18px;
+  border: 0;
+  border-radius: 22px;
+  background: transparent;
+  box-shadow: none;
+  transform: translateX(-50%);
+  backdrop-filter: blur(10px);
+  text-align: center;
+}
+
+.bz-choice-panel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border: 1px solid var(--bz-line);
+  border-radius: 22px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.05), transparent 20%),
+    linear-gradient(135deg, rgba(17, 15, 13, 0.82), rgba(29, 25, 22, 0.52));
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.04),
+    0 18px 38px rgba(0, 0, 0, 0.24);
+}
+
+.bz-choice-panel h2 {
+  margin: 0 0 10px;
+  color: #fff4dc;
+  font-size: clamp(20px, 2.4vw, 28px);
+  line-height: 1.25;
+  letter-spacing: 0.08em;
+  text-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+.bz-choice-panel p {
+  margin: 0 auto 16px;
+  max-width: 520px;
+  color: #efe2cc;
+  font-size: 14px;
+  line-height: 1.55;
+  text-shadow: 0 8px 24px rgba(0, 0, 0, 0.34);
+}
+
+.bz-choice-panel .bz-choice-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+}
+
+.bz-fragment-title {
+  position: absolute;
+  z-index: 4;
+  top: clamp(88px, 16vh, 148px);
+  left: 50%;
+  width: min(720px, calc(100% - 56px));
+  padding: 0;
+  box-sizing: border-box;
+  border: 0;
+  border-radius: 0;
+  color: #fff5d8;
+  background: transparent;
+  box-shadow: none;
+  text-align: center;
+  transform: translateX(-50%);
+  backdrop-filter: none;
+  pointer-events: none;
+}
+
+.bz-fragment-title strong {
+  display: inline-block;
+  margin-bottom: 10px;
+  padding: 7px 14px;
+  border: 1px solid rgba(210, 169, 88, 0.26);
+  border-radius: 999px;
+  color: var(--bz-gold);
+  background: rgba(17, 14, 10, 0.28);
+  backdrop-filter: blur(8px);
+  font-size: 14px;
+  letter-spacing: 0.08em;
+  text-shadow: 0 8px 22px rgba(0, 0, 0, 0.35);
+}
+
+.bz-fragment-title span {
+  display: block;
+  max-width: 12ch;
+  font-size: clamp(28px, 4.2vw, 50px);
+  font-weight: 900;
+  line-height: 1.18;
+  text-shadow: 0 12px 30px rgba(0, 0, 0, 0.38);
+  text-wrap: balance;
+}
+
+@media (min-width: 860px) {
+  .bz-fragment-title {
+    top: 50%;
+    left: auto;
+    right: clamp(36px, 5vw, 78px);
+    width: min(360px, 32%);
+    text-align: left;
+    transform: translateY(-56%);
+  }
+}
+
+.bz-note {
+  color: #dffdfa;
+}
+
+@keyframes bzArrow {
+  0%, 100% {
+    transform: translate(-50%, 0);
+    opacity: 0.95;
+  }
+  50% {
+    transform: translate(-50%, 5px);
+    opacity: 0.58;
+  }
+}
+
+@keyframes bzStartPulse {
+  0%, 100% {
+    filter: brightness(1);
+  }
+  50% {
+    filter: brightness(1.14);
+  }
+}
+
+@keyframes bzStartSweep {
+  0%, 42% {
+    transform: translateX(-130%);
+    opacity: 0;
+  }
+  58% {
+    opacity: 0.9;
+  }
+  100% {
+    transform: translateX(130%);
+    opacity: 0;
+  }
+}
+
+@keyframes bzTextIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bzSceneFloat {
+  0% {
+    transform: scale(1.01) translate3d(0, 0, 0);
+  }
+  50% {
+    transform: scale(1.028) translate3d(0, -10px, 0);
+  }
+  100% {
+    transform: scale(1.02) translate3d(-8px, 4px, 0);
+  }
+}
+
+@keyframes bzCursorBlink {
+  0%, 49% {
+    opacity: 1;
+  }
+  50%, 100% {
+    opacity: 0;
+  }
+}
+
+@media (max-width: 720px) {
+  tw-story {
+    padding: 0;
+  }
+
+  .bz-stage {
+    width: 100vw;
+  }
+
+  .bz-scene {
+    height: 100svh;
+    min-height: 0;
+    border: 0;
+    border-radius: 0;
+  }
+
+  .bz-hud {
+    align-items: flex-start;
+  }
+
+  .bz-place {
+    max-width: 52vw;
+    justify-content: flex-end;
+    text-align: right;
+  }
+
+  .bz-dialogue {
+    width: calc(100% - 52px);
+    height: 132px;
+    min-height: 0;
+    max-height: 132px;
+    padding: 24px 30px 44px;
+  }
+
+  .bz-dialogue.is-frame-2 {
+    width: calc(100% - 52px);
+  }
+
+  .bz-dialogue::before {
+    left: -12px;
+    right: -12px;
+    top: 0;
+    height: 132px;
+    background-size: 100% 132px;
+  }
+
+  .bz-dialogue.has-speaker {
+    padding-top: 30px;
+  }
+
+  .bz-speaker {
+    top: 10px;
+    left: 18px;
+    min-height: 24px;
+    max-width: 132px;
+    padding: 0 11px 1px;
+    font-size: 11px;
+  }
+
+  .bz-dialogue-text {
+    font-size: 16px;
+    transform: translateY(-7px);
+  }
+
+  .bz-choices {
+    width: calc(100% - 56px);
+    bottom: 1px;
+  }
+
+  .bz-choice-panel {
+    width: calc(100% - 30px);
+    padding: 16px 16px 18px;
+  }
+
+  .bz-title-card {
+    left: 20px;
+    bottom: 32px;
+    width: calc(100% - 40px);
+    padding: 18px 18px 18px;
+    border-radius: 22px;
+  }
+
+  .bz-time-float {
+    top: 86px;
+    right: 14px;
+    width: min(142px, 36vw);
+    padding: 8px;
+    border-radius: 18px;
+    transform: rotate(3deg);
+  }
+
+  .bz-final-tag {
+    top: 84px;
+    left: 14px;
+    min-width: 118px;
+    padding: 10px 11px 11px;
+    border-radius: 16px;
+  }
+
+  .bz-final-tag strong {
+    font-size: 10px;
+    letter-spacing: 0.14em;
+  }
+
+  .bz-final-tag b {
+    font-size: 24px;
+  }
+
+  .bz-final-tag span {
+    font-size: 10px;
+  }
+
+  .bz-fragment-title {
+    top: 82px;
+    width: calc(100% - 42px);
+  }
+
+  .bz-scene-art-door-echo {
+    top: 62px;
+    width: min(560px, 94vw);
+    height: auto;
+  }
+}
+
+
+:: Story JavaScript [script]
+(function () {
+  if (window.BeforeZeroDialogueReady) {
+    return;
+  }
+
+  window.BeforeZeroDialogueReady = true;
+  var repoBase = "https://raw.githubusercontent.com/Yi1688/twine260724/main/";
+  var audioState = {
+    unlocked: false,
+    sounds: Object.create(null),
+    currentBgm: "bgm"
+  };
+
+  function repoAsset(path) {
+    return repoBase + String(path || "").replace(/^\/+/, "");
+  }
+
+  function syncAssetCssVars() {
+    var root = document.documentElement;
+
+    if (!root) {
+      return;
+    }
+
+    root.style.setProperty("--bz-dialogue-frame-1", 'url("' + repoAsset("Images/dialogue-frame-1.png") + '")');
+    root.style.setProperty("--bz-dialogue-frame-2", 'url("' + repoAsset("Images/dialogue-frame-2.png") + '")');
+    root.style.setProperty("--bz-dialogue-frame-3", 'url("' + repoAsset("Images/dialogue-frame-3.png") + '")');
+  }
+
+  function normalizeAssetUrls(root) {
+    var scope = root || document;
+
+    Array.prototype.forEach.call(scope.querySelectorAll("img[src]"), function (node) {
+      var src = node.getAttribute("src");
+
+      if (src && /^(Images|Audios)\//.test(src)) {
+        node.setAttribute("src", repoAsset(src));
+      }
+    });
+  }
+
+  var audioConfig = {
+    bgm: { src: repoAsset("Audios/Before Zero整体bgm.mp3"), loop: true, volume: 0.42 },
+    ending: { src: repoAsset("Audios/片尾曲.mp3"), loop: true, volume: 0.38 },
+    click: { src: repoAsset("Audios/鼠标点击音效.mp3"), loop: false, volume: 0.55 },
+    countdown: { src: repoAsset("Audios/怀表倒计时音效.mp3"), loop: false, volume: 0.62 },
+    memory: { src: repoAsset("Audios/进入记忆音效.mp3"), loop: false, volume: 0.66 },
+    door: { src: repoAsset("Audios/重重的关门音效.mp3"), loop: false, volume: 0.7 },
+    letter: { src: repoAsset("Audios/信件展开音效.mp3"), loop: false, volume: 0.64 }
+  };
+
+  var countdownMarkers = [
+    repoAsset("Images/游戏开始“墙上的表”.jpg"),
+    repoAsset("Images/游戏开始：桌子上的表.jpg"),
+    repoAsset("Images/00：60.jpg"),
+    repoAsset("Images/00：30.jpg"),
+    repoAsset("Images/00：00.jpg"),
+    repoAsset("Images/00：01.jpg"),
+    repoAsset("Images/00：10.jpg"),
+    repoAsset("Images/0030.JPG"),
+    repoAsset("Images/0040车站.jpg"),
+    repoAsset("Images/0040车票.JPG"),
+    repoAsset("Images/00：40.jpg"),
+    repoAsset("Images/00：50.jpg"),
+    repoAsset("Images/00：50 小时候的家.jpg")
+  ];
+
+  var memoryMarkers = [
+    repoAsset("Images/进入回忆.jpg"),
+    repoAsset("Images/打开画本.jpg"),
+    repoAsset("Images/记忆碎片.png"),
+    repoAsset("Images/记忆碎片2.png"),
+    repoAsset("Images/记忆碎片3.png"),
+    repoAsset("Images/三扇门.jpg")
+  ];
+
+  var doorMarkers = [
+    repoAsset("Images/离开.jpg")
+  ];
+
+  var letterMarkers = [
+    repoAsset("Images/《离开》拾取的纸条.PNG")
+  ];
+
+  var endingMarkers = [
+    repoAsset("Images/结局1.jpg"),
+    repoAsset("Images/游戏结束最后一张.jpg"),
+    repoAsset("Images/结局2.jpg"),
+    repoAsset("Images/结局3.jpg"),
+    repoAsset("Images/00：01.jpg"),
+    repoAsset("Images/00：00.jpg")
+  ];
+
+  function containsAny(text, markers) {
+    return markers.some(function (marker) {
+      return text.indexOf(marker) !== -1;
+    });
+  }
+
+  function getAudio(key) {
+    var cfg = audioConfig[key];
+    var audio;
+
+    if (!cfg) {
+      return null;
+    }
+
+    audio = audioState.sounds[key];
+    if (!audio) {
+      audio = new Audio(cfg.src);
+      audio.preload = "auto";
+      audio.loop = !!cfg.loop;
+      audio.volume = cfg.volume;
+      audioState.sounds[key] = audio;
+    }
+
+    return audio;
+  }
+
+  function playAudio(key) {
+    var audio = getAudio(key);
+
+    if (!audio) {
+      return;
+    }
+
+    try {
+      audio.currentTime = 0;
+    } catch (error) {
+    }
+
+    var promise;
+    try {
+      promise = audio.play();
+    } catch (error) {
+      return;
+    }
+
+    if (promise && typeof promise.catch === "function") {
+      promise.catch(function () {});
+    }
+  }
+
+  function stopAudio(key) {
+    var audio = getAudio(key);
+
+    if (!audio) {
+      return;
+    }
+
+    audio.pause();
+
+    try {
+      audio.currentTime = 0;
+    } catch (error) {
+    }
+  }
+
+  function setBgm(key) {
+    var nextKey = audioConfig[key] ? key : "bgm";
+    var prevKey = audioState.currentBgm;
+
+    audioState.currentBgm = nextKey;
+
+    if (prevKey && prevKey !== nextKey) {
+      stopAudio(prevKey);
+    }
+
+    ensureBgm();
+  }
+
+  function ensureBgm() {
+    if (!audioState.unlocked) {
+      return;
+    }
+
+    var bgm = getAudio(audioState.currentBgm || "bgm");
+
+    if (bgm && bgm.paused) {
+      playAudio(audioState.currentBgm || "bgm");
+    }
+  }
+
+  function unlockAudio() {
+    if (audioState.unlocked) {
+      return;
+    }
+
+    audioState.unlocked = true;
+    ensureBgm();
+  }
+
+  function playCueForPassage(box) {
+    var passage = box.closest("tw-passage");
+    var html;
+
+    if (!passage || passage.dataset.bzAudioDone === "true") {
+      return;
+    }
+
+    html = passage.innerHTML || "";
+    passage.dataset.bzAudioDone = "true";
+
+    if (containsAny(html, endingMarkers)) {
+      setBgm("ending");
+    } else {
+      setBgm("bgm");
+    }
+
+    if (containsAny(html, countdownMarkers)) {
+      playAudio("countdown");
+    }
+
+    if (containsAny(html, memoryMarkers)) {
+      playAudio("memory");
+    }
+
+    if (containsAny(html, doorMarkers)) {
+      playAudio("door");
+    }
+
+    if (containsAny(html, letterMarkers)) {
+      playAudio("letter");
+    }
+  }
+
+  document.addEventListener("pointerdown", unlockAudio, { once: true, capture: true });
+  document.addEventListener("keydown", unlockAudio, { once: true, capture: true });
+  document.addEventListener("click", function () {
+    playAudio("click");
+  }, true);
+
+  function parseChoiceMarkup(raw) {
+    var matches = [];
+    var pattern = /\[\[([^\]|]+?)(?:\|([^\]]+))?\]\]/g;
+    var match;
+
+    while ((match = pattern.exec(raw))) {
+      matches.push({
+        label: match[1].trim(),
+        target: (match[2] || match[1]).trim()
+      });
+    }
+
+    return matches;
+  }
+
+  function getEngine() {
+    if (window.Engine && typeof window.Engine.goToPassage === "function") {
+      return window.Engine;
+    }
+
+    if (typeof require === "function") {
+      try {
+        var engine = require("engine");
+        if (engine && typeof engine.goToPassage === "function") {
+          return engine;
+        }
+      } catch (error) {
+      }
+    }
+
+    return null;
+  }
+
+  function hydrateChoices(choices) {
+    if (!choices || choices.dataset.bzChoicesReady === "true") {
+      return;
+    }
+
+    if (choices.querySelector("tw-link, a, button")) {
+      choices.dataset.bzChoicesReady = "true";
+      return;
+    }
+
+    var raw = choices.getAttribute("data-raw") || choices.textContent || "";
+    var items = parseChoiceMarkup(raw);
+    if (!items.length) {
+      return;
+    }
+
+    choices.dataset.bzChoicesReady = "true";
+    choices.textContent = "";
+
+    items.forEach(function (item, itemIndex) {
+      var button = document.createElement("button");
+      button.type = "button";
+      button.className = "bz-choice-link";
+      button.textContent = item.label;
+      button.setAttribute("data-passage", item.target);
+      button.style.setProperty("--bz-choice-index", String(itemIndex));
+      button.addEventListener("click", function (event) {
+        var engine = getEngine();
+
+        event.preventDefault();
+        event.stopPropagation();
+
+        if (engine) {
+          engine.goToPassage(item.target);
+        }
+      });
+      choices.appendChild(button);
+    });
+  }
+
+  function setupDialogue(box) {
+    if (box.dataset.bzReady === "true") {
+      return;
+    }
+
+    var lines = Array.prototype.slice.call(box.querySelectorAll(".bz-line"));
+    if (!lines.length) {
+      return;
+    }
+
+    box.dataset.bzReady = "true";
+    box.classList.add("is-ready");
+    window.BeforeZeroDialogueFrameIndex = window.BeforeZeroDialogueFrameIndex || 0;
+    window.BeforeZeroDialogueFrameIndex += 1;
+    box.classList.add("is-frame-" + (((window.BeforeZeroDialogueFrameIndex - 1) % 3) + 1));
+
+    var choices = box.querySelector(".bz-choices");
+    if (choices) {
+      hydrateChoices(choices);
+      choices.classList.add("is-hidden");
+    }
+
+    var speaker = document.createElement("div");
+    speaker.className = "bz-speaker";
+    speaker.classList.add("is-hidden");
+
+    var text = document.createElement("div");
+    text.className = "bz-dialogue-text";
+    text.setAttribute("aria-live", "polite");
+
+    var next = document.createElement("button");
+    next.className = "bz-dialogue-next";
+    next.type = "button";
+    next.setAttribute("aria-label", "Next line");
+
+    box.insertBefore(speaker, lines[0]);
+    box.insertBefore(text, lines[0]);
+    box.appendChild(next);
+
+    var index = 0;
+    var isComplete = false;
+    var isTyping = false;
+    var typingTimer = 0;
+    var finishTimer = 0;
+    var currentMarkup = "";
+    var currentText = "";
+
+    function clearTimers() {
+      if (typingTimer) {
+        window.clearTimeout(typingTimer);
+        typingTimer = 0;
+      }
+
+      if (finishTimer) {
+        window.clearTimeout(finishTimer);
+        finishTimer = 0;
+      }
+    }
+
+    function syncSpeaker(name) {
+      var hasName = Boolean(name);
+
+      speaker.textContent = name;
+      speaker.classList.toggle("is-hidden", !hasName);
+      box.classList.toggle("has-speaker", hasName);
+    }
+
+    function scheduleFinish() {
+      if (finishTimer) {
+        window.clearTimeout(finishTimer);
+      }
+
+      finishTimer = window.setTimeout(finishDialogue, choices ? 260 : 520);
+    }
+
+    function commitCurrentLine() {
+      isTyping = false;
+      typingTimer = 0;
+      text.innerHTML = currentMarkup;
+      text.classList.remove("is-typing");
+
+      if (index === lines.length - 1) {
+        scheduleFinish();
+        return;
+      }
+
+      next.classList.remove("is-hidden");
+    }
+
+    function completeCurrentLine() {
+      if (!isTyping) {
+        return;
+      }
+
+      if (typingTimer) {
+        window.clearTimeout(typingTimer);
+        typingTimer = 0;
+      }
+
+      commitCurrentLine();
+    }
+
+    function startTypewriter(sourceText) {
+      var cursor = 0;
+      var total = sourceText.length;
+
+      isTyping = true;
+      next.classList.add("is-hidden");
+      text.textContent = "";
+      text.classList.remove("is-typing");
+      void text.offsetWidth;
+      text.classList.add("is-typing");
+
+      if (!total) {
+        commitCurrentLine();
+        return;
+      }
+
+      function step() {
+        var previousChar;
+        var delay;
+
+        if (!isTyping) {
+          return;
+        }
+
+        cursor += 1;
+        text.textContent = sourceText.slice(0, cursor);
+
+        if (cursor >= total) {
+          commitCurrentLine();
+          return;
+        }
+
+        previousChar = sourceText.charAt(cursor - 1);
+        delay = /[，。！？；：、,.!?…]/.test(previousChar) ? 92 : (/\s/.test(previousChar) ? 18 : 32);
+        typingTimer = window.setTimeout(step, delay);
+      }
+
+      step();
+    }
+
+    function renderLine() {
+      var line = lines[index];
+      var name = line.getAttribute("data-speaker") || "";
+
+      clearTimers();
+      currentMarkup = line.innerHTML;
+      currentText = line.textContent || "";
+      syncSpeaker(name);
+      startTypewriter(currentText);
+    }
+
+    function finishDialogue() {
+      if (isComplete) {
+        return;
+      }
+
+      if (finishTimer) {
+        window.clearTimeout(finishTimer);
+        finishTimer = 0;
+      }
+
+      isComplete = true;
+      box.classList.add("is-complete");
+      next.classList.add("is-hidden");
+      if (choices) {
+        choices.classList.remove("is-hidden");
+      }
+    }
+
+    function advanceDialogue() {
+      if (finishTimer) {
+        window.clearTimeout(finishTimer);
+        finishTimer = 0;
+      }
+
+      if (isComplete) {
+        return;
+      }
+
+      if (isTyping) {
+        completeCurrentLine();
+        return;
+      }
+
+      if (index < lines.length - 1) {
+        index += 1;
+        renderLine();
+        return;
+      }
+
+      finishDialogue();
+    }
+
+    next.addEventListener("click", function (event) {
+      event.preventDefault();
+      event.stopPropagation();
+      advanceDialogue();
+    });
+
+    box.addEventListener("click", function (event) {
+      if (event.target.closest("tw-link, a, button")) {
+        return;
+      }
+
+      advanceDialogue();
+    });
+
+    renderLine();
+    playCueForPassage(box);
+  }
+
+  function enhance(root) {
+    normalizeAssetUrls(root);
+    Array.prototype.forEach.call(root.querySelectorAll(".bz-dialogue"), setupDialogue);
+  }
+
+  function boot() {
+    syncAssetCssVars();
+    normalizeAssetUrls(document);
+    enhance(document);
+    ensureBgm();
+
+    var target = document.querySelector("tw-story") || document.body;
+    var observer = new MutationObserver(function () {
+      syncAssetCssVars();
+      normalizeAssetUrls(document);
+      enhance(document);
+      ensureBgm();
+    });
+
+    observer.observe(target, {
+      childList: true,
+      subtree: true
+    });
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", boot);
+  } else {
+    boot();
+  }
+})();
+
+
+:: 00:00 {"position":"3750,250","size":"100,100"}
+<div class="bz-stage">
+  <div class="bz-scene">
+    <img class="bz-scene-art" src="Images/00：00.jpg" alt="The Pocket Watch Reaches Zero">
+    <div class="bz-hud">
+      <span class="bz-time">00:00</span>
+      <span class="bz-place">Zero</span>
+    </div>
+    <div class="bz-final-tag">
+      <strong>Countdown Finale</strong>
+      <b>00:00</b>
+      <span>The Moment of Zero</span>
+    </div>
+    <div class="bz-dialogue">
+      <p class="bz-line" data-speaker="Pocket Watch">00:00</p>
+      <p class="bz-line" data-speaker="Narrator">A life is not measured by the time left, but by the moments it once held.</p>
+      <p class="bz-line" data-speaker="Narrator">Life is not only about finishing what you set out to do; it is also about finding yourself along the way.</p>
+      <div class="bz-choices">[[Choose Again]]</div>
+    </div>
+  </div>
+</div>
+
+
+:: Choose Again {"position":"3875,250","size":"100,100"}
+<div class="bz-stage">
+  <div class="bz-scene">
+    <img class="bz-scene-art" src="Images/游戏结束最后一张.jpg" alt="Choose Again">
+    <div class="bz-hud">
+      <span class="bz-time">After Zero</span>
+      <span class="bz-place">Choose Again</span>
+    </div>
+    <div class="bz-final-tag">
+      <strong>Back to the Fork</strong>
+      <b>00:10</b>
+      <span>Choose Again</span>
+    </div>
+    <div class="bz-dialogue">
+      <p class="bz-line" data-speaker="Narrator">The pocket watch does not send you back to the beginning.</p>
+      <p class="bz-line" data-speaker="Narrator">It only places the final fork before you once more.</p>
+      <div class="bz-choices">
+        [[Return to the Three Choices|00:10]]
+        [[Game Over]]
+      </div>
+    </div>
+  </div>
+</div>
+
+
+:: Game Over {"position":"4000,375","size":"100,100"}
+<div class="bz-stage">
+  <div class="bz-scene bz-image-only">
+    <img class="bz-scene-art" src="Images/游戏结束最后一张.jpg" alt="Game Over">
+  </div>
+</div>
+
+
+:: 00:01 {"position":"3625,250","size":"100,100"}
+<div class="bz-stage">
+  <div class="bz-scene">
+    <img class="bz-scene-art" src="Images/00：01.jpg" alt="The Final Second">
+    <div class="bz-hud">
+      <span class="bz-time">00:01</span>
+      <span class="bz-memory-tag">Three Memories Recovered</span>
+    </div>
+    <div class="bz-final-tag">
+      <strong>Countdown Finale</strong>
+      <b>00:01</b>
+      <span>Final Question</span>
+    </div>
+    <div class="bz-dialogue">
+      <p class="bz-line" data-speaker="Pocket Watch">The second hand stops on its final mark.</p>
+      <p class="bz-line" data-speaker="Mysterious Voice">One final question.</p>
+      <p class="bz-line" data-speaker="Mysterious Voice">What do you want to leave behind?</p>
+      <p class="bz-line" data-speaker="Narrator">The protagonist looks at the three memories: a photo, a ticket, and a drawing, all rising gently in the light.</p>
+      <p class="bz-line" data-speaker="Protagonist">Not the past.</p>
+      <p class="bz-line" data-speaker="Protagonist">Not regret.</p>
+      <p class="bz-line" data-speaker="Protagonist">The moments that made me who I am now.</p>
+      <div class="bz-choices">[[Let Time Reach Zero|00:00]]</div>
+    </div>
+  </div>
+</div>
+
+
+:: 00:10 {"position":"3150,250","size":"100,100"}
+<div class="bz-stage">
+  <div class="bz-scene">
+    <img class="bz-scene-art" src="Images/00：10.jpg" alt="Final Choice">
+    <div class="bz-hud">
+      <span class="bz-time">00:10</span>
+      <span class="bz-place">Final Choice</span>
+    </div>
+    <div class="bz-final-tag">
+      <strong>Countdown Finale</strong>
+      <b>00:10</b>
+      <span>Fork in the Choice</span>
+    </div>
+    <div class="bz-choice-panel">
+      <h2>What would you change?</h2>
+      <p>Three fragments circle the pocket watch like three paths toward different endings.</p>
+      <div class="bz-choice-row">
+        [[Return to the Past]]
+        [[Keep the Memories]]
+        [[Refuse to Leave]]
+      </div>
+    </div>
+  </div>
+</div>
+
+
+:: 00:20 {"position":"3025,250","size":"100,100"}
+<div class="bz-stage">
+  <div class="bz-scene">
+    <img class="bz-scene-art is-contain" src="Images/记忆碎片2.png" alt="Memory Fragment">
+    <div class="bz-hud">
+      <span class="bz-time">00:20</span>
+      <span class="bz-memory-tag">Memory Circuit Complete</span>
+    </div>
+    <div class="bz-final-tag">
+      <strong>Countdown Finale</strong>
+      <b>00:20</b>
+      <span>Memory Convergence</span>
+    </div>
+    <div class="bz-dialogue">
+      <p class="bz-line" data-speaker="Narrator">Three memory fragments drift in the air as light slowly seals the cracks.</p>
+      <p class="bz-line" data-speaker="Mysterious Voice">You have seen your own past.</p>
+      <p class="bz-line" data-speaker="Mysterious Voice">Now tell me.</p>
+      <p class="bz-line" data-speaker="Mysterious Voice">What would you change?</p>
+      <div class="bz-choices">[[Answer the Final Question|00:10]]</div>
+    </div>
+  </div>
+</div>
+
+
+:: 00:30 - The Dream Left Behind {"position":"2375,250","size":"100,100"}
+<div class="bz-stage">
+  <div class="bz-scene">
+    <img class="bz-scene-art" src="Images/0030.JPG" alt="A Room Piled with Old Sketchbooks">
+    <div class="bz-hud">
+      <span class="bz-time">00:30</span>
+      <span class="bz-place">The Dream Left Behind</span>
+    </div>
+    <div class="bz-time-float">
+      <img src="Images/00：30.jpg" alt="00:30 Time Card">
+    </div>
+    <div class="bz-dialogue">
+      <p class="bz-line" data-speaker="Narrator">Behind the third door is a room filled with afternoon light.</p>
+      <p class="bz-line" data-speaker="Narrator">Sketchbooks, models, and old certificates lie across the desk, dust gathered along their edges.</p>
+      <p class="bz-line" data-speaker="Protagonist">These things...</p>
+      <p class="bz-line" data-speaker="Protagonist">I haven't seen them in such a long time.</p>
+      <div class="bz-choices">[[Open the Sketchbook]]</div>
+    </div>
+  </div>
+</div>
+
+
+:: 00:40 - The Missed Promise {"position":"1875,250","size":"100,100"}
+<div class="bz-stage">
+  <div class="bz-scene">
+    <img class="bz-scene-art" src="Images/0040车站.jpg" alt="A Platform Where No Train Arrives">
+    <div class="bz-hud">
+      <span class="bz-time">00:40</span>
+      <span class="bz-place">The Missed Promise</span>
+    </div>
+    <div class="bz-time-float">
+      <img src="Images/00：40.jpg" alt="00:40 Time Card">
+    </div>
+    <div class="bz-dialogue">
+      <p class="bz-line" data-speaker="Narrator">Behind the second door is a platform where no train ever arrives.</p>
+      <p class="bz-line" data-speaker="Narrator">An old ticket rests on the bench, its destination rubbed pale from being folded again and again.</p>
+      <p class="bz-line" data-speaker="Protagonist">This is...</p>
+      <p class="bz-line" data-speaker="Protagonist">The place we promised to meet.</p>
+      <div class="bz-choices">[[Pick Up the Ticket]]</div>
+    </div>
+  </div>
+</div>
+
+
+:: 00:50 - The Unspoken Apology {"position":"1250,250","size":"100,100"}
+<div class="bz-stage">
+  <div class="bz-scene">
+    <img class="bz-scene-art" src="Images/00：50 小时候的家.jpg" alt="Childhood Home">
+    <div class="bz-hud">
+      <span class="bz-time">00:50</span>
+      <span class="bz-place">The Unspoken Apology</span>
+    </div>
+    <div class="bz-time-float">
+      <img src="Images/00：50.jpg" alt="00:50 Time Card">
+    </div>
+    <div class="bz-dialogue">
+      <p class="bz-line" data-speaker="Narrator">When the first door opens, the air carries the familiar smell of dinner.</p>
+      <p class="bz-line" data-speaker="Narrator">The house is quiet. On the table lies only a family photo.</p>
+      <p class="bz-line" data-speaker="Protagonist">Here...</p>
+      <p class="bz-line" data-speaker="Protagonist">I think I've been here before.</p>
+      <div class="bz-choices">[[Pick Up the Photo]]</div>
+    </div>
+  </div>
+</div>
+
+
+:: ? {"position":"975,500","size":"100,100"}
+<div class="bz-stage">
+  <div class="bz-scene">
+    <img class="bz-scene-art" src="Images/游戏开始“墙上的表”.jpg" alt="The Clock on the Wall">
+    <div class="bz-hud">
+      <span class="bz-time">00:60</span>
+      <span class="bz-place">The Stopped Room</span>
+    </div>
+    <div class="bz-dialogue">
+      <p class="bz-line" data-speaker="Protagonist">One minute?</p>
+      <p class="bz-line" data-speaker="Protagonist">What does that mean?</p>
+      <p class="bz-line" data-speaker="Mysterious Voice">Time is not being given to you so you can run away.</p>
+      <p class="bz-line" data-speaker="Mysterious Voice">It is here so you can finally see what you have never finished looking at.</p>
+      <div class="bz-choices">[[Answer]]</div>
+    </div>
+  </div>
+</div>
+
+
+:: Before Zero {"position":"600,250","size":"100,100"}
+<div class="bz-stage">
+  <div class="bz-scene">
+    <img class="bz-scene-art" src="Images/游戏标题.jpg" alt="Before Zero Title">
+    <div class="bz-title-card bz-title-card-image-only">
+      <div class="bz-start">[[Enter the Story|Game Start]]</div>
+    </div>
+  </div>
+</div>
+
+
+:: Game Start {"position":"725,250","size":"100,100"}
+<div class="bz-stage">
+  <div class="bz-scene">
+    <img class="bz-scene-art" src="Images/游戏标题.jpg" alt="Start the Game">
+    <div class="bz-hud">
+      <span class="bz-time">Before Zero</span>
+      <span class="bz-place">Prologue</span>
+    </div>
+    <div class="bz-dialogue">
+      <p class="bz-line" data-speaker="Narrator">If you could look back for only one more minute, who would come to mind first?</p>
+      <p class="bz-line" data-speaker="Narrator">If you could take only one thing with you, would it be an answer, or a regret?</p>
+      <div class="bz-choices">[[Start the Game|Game Begins]]</div>
+    </div>
+  </div>
+</div>
+
+
+:: Click Countdown {"position":"975,375","size":"100,100"}
+<div class="bz-stage">
+  <div class="bz-scene">
+    <img class="bz-scene-art" src="Images/游戏开始：桌子上的表.jpg" alt="The Pocket Watch on the Table">
+    <div class="bz-hud">
+      <span class="bz-time">00:60</span>
+      <span class="bz-place">Pocket Watch Activated</span>
+    </div>
+    <div class="bz-dialogue">
+      <p class="bz-line" data-speaker="Protagonist">...Where am I?</p>
+      <p class="bz-line" data-speaker="Protagonist">Why am I here?</p>
+      <p class="bz-line" data-speaker="Mysterious Voice">You have one minute.</p>
+      <p class="bz-line" data-speaker="Narrator">The pocket watch gives a faint sound, like a countdown and a warning at once.</p>
+      <div class="bz-choices">[[Question the Voice|?]]</div>
+    </div>
+  </div>
+</div>
+
+
+:: Later {"position":"2125,250","size":"100,100"}
+<div class="bz-stage">
+  <div class="bz-scene">
+    <img class="bz-scene-art" src="Images/00：40.jpg" alt="Forty Seconds Remaining">
+    <div class="bz-hud">
+      <span class="bz-time">00:40</span>
+      <span class="bz-place">Years Later</span>
+    </div>
+    <div class="bz-dialogue">
+      <p class="bz-line" data-speaker="Narrator">Time jumps many years ahead.</p>
+      <p class="bz-line" data-speaker="Narrator">After an argument, an unsent message remains on the phone.</p>
+      <p class="bz-line" data-speaker="Phone Draft">How have you been?</p>
+      <p class="bz-line" data-speaker="Narrator">The send button glows, but it feels an ocean away.</p>
+      <div class="bz-choices">[[Years Later]]</div>
+    </div>
+  </div>
+</div>
+
+
+:: Proceed {"position":"1125,250","size":"100,100"}
+<div class="bz-stage">
+  <div class="bz-scene">
+    <img class="bz-scene-art" src="Images/三扇门.jpg" alt="Three Doors">
+    <div class="bz-hud">
+      <span class="bz-time">00:55</span>
+      <span class="bz-place">Corridor of Memory</span>
+    </div>
+    <div class="bz-dialogue">
+      <p class="bz-line" data-speaker="Mysterious Voice">Enter these three doors in order.</p>
+      <p class="bz-line" data-speaker="Mysterious Voice">This is not a punishment.</p>
+      <p class="bz-line" data-speaker="Mysterious Voice">It is so you can see what you truly want to keep.</p>
+      <p class="bz-line" data-speaker="Narrator">The number on the first door glows faintly in the dark.</p>
+      <div class="bz-choices">[[Enter the First Door|00:50 - The Unspoken Apology]]</div>
+    </div>
+  </div>
+</div>
+
+
+:: Return to the Past {"position":"3300,100","size":"100,100"}
+<div class="bz-stage">
+  <div class="bz-scene">
+    <img class="bz-scene-art is-contain" src="Images/记忆碎片.png" alt="Return to the Past">
+    <div class="bz-hud">
+      <span class="bz-time">Choice</span>
+      <span class="bz-place">Return to the Past</span>
+    </div>
+    <div class="bz-dialogue">
+      <p class="bz-line" data-speaker="Protagonist">If I could start over...</p>
+      <p class="bz-line" data-speaker="Protagonist">I want to go back to when there was still time to say it.</p>
+      <div class="bz-choices">[[Ending 1]]</div>
+    </div>
+  </div>
+</div>
+
+
+:: Memory 1 {"position":"1500,250","size":"100,100"}
+<div class="bz-stage">
+  <div class="bz-scene">
+    <img class="bz-scene-art" src="Images/00：50 小时候的家.jpg" alt="Childhood Home">
+    <div class="bz-hud">
+      <span class="bz-time">Memory 1</span>
+      <span class="bz-place">Childhood Home</span>
+    </div>
+    <div class="bz-dialogue">
+      <p class="bz-line" data-speaker="Parents">Stop playing for a while. Come eat.</p>
+      <p class="bz-line" data-speaker="Child">No!</p>
+      <p class="bz-line" data-speaker="Child">You don't understand me at all!</p>
+      <p class="bz-line" data-speaker="Narrator">The door slams shut, but no scolding comes from the other side.</p>
+      <div class="bz-choices">[[Leave]]</div>
+    </div>
+  </div>
+</div>
+
+
+:: Memory's End {"position":"1625,500","size":"100,100"}
+<div class="bz-stage">
+  <div class="bz-scene">
+    <img class="bz-scene-art" src="Images/离开.jpg" alt="A Note and a Glass of Water">
+    <div class="bz-hud">
+      <span class="bz-time">Memory 1</span>
+      <span class="bz-place">Understanding</span>
+    </div>
+    <div class="bz-dialogue">
+      <p class="bz-line" data-speaker="Protagonist">So...</p>
+      <p class="bz-line" data-speaker="Protagonist">They were never angry with me.</p>
+      <p class="bz-line" data-speaker="Protagonist">I was the one sulking, too stubborn to be the first to soften.</p>
+      <p class="bz-line" data-speaker="Narrator">The apology left unspoken finally finds an echo.</p>
+      <div class="bz-choices">[[Gain Memory Fragment 1|Memory Fragment 1]]</div>
+    </div>
+  </div>
+</div>
+
+
+:: Answer {"position":"975,625","size":"100,100"}
+<div class="bz-stage">
+  <div class="bz-scene">
+    <img class="bz-scene-art" src="Images/三扇门.jpg" alt="A Door Into Memory">
+    <div class="bz-hud">
+      <span class="bz-time">00:55</span>
+      <span class="bz-place">The Doors Appear</span>
+    </div>
+    <div class="bz-dialogue">
+      <p class="bz-line" data-speaker="Mysterious Voice">When the timer reaches zero, you will leave this place.</p>
+      <p class="bz-line" data-speaker="Mysterious Voice">But before you go, you still have a chance to see a few things.</p>
+      <p class="bz-line" data-speaker="Protagonist">Those things... are they what I left behind?</p>
+      <p class="bz-line" data-speaker="Mysterious Voice">Perhaps they are the things you thought no longer mattered.</p>
+      <div class="bz-choices">[[Proceed]]</div>
+    </div>
+  </div>
+</div>
+
+
+:: Years Later {"position":"2250,250","size":"100,100"}
+<div class="bz-stage">
+  <div class="bz-scene">
+    <img class="bz-scene-art" src="Images/多年后.jpg" alt="Unsent Message">
+    <div class="bz-hud">
+      <span class="bz-time">Memory 2</span>
+      <span class="bz-place">Unsent Message</span>
+    </div>
+    <div class="bz-dialogue">
+      <p class="bz-line" data-speaker="Narrator">The protagonist never pressed send.</p>
+      <p class="bz-line" data-speaker="Protagonist">I never actually forgot that promise.</p>
+      <p class="bz-line" data-speaker="Protagonist">I was only afraid that facing it again would mean losing my friend all over again.</p>
+      <p class="bz-line" data-speaker="Narrator">On the back of the ticket, the words still read, "Let's go see the sea together."</p>
+      <div class="bz-choices">[[Gain Memory Fragment 2|Memory Fragment 2]]</div>
+    </div>
+  </div>
+</div>
+
+
+:: Open the Sketchbook {"position":"2500,250","size":"100,100"}
+<div class="bz-stage">
+  <div class="bz-scene">
+    <img class="bz-scene-art" src="Images/打开画本.jpg" alt="Open the Sketchbook">
+    <div class="bz-hud">
+      <span class="bz-time">00:30</span>
+      <span class="bz-place">Old Sketchbook</span>
+    </div>
+    <div class="bz-dialogue">
+      <p class="bz-line" data-speaker="Narrator">The first page of the sketchbook has been turned so often its corners have curled.</p>
+      <p class="bz-line" data-speaker="Sketchbook">When I grow up, I want more people to love my designs.</p>
+      <p class="bz-line" data-speaker="Protagonist">Did I write this?</p>
+      <p class="bz-line" data-speaker="Narrator">The handwriting is clumsy, yet more certain than any plan he has now.</p>
+      <div class="bz-choices">[[Enter the Memory]]</div>
+    </div>
+  </div>
+</div>
+
+
+:: Refuse to Leave {"position":"3300,400","size":"100,100"}
+<div class="bz-stage">
+  <div class="bz-scene">
+    <img class="bz-scene-art is-contain" src="Images/记忆碎片2.png" alt="Refuse to Leave">
+    <div class="bz-hud">
+      <span class="bz-time">Choice</span>
+      <span class="bz-place">Refuse to Leave</span>
+    </div>
+    <div class="bz-dialogue">
+      <p class="bz-line" data-speaker="Protagonist">I am not ready to leave my life behind.</p>
+      <p class="bz-line" data-speaker="Protagonist">If a memory can be made to stop, I would rather stay here.</p>
+      <div class="bz-choices">[[Ending 3]]</div>
+    </div>
+  </div>
+</div>
+
+
+:: Pick Up the Photo {"position":"1375,250","size":"100,100"}
+<div class="bz-stage">
+  <div class="bz-scene">
+    <img class="bz-scene-art" src="Images/9家人的合照.jpg" alt="Pick Up the Photo">
+    <div class="bz-hud">
+      <span class="bz-time">00:50</span>
+      <span class="bz-place">Old Photo</span>
+    </div>
+    <div class="bz-dialogue">
+      <p class="bz-line" data-speaker="Narrator">The people in the photo stand close together, their smiles blurred by time.</p>
+      <p class="bz-line" data-speaker="Protagonist">I remember this day.</p>
+      <p class="bz-line" data-speaker="Protagonist">And I remember why I refused to leave my room afterward.</p>
+      <div class="bz-choices">[[Memory 1]]</div>
+    </div>
+  </div>
+</div>
+
+
+:: Pick Up the Note {"position":"1625,375","size":"100,100"}
+<div class="bz-stage">
+  <div class="bz-scene">
+    <img class="bz-scene-art" src="Images/《离开》拾取的纸条.PNG" alt="Pick Up the Note">
+    <div class="bz-hud">
+      <span class="bz-time">Memory 1</span>
+      <span class="bz-place">Note</span>
+    </div>
+    <div class="bz-dialogue">
+      <p class="bz-line" data-speaker="Note">Remember to eat.</p>
+      <p class="bz-line" data-speaker="Note">We will always be waiting for you.</p>
+      <p class="bz-line" data-speaker="Protagonist">They were always waiting for me to open the door first.</p>
+      <div class="bz-choices">[[End the Memory|Memory's End]]</div>
+    </div>
+  </div>
+</div>
+
+
+:: Pick Up the Ticket {"position":"2000,250","size":"100,100"}
+<div class="bz-stage">
+  <div class="bz-scene">
+    <img class="bz-scene-art" src="Images/拾取车票“一去看海”.jpg" alt="Pick Up the Ticket">
+    <div class="bz-hud">
+      <span class="bz-time">Memory 2</span>
+      <span class="bz-place">Station</span>
+    </div>
+    <div class="bz-dialogue">
+      <p class="bz-line" data-speaker="Narrator">A younger protagonist and a friend stand by the platform as the ticket rustles in the wind.</p>
+      <p class="bz-line" data-speaker="Friend">When we have time someday, we have to go see the sea together.</p>
+      <p class="bz-line" data-speaker="Protagonist">Promise!</p>
+      <p class="bz-line" data-speaker="Protagonist">Definitely!</p>
+      <div class="bz-choices">[[Later]]</div>
+    </div>
+  </div>
+</div>
+
+
+:: Pick Up the Childhood Drawing {"position":"2750,250","size":"100,100"}
+<div class="bz-stage">
+  <div class="bz-scene">
+    <img class="bz-scene-art" src="Images/进入回忆.jpg" alt="Childhood Drawing">
+    <div class="bz-hud">
+      <span class="bz-time">Memory 3</span>
+      <span class="bz-place">Dream Recovered</span>
+    </div>
+    <div class="bz-dialogue">
+      <p class="bz-line" data-speaker="Protagonist">I thought I had lost my dream.</p>
+      <p class="bz-line" data-speaker="Protagonist">Really, I had only hidden it away.</p>
+      <p class="bz-line" data-speaker="Narrator">The paper does not blame him; it simply waits for him to pick up the pen again.</p>
+      <div class="bz-choices">[[Gain Memory Fragment 3|Memory Fragment 3]]</div>
+    </div>
+  </div>
+</div>
+
+
+:: Untitled Fragment {"position":"2400,600","size":"100,100"}
+
+
+
+:: Game Begins {"position":"850,250","size":"100,100"}
+<div class="bz-stage">
+  <div class="bz-scene">
+    <img class="bz-scene-art" src="Images/3陌生的房间.jpg" alt="Strange Room">
+    <div class="bz-hud">
+      <span class="bz-time">00:60</span>
+      <span class="bz-place">Strange Room</span>
+    </div>
+    <div class="bz-time-float">
+      <img src="Images/00：60.jpg" alt="00:60 Time Card">
+    </div>
+    <div class="bz-dialogue">
+      <p class="bz-line" data-speaker="Narrator">Tick. Tick. Tick.</p>
+      <p class="bz-line" data-speaker="Narrator">The scene slowly brightens, as if someone has turned on a lamp long covered in dust.</p>
+      <p class="bz-line" data-speaker="Protagonist">I open my eyes and find myself lying in a strange room.</p>
+      <p class="bz-line" data-speaker="Narrator">The room is silent. The clock on the wall has stopped, and a pocket watch lies on the table.</p>
+      <p class="bz-line" data-speaker="Protagonist">This does not feel like a hospital, or a dream.</p>
+      <div class="bz-choices">[[Approach the Pocket Watch|Pocket Watch]]</div>
+    </div>
+  </div>
+</div>
+
+
+:: Keep the Memories {"position":"3300,250","size":"100,100"}
+<div class="bz-stage">
+  <div class="bz-scene">
+    <img class="bz-scene-art is-contain" src="Images/记忆碎片2.png" alt="Keep the Memories">
+    <div class="bz-hud">
+      <span class="bz-time">Choice</span>
+      <span class="bz-place">Keep the Memories</span>
+    </div>
+    <div class="bz-dialogue">
+      <p class="bz-line" data-speaker="Protagonist">These regrets are part of my life too.</p>
+      <p class="bz-line" data-speaker="Protagonist">If they helped make me who I am now, I will keep them with me.</p>
+      <div class="bz-choices">[[Ending 2]]</div>
+    </div>
+  </div>
+</div>
+
+
+:: Leave {"position":"1625,250","size":"100,100"}
+<div class="bz-stage">
+  <div class="bz-scene">
+    <img class="bz-scene-art" src="Images/离开.jpg" alt="Leaving the Room">
+    <div class="bz-hud">
+      <span class="bz-time">Memory 1</span>
+      <span class="bz-place">Outside the Door</span>
+    </div>
+    <div class="bz-dialogue">
+      <p class="bz-line" data-speaker="Narrator">Night.</p>
+      <p class="bz-line" data-speaker="Narrator">A glass of water and a note sit on the table.</p>
+      <p class="bz-line" data-speaker="Narrator">The water is no longer warm, but the note looks as if it was set down moments ago.</p>
+      <div class="bz-choices">[[Pick Up the Note]]</div>
+    </div>
+  </div>
+</div>
+
+
+:: Pocket Watch {"position":"975,250","size":"100,100"}
+<div class="bz-stage">
+  <div class="bz-scene">
+    <img class="bz-scene-art" src="Images/游戏开始：桌子上的表.jpg" alt="The Pocket Watch on the Table">
+    <div class="bz-hud">
+      <span class="bz-time">Pocket Watch</span>
+      <span class="bz-place">Interactable Object</span>
+    </div>
+    <div class="bz-dialogue">
+      <p class="bz-line" data-speaker="Narrator">The pocket watch lies on the table, its lid half open, with no hands inside.</p>
+      <p class="bz-line" data-speaker="Narrator">When the protagonist reaches for it, the missing hands suddenly appear.</p>
+      <p class="bz-line" data-speaker="Pocket Watch">00:60</p>
+      <div class="bz-choices">[[Touch the Pocket Watch|Click Countdown]]</div>
+    </div>
+  </div>
+</div>
+
+
+:: Ending 1 {"position":"3425,100","size":"100,100"}
+<div class="bz-stage">
+  <div class="bz-scene">
+    <img class="bz-scene-art" src="Images/结局1.jpg" alt="Ending One">
+    <div class="bz-hud">
+      <span class="bz-time">Ending</span>
+      <span class="bz-place">Return to the Past</span>
+    </div>
+    <div class="bz-dialogue">
+      <p class="bz-line" data-speaker="Narrator">The photo is pieced back together, but fine cracks still run between the fragments.</p>
+      <p class="bz-line" data-speaker="Protagonist">Maybe what matters is not changing the past.</p>
+      <p class="bz-line" data-speaker="Protagonist">It is finally being willing to cherish the present.</p>
+      <div class="bz-choices">[[Step Into the Final Second|00:01]]</div>
+    </div>
+  </div>
+</div>
+
+
+:: Ending 2 {"position":"3425,250","size":"100,100"}
+<div class="bz-stage">
+  <div class="bz-scene">
+    <img class="bz-scene-art" src="Images/结局2.jpg" alt="Ending Two">
+    <div class="bz-hud">
+      <span class="bz-time">Ending</span>
+      <span class="bz-place">Keep the Memories</span>
+    </div>
+    <div class="bz-dialogue">
+      <p class="bz-line" data-speaker="Narrator">He gathers up every memory and places them in the pocket watch, the pain included.</p>
+      <p class="bz-line" data-speaker="Narrator">The pocket watch becomes very light.</p>
+      <p class="bz-line" data-speaker="Protagonist">Regret was never something that had to be erased.</p>
+      <p class="bz-line" data-speaker="Protagonist">It reminds me that I once truly cared.</p>
+      <div class="bz-choices">[[Step Into the Final Second|00:01]]</div>
+    </div>
+  </div>
+</div>
+
+
+:: Ending 3 {"position":"3425,400","size":"100,100"}
+<div class="bz-stage">
+  <div class="bz-scene">
+    <img class="bz-scene-art" src="Images/结局3.jpg" alt="Ending Three">
+    <div class="bz-hud">
+      <span class="bz-time">Ending</span>
+      <span class="bz-place">Staying</span>
+    </div>
+    <div class="bz-dialogue">
+      <p class="bz-line" data-speaker="Narrator">He remains in memory forever.</p>
+      <p class="bz-line" data-speaker="Narrator">One door after another closes, yet the pocket watch never reaches zero again.</p>
+      <p class="bz-line" data-speaker="Mysterious Voice">Some believe that if they can hold on to the past, they will never have to leave.</p>
+      <p class="bz-line" data-speaker="Mysterious Voice">But when something stops, it is never only time.</p>
+      <div class="bz-choices">[[Step Into the Final Second|00:01]]</div>
+    </div>
+  </div>
+</div>
+
+
+:: Memory Fragment 1 {"position":"1750,250","size":"100,100"}
+<div class="bz-stage">
+  <div class="bz-scene">
+    <img class="bz-scene-art bz-scene-art-door-echo" src="Images/三扇门.jpg" alt="Three Doors">
+    <img class="bz-scene-art is-contain" src="Images/记忆碎片.png" alt="A Belated Apology">
+    <div class="bz-hud">
+      <span class="bz-time">00:45</span>
+      <span class="bz-memory-tag">Memory Fragment 1/3</span>
+    </div>
+    <div class="bz-fragment-title">
+      <strong>Memory Fragment Acquired</strong>
+      <span>A Belated Apology</span>
+    </div>
+    <div class="bz-dialogue">
+      <p class="bz-line" data-speaker="Narrator">The fragment falls into the pocket watch, leaving a warm notch on its face.</p>
+      <p class="bz-line" data-speaker="Mysterious Voice">The next door has opened.</p>
+      <div class="bz-choices">[[Enter the Second Door|00:40 - The Missed Promise]]</div>
+    </div>
+  </div>
+</div>
+
+
+:: Memory Fragment 2 {"position":"2250,375","size":"100,100"}
+<div class="bz-stage">
+  <div class="bz-scene">
+    <img class="bz-scene-art bz-scene-art-door-echo" src="Images/三扇门.jpg" alt="Three Doors">
+    <img class="bz-scene-art is-contain" src="Images/记忆碎片2.png" alt="An Unkept Promise">
+    <div class="bz-hud">
+      <span class="bz-time">00:35</span>
+      <span class="bz-memory-tag">Memory Fragment 2/3</span>
+    </div>
+    <div class="bz-fragment-title">
+      <strong>Memory Fragment Acquired</strong>
+      <span>An Unkept Promise</span>
+    </div>
+    <div class="bz-dialogue">
+      <p class="bz-line" data-speaker="Narrator">The ticket breaks into flecks of light and settles along the rim of the pocket watch.</p>
+      <p class="bz-line" data-speaker="Protagonist">I did not forget.</p>
+      <p class="bz-line" data-speaker="Protagonist">I was only afraid to admit I still wanted to go.</p>
+      <div class="bz-choices">[[Enter the Third Door|00:30 - The Dream Left Behind]]</div>
+    </div>
+  </div>
+</div>
+
+
+:: Memory Fragment 3 {"position":"2875,250","size":"100,100"}
+<div class="bz-stage">
+  <div class="bz-scene">
+    <img class="bz-scene-art bz-scene-art-door-echo" src="Images/三扇门.jpg" alt="Three Doors">
+    <img class="bz-scene-art is-contain" src="Images/记忆碎片3.png" alt="The Self He Once Was">
+    <div class="bz-hud">
+      <span class="bz-time">00:20</span>
+      <span class="bz-memory-tag">Memory Fragment 3/3</span>
+    </div>
+    <div class="bz-fragment-title">
+      <strong>Memory Fragment Acquired</strong>
+      <span>The Self He Once Was</span>
+    </div>
+    <div class="bz-dialogue">
+      <p class="bz-line" data-speaker="Narrator">The final fragment enters the pocket watch, and three notches form a complete circle.</p>
+      <p class="bz-line" data-speaker="Mysterious Voice">Now you can answer the final question.</p>
+      <div class="bz-choices">[[Return to the Memory Core|00:20]]</div>
+    </div>
+  </div>
+</div>
+
+
+:: Enter the Memory {"position":"2500,375","size":"100,100"}
+<div class="bz-stage">
+  <div class="bz-scene">
+    <img class="bz-scene-art" src="Images/进入回忆.jpg" alt="A Childhood Drawing">
+    <div class="bz-hud">
+      <span class="bz-time">Memory 3</span>
+      <span class="bz-place">Childhood</span>
+    </div>
+    <div class="bz-dialogue">
+      <p class="bz-line" data-speaker="Narrator">As a child, the protagonist lies over the desk drawing, elbows smudged with pencil dust.</p>
+      <p class="bz-line" data-speaker="Child">Someday I'm going to make something amazing!</p>
+      <p class="bz-line" data-speaker="Child">I hope the grown-up me can still like who I am now.</p>
+      <p class="bz-line" data-speaker="Narrator">The sentence folds itself like a paper airplane, crosses the years, and lands at his feet.</p>
+      <div class="bz-choices">[[Grown Up]]</div>
+    </div>
+  </div>
+</div>
+
+
+:: Grown Up {"position":"2625,250","size":"100,100"}
+<div class="bz-stage">
+  <div class="bz-scene">
+    <img class="bz-scene-art" src="Images/长大后.JPG" alt="The Office Years Later">
+    <div class="bz-hud">
+      <span class="bz-time">Memory 3</span>
+      <span class="bz-place">Grown Up</span>
+    </div>
+    <div class="bz-dialogue">
+      <p class="bz-line" data-speaker="Narrator">The scene shifts. The grown-up protagonist sits in an office, paperwork piled across the desk.</p>
+      <p class="bz-line" data-speaker="Protagonist">When did it start...</p>
+      <p class="bz-line" data-speaker="Protagonist">When did I forget what I loved?</p>
+      <p class="bz-line" data-speaker="Protagonist">My dream... I forgot it a long time ago.</p>
+      <p class="bz-line" data-speaker="Narrator">Inside the drawer, the corner of a childhood drawing peeks out.</p>
+      <div class="bz-choices">[[Pick Up the Childhood Drawing]]</div>
+    </div>
+  </div>
+</div>
