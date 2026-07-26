@@ -174,7 +174,7 @@ a {
 }
 
 .bz-scene-art.is-contain {
-  object-fit: cover;
+  object-fit: contain;
   padding: clamp(4px, 1.6vw, 18px);
   box-sizing: border-box;
   background: transparent;
@@ -1128,6 +1128,7 @@ a {
 
   var endingMarkers = [
     repoAsset("Images/结局1.jpg"),
+    repoAsset("Images/游戏结束最后一张.jpg"),
     repoAsset("Images/结局2.jpg"),
     repoAsset("Images/结局3.jpg"),
     repoAsset("Images/00：01.jpg"),
@@ -1609,7 +1610,29 @@ a {
       <p class="bz-line" data-speaker="怀表">00:00</p>
       <p class="bz-line" data-speaker="旁白">人生不是由剩余的时间决定，而是由曾经拥有的瞬间组成。</p>
       <p class="bz-line" data-speaker="旁白">人生并不是只完成目标，也是在过程中找到自己。</p>
-      <div class="bz-choices">[[重新开始|Before Zero]]</div>
+      <div class="bz-choices">[[重新选择]]</div>
+    </div>
+  </div>
+</div>
+
+
+:: 重新选择 {"position":"3875,250","size":"100,100"}
+<div class="bz-stage">
+  <div class="bz-scene">
+    <img class="bz-scene-art" src="Images/游戏结束最后一张.jpg" alt="重新选择">
+    <div class="bz-hud">
+      <span class="bz-time">归零之后</span>
+      <span class="bz-place">重新选择</span>
+    </div>
+    <div class="bz-final-tag">
+      <strong>回到分岔</strong>
+      <b>00:10</b>
+      <span>重新选择</span>
+    </div>
+    <div class="bz-dialogue">
+      <p class="bz-line" data-speaker="旁白">怀表没有把你送回起点。</p>
+      <p class="bz-line" data-speaker="旁白">它只把最后的分岔，再一次放到你面前。</p>
+      <div class="bz-choices">[[回到三选一|00:10]]</div>
     </div>
   </div>
 </div>

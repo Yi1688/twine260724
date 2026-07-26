@@ -9,7 +9,7 @@
 </head>
 <body>
 <tw-story><noscript><tw-noscript>JavaScript needs to be enabled to play Before Zero.</tw-noscript></noscript></tw-story>
-<tw-storydata name="Before Zero" startnode="9" creator="Twine" creator-version="2.11.0" format="Harlowe" format-version="3.3.9" ifid="A61CD338-A3CF-40AB-BA7F-915D5441705F" options="" tags="" zoom="1" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">:root {
+<tw-storydata name="Before Zero" startnode="9" creator="Twine" creator-version="2.10.0" format="Harlowe" format-version="3.3.9" ifid="A61CD338-A3CF-40AB-BA7F-915D5441705F" options="" tags="" zoom="1" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">:root {
   --bz-ink: #1d1a16;
   --bz-paper: #f3ead8;
   --bz-paper-muted: #cfc1a7;
@@ -170,7 +170,7 @@ a {
 }
 
 .bz-scene-art.is-contain {
-  object-fit: cover;
+  object-fit: contain;
   padding: clamp(4px, 1.6vw, 18px);
   box-sizing: border-box;
   background: transparent;
@@ -1120,6 +1120,7 @@ a {
 
   var endingMarkers = [
     repoAsset("Images/结局1.jpg"),
+    repoAsset("Images/游戏结束最后一张.jpg"),
     repoAsset("Images/结局2.jpg"),
     repoAsset("Images/结局3.jpg"),
     repoAsset("Images/00：01.jpg"),
@@ -1597,7 +1598,25 @@ a {
       &lt;p class=&quot;bz-line&quot; data-speaker=&quot;怀表&quot;&gt;00:00&lt;/p&gt;
       &lt;p class=&quot;bz-line&quot; data-speaker=&quot;旁白&quot;&gt;人生不是由剩余的时间决定，而是由曾经拥有的瞬间组成。&lt;/p&gt;
       &lt;p class=&quot;bz-line&quot; data-speaker=&quot;旁白&quot;&gt;人生并不是只完成目标，也是在过程中找到自己。&lt;/p&gt;
-      &lt;div class=&quot;bz-choices&quot;&gt;[[重新开始|Before Zero]]&lt;/div&gt;
+      &lt;div class=&quot;bz-choices&quot;&gt;[[重新选择]]&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="38" name="重新选择" tags="" position="3875,250" size="100,100">&lt;div class=&quot;bz-stage&quot;&gt;
+  &lt;div class=&quot;bz-scene&quot;&gt;
+    &lt;img class=&quot;bz-scene-art&quot; src=&quot;Images/游戏结束最后一张.jpg&quot; alt=&quot;重新选择&quot;&gt;
+    &lt;div class=&quot;bz-hud&quot;&gt;
+      &lt;span class=&quot;bz-time&quot;&gt;归零之后&lt;/span&gt;
+      &lt;span class=&quot;bz-place&quot;&gt;重新选择&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;bz-final-tag&quot;&gt;
+      &lt;strong&gt;回到分岔&lt;/strong&gt;
+      &lt;b&gt;00:10&lt;/b&gt;
+      &lt;span&gt;重新选择&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;bz-dialogue&quot;&gt;
+      &lt;p class=&quot;bz-line&quot; data-speaker=&quot;旁白&quot;&gt;怀表没有把你送回起点。&lt;/p&gt;
+      &lt;p class=&quot;bz-line&quot; data-speaker=&quot;旁白&quot;&gt;它只把最后的分岔，再一次放到你面前。&lt;/p&gt;
+      &lt;div class=&quot;bz-choices&quot;&gt;[[回到三选一|00:10]]&lt;/div&gt;
     &lt;/div&gt;
   &lt;/div&gt;
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="2" name="00:01" tags="" position="3625,250" size="100,100">&lt;div class=&quot;bz-stage&quot;&gt;
@@ -1737,7 +1756,7 @@ a {
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="9" name="Before Zero" tags="" position="600,250" size="100,100">&lt;div class=&quot;bz-stage&quot;&gt;
   &lt;div class=&quot;bz-scene&quot;&gt;
     &lt;img class=&quot;bz-scene-art&quot; src=&quot;Images/游戏标题.jpg&quot; alt=&quot;Before Zero 标题&quot;&gt;
-  &lt;div class=&quot;bz-title-card bz-title-card-image-only&quot;&gt;
+    &lt;div class=&quot;bz-title-card bz-title-card-image-only&quot;&gt;
       &lt;div class=&quot;bz-start&quot;&gt;[[进入故事|Game Start]]&lt;/div&gt;
     &lt;/div&gt;
   &lt;/div&gt;
@@ -2014,7 +2033,6 @@ a {
       &lt;p class=&quot;bz-line&quot; data-speaker=&quot;旁白&quot;&gt;怀表躺在桌面上，表盖半开，里面没有指针。&lt;/p&gt;
       &lt;p class=&quot;bz-line&quot; data-speaker=&quot;旁白&quot;&gt;当主角伸手时，缺失的指针突然出现。&lt;/p&gt;
       &lt;p class=&quot;bz-line&quot; data-speaker=&quot;怀表&quot;&gt;00:60&lt;/p&gt;
-      &lt;br&gt;&lt;br&gt;&lt;br&gt;
       &lt;div class=&quot;bz-choices&quot;&gt;[[触碰怀表|click countdown]]&lt;/div&gt;
     &lt;/div&gt;
   &lt;/div&gt;
