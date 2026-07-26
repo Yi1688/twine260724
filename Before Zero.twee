@@ -182,18 +182,23 @@ a {
 
 .bz-scene-art-door-echo {
   inset: auto;
-  top: clamp(74px, 12vh, 118px);
+  top: clamp(54px, 7vh, 88px);
   left: 50%;
-  width: min(360px, 56%);
-  height: clamp(132px, 22vh, 220px);
-  object-fit: cover;
+  width: min(980px, 76vw);
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: contain;
   object-position: center;
   transform: translateX(-50%);
-  opacity: 0.28;
-  filter: saturate(0.8) contrast(1.04);
+  opacity: 0.24;
+  filter: saturate(0.8) contrast(1.04) brightness(0.92);
   mix-blend-mode: screen;
-  z-index: 2;
+  z-index: 1;
   pointer-events: none;
+}
+
+.bz-scene-art-door-echo + .bz-scene-art.is-contain {
+  z-index: 3;
 }
 
 .bz-hud {
@@ -1035,8 +1040,8 @@ a {
 
   .bz-scene-art-door-echo {
     top: 62px;
-    width: min(280px, 72%);
-    height: 120px;
+    width: min(560px, 94vw);
+    height: auto;
   }
 }
 
