@@ -1,0 +1,2306 @@
+:: StoryTitle
+Before Zero
+
+
+:: StoryData
+{
+  "ifid": "A61CD338-A3CF-40AB-BA7F-915D5441705F",
+  "format": "Harlowe",
+  "format-version": "3.3.9",
+  "start": "Before Zero",
+  "zoom": 1
+}
+
+
+:: StoryStylesheet [stylesheet]
+:root {
+  --bz-ink: #1d1a16;
+  --bz-paper: #f3ead8;
+  --bz-paper-muted: #cfc1a7;
+  --bz-gold: #d2a958;
+  --bz-teal: #7ec8c0;
+  --bz-red: #b75a4d;
+  --bz-shadow: rgba(9, 8, 7, 0.55);
+  --bz-panel-dark: rgba(19, 16, 13, 0.72);
+  --bz-line: rgba(243, 234, 216, 0.24);
+  --bz-dialogue-frame-1: url("Images/dialogue-frame-1.png");
+  --bz-dialogue-frame-2: url("Images/dialogue-frame-2.png");
+  --bz-dialogue-frame-3: url("Images/dialogue-frame-3.png");
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+  background: #11100e;
+}
+
+body {
+  overflow: hidden;
+}
+
+tw-story {
+  min-height: 100vh;
+  box-sizing: border-box;
+  position: relative;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  overflow: hidden;
+  isolation: isolate;
+  color: var(--bz-paper);
+  background:
+    radial-gradient(circle at 18% 18%, rgba(126, 200, 192, 0.15), transparent 26%),
+    radial-gradient(circle at 82% 12%, rgba(210, 169, 88, 0.18), transparent 24%),
+    radial-gradient(circle at 50% 120%, rgba(255, 235, 194, 0.08), transparent 34%),
+    linear-gradient(118deg, rgba(126, 200, 192, 0.12), transparent 34%),
+    linear-gradient(245deg, rgba(210, 169, 88, 0.12), transparent 38%),
+    repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.018) 0 2px, transparent 2px 14px),
+    linear-gradient(135deg, #161410 0%, #2b2925 45%, #141312 100%);
+  font-family: "Microsoft YaHei", "PingFang SC", "Noto Sans SC", "Source Han Sans SC", system-ui, sans-serif;
+}
+
+tw-story::before,
+tw-story::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+}
+
+tw-story::before {
+  z-index: 0;
+  background:
+    radial-gradient(circle at center, transparent 42%, rgba(7, 7, 6, 0.42) 100%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.03), transparent 16%, transparent 84%, rgba(0, 0, 0, 0.08));
+}
+
+tw-story::after {
+  z-index: 0;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.06) 0.75px, transparent 0.75px);
+  background-size: 8px 8px;
+  mix-blend-mode: soft-light;
+  opacity: 0.16;
+}
+
+tw-sidebar {
+  display: none;
+}
+
+tw-passage {
+  width: 100%;
+  max-width: none;
+  position: relative;
+  z-index: 1;
+  color: inherit;
+  line-height: 1.6;
+}
+
+tw-passage img {
+  max-width: 100%;
+}
+
+tw-link,
+tw-link:visited,
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.bz-stage {
+  position: relative;
+  width: 100vw;
+  margin: 0 auto;
+}
+
+.bz-scene {
+  position: relative;
+  height: 100vh;
+  height: 100svh;
+  min-height: 0;
+  overflow: hidden;
+  border: 0;
+  border-radius: 0;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.03), transparent 22%),
+    linear-gradient(135deg, rgba(31, 26, 20, 0.96), rgba(22, 19, 17, 0.96));
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.06),
+    inset 0 -18px 36px rgba(0, 0, 0, 0.24),
+    0 32px 90px var(--bz-shadow);
+  isolation: isolate;
+}
+
+.bz-scene::before,
+.bz-scene::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.bz-scene::before {
+  background:
+    radial-gradient(circle at 78% 14%, rgba(255, 223, 163, 0.2), transparent 24%),
+    radial-gradient(circle at 18% 80%, rgba(126, 200, 192, 0.12), transparent 24%),
+    linear-gradient(180deg, rgba(0, 0, 0, 0.28), transparent 24%, transparent 68%, rgba(0, 0, 0, 0.5)),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.34), transparent 16%, transparent 84%, rgba(0, 0, 0, 0.28));
+}
+
+.bz-scene::after {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.028) 1px, transparent 1px),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.05), transparent 18%, transparent 82%, rgba(0, 0, 0, 0.08));
+  background-size: 100% 4px, 4px 100%, 100% 100%;
+  mix-blend-mode: soft-light;
+  opacity: 0.28;
+}
+
+.bz-scene-art {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transform: none;
+  transform-origin: center center;
+  filter: saturate(0.94) contrast(1.03);
+  z-index: 1;
+  animation: none;
+  will-change: auto;
+}
+
+.bz-scene-art.is-contain {
+  object-fit: cover;
+  padding: clamp(4px, 1.6vw, 18px);
+  box-sizing: border-box;
+  background: transparent;
+}
+
+.bz-scene-art-door-echo {
+  inset: auto;
+  top: clamp(74px, 12vh, 118px);
+  left: 50%;
+  width: min(360px, 56%);
+  height: clamp(132px, 22vh, 220px);
+  object-fit: cover;
+  object-position: center;
+  transform: translateX(-50%);
+  opacity: 0.28;
+  filter: saturate(0.8) contrast(1.04);
+  mix-blend-mode: screen;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.bz-hud {
+  position: absolute;
+  top: clamp(14px, 2.2vw, 24px);
+  left: clamp(16px, 2.8vw, 34px);
+  right: clamp(16px, 2.8vw, 34px);
+  z-index: 4;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  pointer-events: none;
+}
+
+.bz-time,
+.bz-place,
+.bz-memory-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 34px;
+  padding: 0 15px 0 13px;
+  border: 1px solid rgba(243, 234, 216, 0.28);
+  border-radius: 999px;
+  color: #fff9ed;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.12), transparent),
+    rgba(18, 16, 14, 0.52);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    0 10px 24px rgba(0, 0, 0, 0.28);
+  backdrop-filter: blur(8px);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.bz-time::before,
+.bz-place::before,
+.bz-memory-tag::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: currentColor;
+  box-shadow: 0 0 14px currentColor;
+  opacity: 0.72;
+}
+
+.bz-time {
+  color: #fff0c0;
+  border-color: rgba(210, 169, 88, 0.55);
+}
+
+.bz-memory-tag {
+  color: #dffdfa;
+  border-color: rgba(126, 200, 192, 0.5);
+}
+
+.bz-time-float {
+  position: absolute;
+  top: clamp(84px, 12vh, 132px);
+  right: clamp(18px, 3vw, 34px);
+  z-index: 4;
+  width: min(180px, 24vw);
+  padding: 10px;
+  box-sizing: border-box;
+  border: 1px solid rgba(243, 234, 216, 0.22);
+  border-radius: 22px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.12), transparent 30%),
+    linear-gradient(135deg, rgba(255, 248, 232, 0.1), rgba(20, 17, 14, 0.28)),
+    rgba(14, 12, 10, 0.26);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    0 20px 36px rgba(0, 0, 0, 0.22);
+  backdrop-filter: blur(10px);
+  transform: rotate(4deg);
+  pointer-events: none;
+}
+
+.bz-time-float img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 14px;
+  box-shadow:
+    0 10px 22px rgba(0, 0, 0, 0.16),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.12);
+}
+
+.bz-final-tag {
+  position: absolute;
+  top: clamp(86px, 13vh, 140px);
+  left: clamp(18px, 3vw, 34px);
+  z-index: 4;
+  display: grid;
+  gap: 4px;
+  min-width: 142px;
+  padding: 12px 14px 13px;
+  box-sizing: border-box;
+  border: 1px solid rgba(243, 234, 216, 0.22);
+  border-radius: 18px 20px 20px 12px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.12), transparent 34%),
+    linear-gradient(135deg, rgba(210, 169, 88, 0.12), transparent 60%),
+    rgba(18, 15, 13, 0.56);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    0 18px 32px rgba(0, 0, 0, 0.22);
+  backdrop-filter: blur(8px);
+  pointer-events: none;
+}
+
+.bz-final-tag strong,
+.bz-final-tag span {
+  display: block;
+}
+
+.bz-final-tag strong {
+  color: #fff1c5;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.18em;
+}
+
+.bz-final-tag b {
+  display: block;
+  color: #fff8ec;
+  font-size: 29px;
+  line-height: 1;
+  font-weight: 900;
+  letter-spacing: 0.06em;
+}
+
+.bz-final-tag span {
+  color: rgba(255, 244, 224, 0.82);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+}
+
+.bz-title-card {
+  position: absolute;
+  z-index: 4;
+  left: clamp(26px, 7vw, 82px);
+  bottom: clamp(34px, 9vh, 82px);
+  width: min(620px, calc(100% - 52px));
+  padding: 22px 24px 22px;
+  border: 1px solid rgba(243, 234, 216, 0.18);
+  border-radius: 24px 28px 28px 18px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.06), transparent 28%),
+    linear-gradient(135deg, rgba(17, 15, 13, 0.68), rgba(29, 25, 22, 0.36));
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.05),
+    0 24px 60px rgba(0, 0, 0, 0.28);
+  backdrop-filter: blur(10px);
+  color: #fff8e8;
+  text-shadow: 0 8px 22px rgba(0, 0, 0, 0.44);
+}
+
+.bz-title-card.bz-title-card-image-only {
+  left: 50%;
+  bottom: clamp(74px, 13vh, 140px);
+  width: auto;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  backdrop-filter: none;
+  transform: translateX(-50%);
+}
+
+.bz-kicker {
+  margin-bottom: 8px;
+  color: var(--bz-teal);
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+}
+
+.bz-title-card h1 {
+  margin: 0 0 12px;
+  font-size: clamp(42px, 8vw, 92px);
+  line-height: 0.95;
+  letter-spacing: 0;
+}
+
+.bz-title-card p {
+  margin: 0 0 22px;
+  max-width: 520px;
+  color: #f5ead3;
+  font-size: clamp(16px, 2.2vw, 22px);
+  line-height: 1.7;
+  font-weight: 650;
+}
+
+.bz-start tw-link,
+.bz-choice-panel tw-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 46px;
+  padding: 0 22px;
+  border: 1px solid rgba(243, 234, 216, 0.28);
+  border-radius: 999px;
+  color: #fff8e8;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.18), transparent 42%),
+    linear-gradient(135deg, rgba(126, 200, 192, 0.1), transparent 58%),
+    rgba(20, 17, 14, 0.84);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    0 14px 32px rgba(0, 0, 0, 0.34);
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  transition: transform 140ms ease, border-color 140ms ease, background 140ms ease, box-shadow 140ms ease;
+}
+
+.bz-start tw-link:hover,
+.bz-choice-panel tw-link:hover {
+  transform: translateY(-2px);
+  border-color: rgba(126, 200, 192, 0.78);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.18), transparent 42%),
+    linear-gradient(180deg, rgba(126, 200, 192, 0.16), transparent 70%),
+    rgba(20, 17, 14, 0.86);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    0 18px 36px rgba(0, 0, 0, 0.38);
+}
+
+.bz-start tw-link {
+  position: relative;
+  isolation: isolate;
+  min-height: clamp(76px, 8vh, 92px);
+  padding: 0 clamp(54px, 6vw, 82px);
+  overflow: hidden;
+  border: 2px solid rgba(255, 232, 164, 0.62);
+  color: #fff8df;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(255, 238, 179, 0.42), transparent 42%),
+    linear-gradient(135deg, rgba(126, 200, 192, 0.24), transparent 45%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.2), transparent 42%),
+    linear-gradient(135deg, rgba(50, 41, 26, 0.98), rgba(14, 13, 12, 0.94));
+  font-size: clamp(34px, 3.2vw, 48px);
+  font-weight: 950;
+  letter-spacing: 0;
+  text-shadow:
+    0 2px 0 rgba(42, 30, 16, 0.8),
+    0 0 18px rgba(255, 231, 161, 0.44);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.18),
+    inset 0 -14px 22px rgba(0, 0, 0, 0.26),
+    0 22px 54px rgba(0, 0, 0, 0.5),
+    0 0 36px rgba(210, 169, 88, 0.42),
+    0 0 58px rgba(126, 200, 192, 0.16);
+  animation: bzStartPulse 2.6s ease-in-out infinite;
+}
+
+.bz-start tw-link::before,
+.bz-start tw-link::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+.bz-start tw-link::before {
+  z-index: 0;
+  background:
+    linear-gradient(120deg, transparent 0 34%, rgba(255, 255, 255, 0.52) 45%, transparent 56%),
+    radial-gradient(circle at 50% 50%, rgba(255, 244, 203, 0.16), transparent 58%);
+  transform: translateX(-130%);
+  animation: bzStartSweep 2.9s ease-in-out infinite;
+}
+
+.bz-start tw-link::after {
+  inset: 5px;
+  border: 1px solid rgba(255, 246, 211, 0.28);
+  box-shadow: inset 0 0 20px rgba(255, 232, 164, 0.16);
+}
+
+.bz-start tw-link:hover {
+  transform: translateY(-4px) scale(1.03);
+  border-color: rgba(255, 239, 181, 0.9);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.2),
+    inset 0 -14px 22px rgba(0, 0, 0, 0.26),
+    0 28px 64px rgba(0, 0, 0, 0.56),
+    0 0 48px rgba(210, 169, 88, 0.58),
+    0 0 70px rgba(126, 200, 192, 0.24);
+}
+
+.bz-dialogue {
+  position: absolute;
+  left: 50%;
+  bottom: clamp(64px, 8vh, 92px);
+  z-index: 5;
+  width: min(860px, calc(100% - 260px));
+  height: 176px;
+  min-height: 0;
+  max-height: 176px;
+  box-sizing: border-box;
+  padding: 42px 82px 58px;
+  color: var(--bz-ink);
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  transform: translateX(-50%);
+  cursor: pointer;
+  will-change: transform, opacity;
+}
+
+.bz-dialogue.has-speaker {
+  padding-top: 50px;
+}
+
+.bz-dialogue::before {
+  content: "";
+  position: absolute;
+  left: -18px;
+  right: -18px;
+  top: 0;
+  height: 176px;
+  z-index: -2;
+  pointer-events: none;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100% 176px;
+  filter: drop-shadow(0 16px 18px rgba(0, 0, 0, 0.28));
+}
+
+.bz-dialogue::after {
+  content: "";
+  position: absolute;
+  left: 34px;
+  right: 34px;
+  top: 22px;
+  bottom: 34px;
+  z-index: -1;
+  pointer-events: none;
+  border-radius: 20px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.16), transparent 22%),
+    linear-gradient(180deg, rgba(148, 118, 76, 0.04), rgba(95, 74, 45, 0.08));
+  mix-blend-mode: multiply;
+  opacity: 0.72;
+}
+
+.bz-dialogue.is-frame-1::before {
+  background-image: var(--bz-dialogue-frame-1);
+}
+
+.bz-dialogue.is-frame-2 {
+  width: min(860px, calc(100% - 260px));
+}
+
+.bz-dialogue.is-frame-2::before {
+  background-image: var(--bz-dialogue-frame-2);
+}
+
+.bz-dialogue.is-frame-3::before {
+  background-image: var(--bz-dialogue-frame-3);
+}
+
+.bz-speaker {
+  position: absolute;
+  top: 14px;
+  left: 42px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 30px;
+  max-width: 190px;
+  margin: 0;
+  padding: 0 17px 1px;
+  overflow: hidden;
+  box-sizing: border-box;
+  border: 1px solid rgba(118, 88, 53, 0.32);
+  border-radius: 9px 12px 12px 4px;
+  color: #5f4423;
+  background:
+    linear-gradient(180deg, rgba(255, 251, 239, 0.94), rgba(233, 214, 183, 0.86)),
+    rgba(255, 248, 232, 0.92);
+  box-shadow: 0 6px 14px rgba(84, 60, 31, 0.16);
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.38);
+  pointer-events: none;
+  transition: opacity 140ms ease, transform 140ms ease;
+  transform-origin: left center;
+}
+
+.bz-speaker.is-hidden {
+  opacity: 0;
+  transform: translateY(-4px) scale(0.98);
+}
+
+.bz-dialogue-text {
+  min-height: 48px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 0 8px 0;
+  transform: translateY(-12px);
+  color: #2d251b;
+  font-size: clamp(18px, 1.7vw, 24px);
+  font-weight: 800;
+  line-height: 1.35;
+  text-align: center;
+  text-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.42),
+    0 10px 18px rgba(255, 244, 223, 0.12);
+  text-wrap: balance;
+  white-space: pre-wrap;
+}
+
+.bz-dialogue.is-ready > .bz-line {
+  display: none;
+}
+
+.bz-dialogue-text.is-typing {
+  animation: bzTextIn 180ms ease both;
+}
+
+.bz-dialogue-text.is-typing::after {
+  content: "";
+  display: inline-block;
+  width: 2px;
+  height: 1.05em;
+  margin-left: 4px;
+  border-radius: 999px;
+  background: rgba(98, 73, 44, 0.88);
+  vertical-align: -0.08em;
+  animation: bzCursorBlink 720ms steps(1) infinite;
+}
+
+.bz-dialogue-next {
+  position: absolute;
+  left: 50%;
+  bottom: 34px;
+  width: 26px;
+  height: 18px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  transform: translateX(-50%);
+  cursor: pointer;
+}
+
+.bz-dialogue-next::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 4px;
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 9px solid #665037;
+  filter: drop-shadow(0 1px 0 rgba(255, 255, 255, 0.4));
+  transform: translateX(-50%);
+  animation: bzArrow 920ms ease-in-out infinite;
+}
+
+.bz-dialogue-next.is-hidden {
+  display: none;
+}
+
+.bz-choices {
+  position: absolute;
+  left: 50%;
+  bottom: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 9px;
+  width: calc(100% - 136px);
+  margin-top: 0;
+  transform: translateX(-50%);
+}
+
+.bz-choices tw-link,
+.bz-choices .bz-choice-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 46px;
+  padding: 0 26px;
+  border: 1px solid rgba(111, 86, 55, 0.32);
+  border-radius: 999px;
+  color: #3c2e20;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.16), transparent),
+    rgba(255, 248, 229, 0.58);
+  font-size: 18px;
+  font-weight: 850;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.25),
+    0 7px 16px rgba(89, 68, 42, 0.12);
+  transition: transform 140ms ease, background 140ms ease, border-color 140ms ease, box-shadow 140ms ease;
+  cursor: pointer;
+}
+
+.bz-choices .bz-choice-link {
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.bz-choices tw-link:hover,
+.bz-choices .bz-choice-link:hover {
+  transform: translateY(-1px);
+  border-color: rgba(91, 66, 38, 0.78);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.2), transparent),
+    rgba(255, 241, 197, 0.76);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.28),
+    0 10px 20px rgba(89, 68, 42, 0.18);
+}
+
+.bz-choices.is-hidden {
+  display: none;
+}
+
+.bz-dialogue.is-complete {
+  padding-bottom: 58px;
+}
+
+.bz-dialogue.is-complete .bz-dialogue-text {
+  min-height: 32px;
+  padding-bottom: 10px;
+}
+
+.bz-choice-panel {
+  position: absolute;
+  left: 50%;
+  bottom: clamp(26px, 5vh, 56px);
+  z-index: 5;
+  width: min(840px, calc(100% - 48px));
+  box-sizing: border-box;
+  padding: 20px 24px 22px;
+  border: 0;
+  border-radius: 28px;
+  background: transparent;
+  box-shadow: none;
+  transform: translateX(-50%);
+  backdrop-filter: blur(10px);
+  text-align: center;
+}
+
+.bz-choice-panel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border: 1px solid var(--bz-line);
+  border-radius: 28px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.05), transparent 20%),
+    linear-gradient(135deg, rgba(17, 15, 13, 0.82), rgba(29, 25, 22, 0.52));
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.04),
+    0 18px 38px rgba(0, 0, 0, 0.24);
+}
+
+.bz-choice-panel h2 {
+  margin: 0 0 14px;
+  color: #fff4dc;
+  font-size: clamp(21px, 3vw, 32px);
+  line-height: 1.25;
+  letter-spacing: 0.08em;
+  text-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+.bz-choice-panel p {
+  margin: 0 auto 20px;
+  max-width: 620px;
+  color: #efe2cc;
+  font-size: 15px;
+  line-height: 1.7;
+  text-shadow: 0 8px 24px rgba(0, 0, 0, 0.34);
+}
+
+.bz-choice-panel .bz-choice-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px;
+}
+
+.bz-fragment-title {
+  position: absolute;
+  z-index: 4;
+  top: clamp(88px, 16vh, 148px);
+  left: 50%;
+  width: min(720px, calc(100% - 56px));
+  padding: 0;
+  box-sizing: border-box;
+  border: 0;
+  border-radius: 0;
+  color: #fff5d8;
+  background: transparent;
+  box-shadow: none;
+  text-align: center;
+  transform: translateX(-50%);
+  backdrop-filter: none;
+  pointer-events: none;
+}
+
+.bz-fragment-title strong {
+  display: inline-block;
+  margin-bottom: 10px;
+  padding: 7px 14px;
+  border: 1px solid rgba(210, 169, 88, 0.26);
+  border-radius: 999px;
+  color: var(--bz-gold);
+  background: rgba(17, 14, 10, 0.28);
+  backdrop-filter: blur(8px);
+  font-size: 14px;
+  letter-spacing: 0.08em;
+  text-shadow: 0 8px 22px rgba(0, 0, 0, 0.35);
+}
+
+.bz-fragment-title span {
+  display: block;
+  max-width: 12ch;
+  font-size: clamp(28px, 4.2vw, 50px);
+  font-weight: 900;
+  line-height: 1.18;
+  text-shadow: 0 12px 30px rgba(0, 0, 0, 0.38);
+  text-wrap: balance;
+}
+
+@media (min-width: 860px) {
+  .bz-fragment-title {
+    top: 50%;
+    left: auto;
+    right: clamp(36px, 5vw, 78px);
+    width: min(360px, 32%);
+    text-align: left;
+    transform: translateY(-56%);
+  }
+}
+
+.bz-note {
+  color: #dffdfa;
+}
+
+@keyframes bzArrow {
+  0%, 100% {
+    transform: translate(-50%, 0);
+    opacity: 0.95;
+  }
+  50% {
+    transform: translate(-50%, 5px);
+    opacity: 0.58;
+  }
+}
+
+@keyframes bzStartPulse {
+  0%, 100% {
+    filter: brightness(1);
+  }
+  50% {
+    filter: brightness(1.14);
+  }
+}
+
+@keyframes bzStartSweep {
+  0%, 42% {
+    transform: translateX(-130%);
+    opacity: 0;
+  }
+  58% {
+    opacity: 0.9;
+  }
+  100% {
+    transform: translateX(130%);
+    opacity: 0;
+  }
+}
+
+@keyframes bzTextIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bzSceneFloat {
+  0% {
+    transform: scale(1.01) translate3d(0, 0, 0);
+  }
+  50% {
+    transform: scale(1.028) translate3d(0, -10px, 0);
+  }
+  100% {
+    transform: scale(1.02) translate3d(-8px, 4px, 0);
+  }
+}
+
+@keyframes bzCursorBlink {
+  0%, 49% {
+    opacity: 1;
+  }
+  50%, 100% {
+    opacity: 0;
+  }
+}
+
+@media (max-width: 720px) {
+  tw-story {
+    padding: 0;
+  }
+
+  .bz-stage {
+    width: 100vw;
+  }
+
+  .bz-scene {
+    height: 100svh;
+    min-height: 0;
+    border: 0;
+    border-radius: 0;
+  }
+
+  .bz-hud {
+    align-items: flex-start;
+  }
+
+  .bz-place {
+    max-width: 52vw;
+    justify-content: flex-end;
+    text-align: right;
+  }
+
+  .bz-dialogue {
+    width: calc(100% - 52px);
+    height: 132px;
+    min-height: 0;
+    max-height: 132px;
+    padding: 24px 30px 44px;
+  }
+
+  .bz-dialogue.is-frame-2 {
+    width: calc(100% - 52px);
+  }
+
+  .bz-dialogue::before {
+    left: -12px;
+    right: -12px;
+    top: 0;
+    height: 132px;
+    background-size: 100% 132px;
+  }
+
+  .bz-dialogue.has-speaker {
+    padding-top: 30px;
+  }
+
+  .bz-speaker {
+    top: 10px;
+    left: 18px;
+    min-height: 24px;
+    max-width: 132px;
+    padding: 0 11px 1px;
+    font-size: 11px;
+  }
+
+  .bz-dialogue-text {
+    font-size: 16px;
+    transform: translateY(-7px);
+  }
+
+  .bz-choices {
+    width: calc(100% - 56px);
+    bottom: 1px;
+  }
+
+  .bz-choice-panel {
+    width: calc(100% - 30px);
+    padding: 16px 16px 18px;
+  }
+
+  .bz-title-card {
+    left: 20px;
+    bottom: 32px;
+    width: calc(100% - 40px);
+    padding: 18px 18px 18px;
+    border-radius: 22px;
+  }
+
+  .bz-time-float {
+    top: 86px;
+    right: 14px;
+    width: min(142px, 36vw);
+    padding: 8px;
+    border-radius: 18px;
+    transform: rotate(3deg);
+  }
+
+  .bz-final-tag {
+    top: 84px;
+    left: 14px;
+    min-width: 118px;
+    padding: 10px 11px 11px;
+    border-radius: 16px;
+  }
+
+  .bz-final-tag strong {
+    font-size: 10px;
+    letter-spacing: 0.14em;
+  }
+
+  .bz-final-tag b {
+    font-size: 24px;
+  }
+
+  .bz-final-tag span {
+    font-size: 10px;
+  }
+
+  .bz-fragment-title {
+    top: 82px;
+    width: calc(100% - 42px);
+  }
+
+  .bz-scene-art-door-echo {
+    top: 62px;
+    width: min(280px, 72%);
+    height: 120px;
+  }
+}
+
+
+:: Story JavaScript [script]
+(function () {
+  if (window.BeforeZeroDialogueReady) {
+    return;
+  }
+
+  window.BeforeZeroDialogueReady = true;
+  var repoBase = "https://raw.githubusercontent.com/Yi1688/twine260724/main/";
+  var audioState = {
+    unlocked: false,
+    sounds: Object.create(null),
+    currentBgm: "bgm"
+  };
+
+  function repoAsset(path) {
+    return repoBase + String(path || "").replace(/^\/+/, "");
+  }
+
+  function syncAssetCssVars() {
+    var root = document.documentElement;
+
+    if (!root) {
+      return;
+    }
+
+    root.style.setProperty("--bz-dialogue-frame-1", 'url("' + repoAsset("Images/dialogue-frame-1.png") + '")');
+    root.style.setProperty("--bz-dialogue-frame-2", 'url("' + repoAsset("Images/dialogue-frame-2.png") + '")');
+    root.style.setProperty("--bz-dialogue-frame-3", 'url("' + repoAsset("Images/dialogue-frame-3.png") + '")');
+  }
+
+  function normalizeAssetUrls(root) {
+    var scope = root || document;
+
+    Array.prototype.forEach.call(scope.querySelectorAll("img[src]"), function (node) {
+      var src = node.getAttribute("src");
+
+      if (src && /^(Images|Audios)\//.test(src)) {
+        node.setAttribute("src", repoAsset(src));
+      }
+    });
+  }
+
+  var audioConfig = {
+    bgm: { src: repoAsset("Audios/Before Zero整体bgm.mp3"), loop: true, volume: 0.42 },
+    ending: { src: repoAsset("Audios/片尾曲.mp3"), loop: true, volume: 0.38 },
+    click: { src: repoAsset("Audios/鼠标点击音效.mp3"), loop: false, volume: 0.55 },
+    countdown: { src: repoAsset("Audios/怀表倒计时音效.mp3"), loop: false, volume: 0.62 },
+    memory: { src: repoAsset("Audios/进入记忆音效.mp3"), loop: false, volume: 0.66 },
+    door: { src: repoAsset("Audios/重重的关门音效.mp3"), loop: false, volume: 0.7 },
+    letter: { src: repoAsset("Audios/信件展开音效.mp3"), loop: false, volume: 0.64 }
+  };
+
+  var countdownMarkers = [
+    repoAsset("Images/游戏开始“墙上的表”.jpg"),
+    repoAsset("Images/游戏开始：桌子上的表.jpg"),
+    repoAsset("Images/00：60.jpg"),
+    repoAsset("Images/00：30.jpg"),
+    repoAsset("Images/00：00.jpg"),
+    repoAsset("Images/00：01.jpg"),
+    repoAsset("Images/0020.jpg"),
+    repoAsset("Images/0030.JPG"),
+    repoAsset("Images/0040车站.jpg"),
+    repoAsset("Images/0040车票.JPG"),
+    repoAsset("Images/00：40.jpg"),
+    repoAsset("Images/00：50.jpg"),
+    repoAsset("Images/00：50 小时候的家.jpg")
+  ];
+
+  var memoryMarkers = [
+    repoAsset("Images/进入回忆.jpg"),
+    repoAsset("Images/打开画本.jpg"),
+    repoAsset("Images/记忆碎片.png"),
+    repoAsset("Images/记忆碎片2.png"),
+    repoAsset("Images/记忆碎片3.png"),
+    repoAsset("Images/三扇门.jpg")
+  ];
+
+  var doorMarkers = [
+    repoAsset("Images/离开.jpg")
+  ];
+
+  var letterMarkers = [
+    repoAsset("Images/《离开》拾取的纸条.PNG")
+  ];
+
+  var endingMarkers = [
+    repoAsset("Images/结局1.jpg"),
+    repoAsset("Images/结局2.jpg"),
+    repoAsset("Images/结局3.jpg"),
+    repoAsset("Images/00：01.jpg"),
+    repoAsset("Images/00：00.jpg")
+  ];
+
+  function containsAny(text, markers) {
+    return markers.some(function (marker) {
+      return text.indexOf(marker) !== -1;
+    });
+  }
+
+  function getAudio(key) {
+    var cfg = audioConfig[key];
+    var audio;
+
+    if (!cfg) {
+      return null;
+    }
+
+    audio = audioState.sounds[key];
+    if (!audio) {
+      audio = new Audio(cfg.src);
+      audio.preload = "auto";
+      audio.loop = !!cfg.loop;
+      audio.volume = cfg.volume;
+      audioState.sounds[key] = audio;
+    }
+
+    return audio;
+  }
+
+  function playAudio(key) {
+    var audio = getAudio(key);
+
+    if (!audio) {
+      return;
+    }
+
+    try {
+      audio.currentTime = 0;
+    } catch (error) {
+    }
+
+    var promise;
+    try {
+      promise = audio.play();
+    } catch (error) {
+      return;
+    }
+
+    if (promise && typeof promise.catch === "function") {
+      promise.catch(function () {});
+    }
+  }
+
+  function stopAudio(key) {
+    var audio = getAudio(key);
+
+    if (!audio) {
+      return;
+    }
+
+    audio.pause();
+
+    try {
+      audio.currentTime = 0;
+    } catch (error) {
+    }
+  }
+
+  function setBgm(key) {
+    var nextKey = audioConfig[key] ? key : "bgm";
+    var prevKey = audioState.currentBgm;
+
+    audioState.currentBgm = nextKey;
+
+    if (prevKey && prevKey !== nextKey) {
+      stopAudio(prevKey);
+    }
+
+    ensureBgm();
+  }
+
+  function ensureBgm() {
+    if (!audioState.unlocked) {
+      return;
+    }
+
+    var bgm = getAudio(audioState.currentBgm || "bgm");
+
+    if (bgm && bgm.paused) {
+      playAudio(audioState.currentBgm || "bgm");
+    }
+  }
+
+  function unlockAudio() {
+    if (audioState.unlocked) {
+      return;
+    }
+
+    audioState.unlocked = true;
+    ensureBgm();
+  }
+
+  function playCueForPassage(box) {
+    var passage = box.closest("tw-passage");
+    var html;
+
+    if (!passage || passage.dataset.bzAudioDone === "true") {
+      return;
+    }
+
+    html = passage.innerHTML || "";
+    passage.dataset.bzAudioDone = "true";
+
+    if (containsAny(html, endingMarkers)) {
+      setBgm("ending");
+    } else {
+      setBgm("bgm");
+    }
+
+    if (containsAny(html, countdownMarkers)) {
+      playAudio("countdown");
+    }
+
+    if (containsAny(html, memoryMarkers)) {
+      playAudio("memory");
+    }
+
+    if (containsAny(html, doorMarkers)) {
+      playAudio("door");
+    }
+
+    if (containsAny(html, letterMarkers)) {
+      playAudio("letter");
+    }
+  }
+
+  document.addEventListener("pointerdown", unlockAudio, { once: true, capture: true });
+  document.addEventListener("keydown", unlockAudio, { once: true, capture: true });
+  document.addEventListener("click", function () {
+    playAudio("click");
+  }, true);
+
+  function parseChoiceMarkup(raw) {
+    var matches = [];
+    var pattern = /\[\[([^\]|]+?)(?:\|([^\]]+))?\]\]/g;
+    var match;
+
+    while ((match = pattern.exec(raw))) {
+      matches.push({
+        label: match[1].trim(),
+        target: (match[2] || match[1]).trim()
+      });
+    }
+
+    return matches;
+  }
+
+  function getEngine() {
+    if (window.Engine && typeof window.Engine.goToPassage === "function") {
+      return window.Engine;
+    }
+
+    if (typeof require === "function") {
+      try {
+        var engine = require("engine");
+        if (engine && typeof engine.goToPassage === "function") {
+          return engine;
+        }
+      } catch (error) {
+      }
+    }
+
+    return null;
+  }
+
+  function hydrateChoices(choices) {
+    if (!choices || choices.dataset.bzChoicesReady === "true") {
+      return;
+    }
+
+    if (choices.querySelector("tw-link, a, button")) {
+      choices.dataset.bzChoicesReady = "true";
+      return;
+    }
+
+    var raw = choices.getAttribute("data-raw") || choices.textContent || "";
+    var items = parseChoiceMarkup(raw);
+    if (!items.length) {
+      return;
+    }
+
+    choices.dataset.bzChoicesReady = "true";
+    choices.textContent = "";
+
+    items.forEach(function (item, itemIndex) {
+      var button = document.createElement("button");
+      button.type = "button";
+      button.className = "bz-choice-link";
+      button.textContent = item.label;
+      button.setAttribute("data-passage", item.target);
+      button.style.setProperty("--bz-choice-index", String(itemIndex));
+      button.addEventListener("click", function (event) {
+        var engine = getEngine();
+
+        event.preventDefault();
+        event.stopPropagation();
+
+        if (engine) {
+          engine.goToPassage(item.target);
+        }
+      });
+      choices.appendChild(button);
+    });
+  }
+
+  function setupDialogue(box) {
+    if (box.dataset.bzReady === "true") {
+      return;
+    }
+
+    var lines = Array.prototype.slice.call(box.querySelectorAll(".bz-line"));
+    if (!lines.length) {
+      return;
+    }
+
+    box.dataset.bzReady = "true";
+    box.classList.add("is-ready");
+    window.BeforeZeroDialogueFrameIndex = window.BeforeZeroDialogueFrameIndex || 0;
+    window.BeforeZeroDialogueFrameIndex += 1;
+    box.classList.add("is-frame-" + (((window.BeforeZeroDialogueFrameIndex - 1) % 3) + 1));
+
+    var choices = box.querySelector(".bz-choices");
+    if (choices) {
+      hydrateChoices(choices);
+      choices.classList.add("is-hidden");
+    }
+
+    var speaker = document.createElement("div");
+    speaker.className = "bz-speaker";
+    speaker.classList.add("is-hidden");
+
+    var text = document.createElement("div");
+    text.className = "bz-dialogue-text";
+    text.setAttribute("aria-live", "polite");
+
+    var next = document.createElement("button");
+    next.className = "bz-dialogue-next";
+    next.type = "button";
+    next.setAttribute("aria-label", "下一句");
+
+    box.insertBefore(speaker, lines[0]);
+    box.insertBefore(text, lines[0]);
+    box.appendChild(next);
+
+    var index = 0;
+    var isComplete = false;
+    var isTyping = false;
+    var typingTimer = 0;
+    var finishTimer = 0;
+    var currentMarkup = "";
+    var currentText = "";
+
+    function clearTimers() {
+      if (typingTimer) {
+        window.clearTimeout(typingTimer);
+        typingTimer = 0;
+      }
+
+      if (finishTimer) {
+        window.clearTimeout(finishTimer);
+        finishTimer = 0;
+      }
+    }
+
+    function syncSpeaker(name) {
+      var hasName = Boolean(name);
+
+      speaker.textContent = name;
+      speaker.classList.toggle("is-hidden", !hasName);
+      box.classList.toggle("has-speaker", hasName);
+    }
+
+    function scheduleFinish() {
+      if (finishTimer) {
+        window.clearTimeout(finishTimer);
+      }
+
+      finishTimer = window.setTimeout(finishDialogue, choices ? 260 : 520);
+    }
+
+    function commitCurrentLine() {
+      isTyping = false;
+      typingTimer = 0;
+      text.innerHTML = currentMarkup;
+      text.classList.remove("is-typing");
+
+      if (index === lines.length - 1) {
+        scheduleFinish();
+        return;
+      }
+
+      next.classList.remove("is-hidden");
+    }
+
+    function completeCurrentLine() {
+      if (!isTyping) {
+        return;
+      }
+
+      if (typingTimer) {
+        window.clearTimeout(typingTimer);
+        typingTimer = 0;
+      }
+
+      commitCurrentLine();
+    }
+
+    function startTypewriter(sourceText) {
+      var cursor = 0;
+      var total = sourceText.length;
+
+      isTyping = true;
+      next.classList.add("is-hidden");
+      text.textContent = "";
+      text.classList.remove("is-typing");
+      void text.offsetWidth;
+      text.classList.add("is-typing");
+
+      if (!total) {
+        commitCurrentLine();
+        return;
+      }
+
+      function step() {
+        var previousChar;
+        var delay;
+
+        if (!isTyping) {
+          return;
+        }
+
+        cursor += 1;
+        text.textContent = sourceText.slice(0, cursor);
+
+        if (cursor >= total) {
+          commitCurrentLine();
+          return;
+        }
+
+        previousChar = sourceText.charAt(cursor - 1);
+        delay = /[，。！？；：、,.!?…]/.test(previousChar) ? 92 : (/\s/.test(previousChar) ? 18 : 32);
+        typingTimer = window.setTimeout(step, delay);
+      }
+
+      step();
+    }
+
+    function renderLine() {
+      var line = lines[index];
+      var name = line.getAttribute("data-speaker") || "";
+
+      clearTimers();
+      currentMarkup = line.innerHTML;
+      currentText = line.textContent || "";
+      syncSpeaker(name);
+      startTypewriter(currentText);
+    }
+
+    function finishDialogue() {
+      if (isComplete) {
+        return;
+      }
+
+      if (finishTimer) {
+        window.clearTimeout(finishTimer);
+        finishTimer = 0;
+      }
+
+      isComplete = true;
+      box.classList.add("is-complete");
+      next.classList.add("is-hidden");
+      if (choices) {
+        choices.classList.remove("is-hidden");
+      }
+    }
+
+    function advanceDialogue() {
+      if (finishTimer) {
+        window.clearTimeout(finishTimer);
+        finishTimer = 0;
+      }
+
+      if (isComplete) {
+        return;
+      }
+
+      if (isTyping) {
+        completeCurrentLine();
+        return;
+      }
+
+      if (index < lines.length - 1) {
+        index += 1;
+        renderLine();
+        return;
+      }
+
+      finishDialogue();
+    }
+
+    next.addEventListener("click", function (event) {
+      event.preventDefault();
+      event.stopPropagation();
+      advanceDialogue();
+    });
+
+    box.addEventListener("click", function (event) {
+      if (event.target.closest("tw-link, a, button")) {
+        return;
+      }
+
+      advanceDialogue();
+    });
+
+    renderLine();
+    playCueForPassage(box);
+  }
+
+  function enhance(root) {
+    normalizeAssetUrls(root);
+    Array.prototype.forEach.call(root.querySelectorAll(".bz-dialogue"), setupDialogue);
+  }
+
+  function boot() {
+    syncAssetCssVars();
+    normalizeAssetUrls(document);
+    enhance(document);
+    ensureBgm();
+
+    var target = document.querySelector("tw-story") || document.body;
+    var observer = new MutationObserver(function () {
+      syncAssetCssVars();
+      normalizeAssetUrls(document);
+      enhance(document);
+      ensureBgm();
+    });
+
+    observer.observe(target, {
+      childList: true,
+      subtree: true
+    });
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", boot);
+  } else {
+    boot();
+  }
+})();
+
+
+:: 00:00 {"position":"3750,250","size":"100,100"}
+<div class="bz-stage">
+  <div class="bz-scene">
+    <img class="bz-scene-art" src="Images/00：00.jpg" alt="怀表归零">
+    <div class="bz-hud">
+      <span class="bz-time">00:00</span>
+      <span class="bz-place">归零</span>
+    </div>
+    <div class="bz-final-tag">
+      <strong>倒计时终盘</strong>
+      <b>00:00</b>
+      <span>归零时刻</span>
+    </div>
+    <div class="bz-dialogue">
+      <p class="bz-line" data-speaker="怀表">00:00</p>
+      <p class="bz-line" data-speaker="旁白">人生不是由剩余的时间决定，而是由曾经拥有的瞬间组成。</p>
+      <p class="bz-line" data-speaker="旁白">人生并不是只完成目标，也是在过程中找到自己。</p>
+      <div class="bz-choices">[[重新开始|Before Zero]]</div>
+    </div>
+  </div>
+</div>
+
+
+:: 00:01 {"position":"3625,250","size":"100,100"}
+<div class="bz-stage">
+  <div class="bz-scene">
+    <img class="bz-scene-art" src="Images/00：01.jpg" alt="最后一秒">
+    <div class="bz-hud">
+      <span class="bz-time">00:01</span>
+      <span class="bz-memory-tag">三块记忆已回收</span>
+    </div>
+    <div class="bz-final-tag">
+      <strong>倒计时终盘</strong>
+      <b>00:01</b>
+      <span>最后提问</span>
+    </div>
+    <div class="bz-dialogue">
+      <p class="bz-line" data-speaker="怀表">秒针停在最后一格。</p>
+      <p class="bz-line" data-speaker="神秘声音">最后一个问题。</p>
+      <p class="bz-line" data-speaker="神秘声音">你想留下什么？</p>
+      <p class="bz-line" data-speaker="旁白">主角看着三块记忆。照片、车票、画纸，在光里轻轻浮起。</p>
+      <p class="bz-line" data-speaker="主角">不是过去。</p>
+      <p class="bz-line" data-speaker="主角">不是遗憾。</p>
+      <p class="bz-line" data-speaker="主角">而是那些让我成为现在的我的瞬间。</p>
+      <div class="bz-choices">[[让时间归零|00:00]]</div>
+    </div>
+  </div>
+</div>
+
+
+:: 00:10 {"position":"3150,250","size":"100,100"}
+<div class="bz-stage">
+  <div class="bz-scene">
+    <img class="bz-scene-art" src="Images/0020.jpg" alt="最后选择">
+    <div class="bz-hud">
+      <span class="bz-time">00:10</span>
+      <span class="bz-place">最后选择</span>
+    </div>
+    <div class="bz-final-tag">
+      <strong>倒计时终盘</strong>
+      <b>00:10</b>
+      <span>选择分岔</span>
+    </div>
+    <div class="bz-choice-panel">
+      <h2>你想改变什么？</h2>
+      <p>三块碎片围绕着怀表旋转，像三条通往不同结局的路。</p>
+      <div class="bz-choice-row">
+        [[回到过去]]
+        [[留下记忆]]
+        [[拒绝离开]]
+      </div>
+    </div>
+  </div>
+</div>
+
+
+:: 00:20 {"position":"3025,250","size":"100,100"}
+<div class="bz-stage">
+  <div class="bz-scene">
+    <img class="bz-scene-art is-contain" src="Images/记忆碎片2.png" alt="记忆碎片">
+    <div class="bz-hud">
+      <span class="bz-time">00:20</span>
+      <span class="bz-memory-tag">记忆回路完成</span>
+    </div>
+    <div class="bz-final-tag">
+      <strong>倒计时终盘</strong>
+      <b>00:20</b>
+      <span>记忆收束</span>
+    </div>
+    <div class="bz-dialogue">
+      <p class="bz-line" data-speaker="旁白">三块记忆碎片漂浮在空中，裂缝里的光慢慢合拢。</p>
+      <p class="bz-line" data-speaker="神秘声音">你已经看到了自己的过去。</p>
+      <p class="bz-line" data-speaker="神秘声音">现在告诉我。</p>
+      <p class="bz-line" data-speaker="神秘声音">你想改变什么？</p>
+      <div class="bz-choices">[[回答最后的问题|00:10]]</div>
+    </div>
+  </div>
+</div>
+
+
+:: 00：30《放弃的梦想》 {"position":"2375,250","size":"100,100"}
+<div class="bz-stage">
+  <div class="bz-scene">
+    <img class="bz-scene-art" src="Images/0030.JPG" alt="堆满旧画本的房间">
+    <div class="bz-hud">
+      <span class="bz-time">00:30</span>
+      <span class="bz-place">放弃的梦想</span>
+    </div>
+    <div class="bz-time-float">
+      <img src="Images/00：30.jpg" alt="00:30 时间卡">
+    </div>
+    <div class="bz-dialogue">
+      <p class="bz-line" data-speaker="旁白">第三扇门后，是一间被午后阳光塞满的房间。</p>
+      <p class="bz-line" data-speaker="旁白">桌上摊着画本、模型和旧奖状，灰尘停在它们边缘。</p>
+      <p class="bz-line" data-speaker="主角">这些东西……</p>
+      <p class="bz-line" data-speaker="主角">我已经很久没有见过了。</p>
+      <div class="bz-choices">[[打开画本]]</div>
+    </div>
+  </div>
+</div>
+
+
+:: 00：40《错过的约定》 {"position":"1875,250","size":"100,100"}
+<div class="bz-stage">
+  <div class="bz-scene">
+    <img class="bz-scene-art" src="Images/0040车站.jpg" alt="没有列车进站的站台">
+    <div class="bz-hud">
+      <span class="bz-time">00:40</span>
+      <span class="bz-place">错过的约定</span>
+    </div>
+    <div class="bz-time-float">
+      <img src="Images/00：40.jpg" alt="00:40 时间卡">
+    </div>
+    <div class="bz-dialogue">
+      <p class="bz-line" data-speaker="旁白">第二扇门后，是一座没有列车进站的站台。</p>
+      <p class="bz-line" data-speaker="旁白">长椅上放着一张旧车票，目的地被揉得发白。</p>
+      <p class="bz-line" data-speaker="主角">这里是……</p>
+      <p class="bz-line" data-speaker="主角">我们约好的地方。</p>
+      <div class="bz-choices">[[拾取车票]]</div>
+    </div>
+  </div>
+</div>
+
+
+:: 00：50《未说出口的道歉》 {"position":"1250,250","size":"100,100"}
+<div class="bz-stage">
+  <div class="bz-scene">
+    <img class="bz-scene-art" src="Images/00：50 小时候的家.jpg" alt="小时候的家">
+    <div class="bz-hud">
+      <span class="bz-time">00:50</span>
+      <span class="bz-place">未说出口的道歉</span>
+    </div>
+    <div class="bz-time-float">
+      <img src="Images/00：50.jpg" alt="00:50 时间卡">
+    </div>
+    <div class="bz-dialogue">
+      <p class="bz-line" data-speaker="旁白">第一扇门打开时，空气里有熟悉的饭菜香。</p>
+      <p class="bz-line" data-speaker="旁白">屋子里很安静，桌上只放着一张家人的合照。</p>
+      <p class="bz-line" data-speaker="主角">这里……</p>
+      <p class="bz-line" data-speaker="主角">我好像来过。</p>
+      <div class="bz-choices">[[拾取照片]]</div>
+    </div>
+  </div>
+</div>
+
+
+:: ? {"position":"975,500","size":"100,100"}
+<div class="bz-stage">
+  <div class="bz-scene">
+    <img class="bz-scene-art" src="Images/游戏开始“墙上的表”.jpg" alt="墙上的表">
+    <div class="bz-hud">
+      <span class="bz-time">00:60</span>
+      <span class="bz-place">停止的房间</span>
+    </div>
+    <div class="bz-dialogue">
+      <p class="bz-line" data-speaker="主角">一分钟？</p>
+      <p class="bz-line" data-speaker="主角">什么意思？</p>
+      <p class="bz-line" data-speaker="神秘声音">时间不是给你逃走的。</p>
+      <p class="bz-line" data-speaker="神秘声音">它只是让你看清楚，自己一直没有看完的东西。</p>
+      <div class="bz-choices">[[回答]]</div>
+    </div>
+  </div>
+</div>
+
+
+:: Before Zero {"position":"600,250","size":"100,100"}
+<div class="bz-stage">
+  <div class="bz-scene">
+    <img class="bz-scene-art" src="Images/游戏标题.jpg" alt="Before Zero 标题">
+    <div class="bz-title-card bz-title-card-image-only">
+      <div class="bz-start">[[进入故事|Game Start]]</div>
+    </div>
+  </div>
+</div>
+
+
+:: Game Start {"position":"725,250","size":"100,100"}
+<div class="bz-stage">
+  <div class="bz-scene">
+    <img class="bz-scene-art" src="Images/游戏标题.jpg" alt="游戏开始">
+    <div class="bz-hud">
+      <span class="bz-time">Before Zero</span>
+      <span class="bz-place">序章</span>
+    </div>
+    <div class="bz-dialogue">
+      <p class="bz-line" data-speaker="旁白">如果只能再回头看一分钟，你会先想起谁？</p>
+      <p class="bz-line" data-speaker="旁白">如果只能带走一件东西，你会带走答案，还是带走遗憾？</p>
+      <div class="bz-choices">[[游戏开始]]</div>
+    </div>
+  </div>
+</div>
+
+
+:: click countdown {"position":"975,375","size":"100,100"}
+<div class="bz-stage">
+  <div class="bz-scene">
+    <img class="bz-scene-art" src="Images/游戏开始：桌子上的表.jpg" alt="桌上的怀表">
+    <div class="bz-hud">
+      <span class="bz-time">00:60</span>
+      <span class="bz-place">怀表启动</span>
+    </div>
+    <div class="bz-dialogue">
+      <p class="bz-line" data-speaker="主角">……这是哪里？</p>
+      <p class="bz-line" data-speaker="主角">我为什么会在这里？</p>
+      <p class="bz-line" data-speaker="神秘声音">你还有一分钟。</p>
+      <p class="bz-line" data-speaker="旁白">怀表发出很轻的声响，像在倒数，又像在提醒。</p>
+      <div class="bz-choices">[[追问声音|?]]</div>
+    </div>
+  </div>
+</div>
+
+
+:: 之后 {"position":"2125,250","size":"100,100"}
+<div class="bz-stage">
+  <div class="bz-scene">
+    <img class="bz-scene-art" src="Images/00：40.jpg" alt="倒计时四十秒">
+    <div class="bz-hud">
+      <span class="bz-time">00:40</span>
+      <span class="bz-place">多年之后</span>
+    </div>
+    <div class="bz-dialogue">
+      <p class="bz-line" data-speaker="旁白">时间跳到很多年后。</p>
+      <p class="bz-line" data-speaker="旁白">一次争吵后，手机里留着一条一直没有发出的信息。</p>
+      <p class="bz-line" data-speaker="手机草稿">最近还好吗？</p>
+      <p class="bz-line" data-speaker="旁白">发送键亮着，却像隔着一整片海。</p>
+      <div class="bz-choices">[[多年后]]</div>
+    </div>
+  </div>
+</div>
+
+
+:: 前往 {"position":"1125,250","size":"100,100"}
+<div class="bz-stage">
+  <div class="bz-scene">
+    <img class="bz-scene-art" src="Images/三扇门.jpg" alt="三扇门">
+    <div class="bz-hud">
+      <span class="bz-time">00:55</span>
+      <span class="bz-place">记忆回廊</span>
+    </div>
+    <div class="bz-dialogue">
+      <p class="bz-line" data-speaker="神秘声音">依次进入这三扇门。</p>
+      <p class="bz-line" data-speaker="神秘声音">不是为了惩罚你。</p>
+      <p class="bz-line" data-speaker="神秘声音">是为了让你看见，自己真正想留下的是什么。</p>
+      <p class="bz-line" data-speaker="旁白">第一扇门上的数字，在黑暗里微微发亮。</p>
+      <div class="bz-choices">[[进入第一扇门|00：50《未说出口的道歉》]]</div>
+    </div>
+  </div>
+</div>
+
+
+:: 回到过去 {"position":"3300,100","size":"100,100"}
+<div class="bz-stage">
+  <div class="bz-scene">
+    <img class="bz-scene-art is-contain" src="Images/记忆碎片.png" alt="回到过去">
+    <div class="bz-hud">
+      <span class="bz-time">选择</span>
+      <span class="bz-place">回到过去</span>
+    </div>
+    <div class="bz-dialogue">
+      <p class="bz-line" data-speaker="主角">如果可以重新开始……</p>
+      <p class="bz-line" data-speaker="主角">我想回到还来得及说出口的时候。</p>
+      <div class="bz-choices">[[结局]]</div>
+    </div>
+  </div>
+</div>
+
+
+:: 回忆 {"position":"1500,250","size":"100,100"}
+<div class="bz-stage">
+  <div class="bz-scene">
+    <img class="bz-scene-art" src="Images/00：50 小时候的家.jpg" alt="小时候的家">
+    <div class="bz-hud">
+      <span class="bz-time">记忆 1</span>
+      <span class="bz-place">小时候的家</span>
+    </div>
+    <div class="bz-dialogue">
+      <p class="bz-line" data-speaker="父母">不要一直玩了，出来吃饭吧。</p>
+      <p class="bz-line" data-speaker="小主角">我不要！</p>
+      <p class="bz-line" data-speaker="小主角">你们根本不懂我！</p>
+      <p class="bz-line" data-speaker="旁白">门被重重关上，门外却没有责骂声。</p>
+      <div class="bz-choices">[[离开]]</div>
+    </div>
+  </div>
+</div>
+
+
+:: 回忆结束 {"position":"1625,500","size":"100,100"}
+<div class="bz-stage">
+  <div class="bz-scene">
+    <img class="bz-scene-art" src="Images/离开.jpg" alt="纸条与水杯">
+    <div class="bz-hud">
+      <span class="bz-time">记忆 1</span>
+      <span class="bz-place">理解</span>
+    </div>
+    <div class="bz-dialogue">
+      <p class="bz-line" data-speaker="主角">原来……</p>
+      <p class="bz-line" data-speaker="主角">他们从来没有生我的气。</p>
+      <p class="bz-line" data-speaker="主角">只是我一直在赌气，不想先低头。</p>
+      <p class="bz-line" data-speaker="旁白">那句没有说出口的道歉，终于找到了回声。</p>
+      <div class="bz-choices">[[获得记忆碎片]]</div>
+    </div>
+  </div>
+</div>
+
+
+:: 回答 {"position":"975,625","size":"100,100"}
+<div class="bz-stage">
+  <div class="bz-scene">
+    <img class="bz-scene-art" src="Images/三扇门.jpg" alt="通往记忆的门">
+    <div class="bz-hud">
+      <span class="bz-time">00:55</span>
+      <span class="bz-place">门出现了</span>
+    </div>
+    <div class="bz-dialogue">
+      <p class="bz-line" data-speaker="神秘声音">当时间归零，你会离开这里。</p>
+      <p class="bz-line" data-speaker="神秘声音">但在离开之前，你还有机会见到一些东西。</p>
+      <p class="bz-line" data-speaker="主角">那些东西……是我丢下的吗？</p>
+      <p class="bz-line" data-speaker="神秘声音">也许是你以为已经不重要的东西。</p>
+      <div class="bz-choices">[[前往]]</div>
+    </div>
+  </div>
+</div>
+
+
+:: 多年后 {"position":"2250,250","size":"100,100"}
+<div class="bz-stage">
+  <div class="bz-scene">
+    <img class="bz-scene-art" src="Images/多年后.jpg" alt="没有发出的消息">
+    <div class="bz-hud">
+      <span class="bz-time">记忆 2</span>
+      <span class="bz-place">没有发出的消息</span>
+    </div>
+    <div class="bz-dialogue">
+      <p class="bz-line" data-speaker="旁白">主角一直没有按下发送。</p>
+      <p class="bz-line" data-speaker="主角">原来我从来没有忘记这段约定。</p>
+      <p class="bz-line" data-speaker="主角">只是害怕再次面对，会重新失去朋友。</p>
+      <p class="bz-line" data-speaker="旁白">车票的背面，仍然写着“一起去看海”。</p>
+      <div class="bz-choices">[[获得记忆碎片2]]</div>
+    </div>
+  </div>
+</div>
+
+
+:: 打开画本 {"position":"2500,250","size":"100,100"}
+<div class="bz-stage">
+  <div class="bz-scene">
+    <img class="bz-scene-art" src="Images/打开画本.jpg" alt="打开画本">
+    <div class="bz-hud">
+      <span class="bz-time">00:30</span>
+      <span class="bz-place">旧画本</span>
+    </div>
+    <div class="bz-dialogue">
+      <p class="bz-line" data-speaker="旁白">画本的第一页被反复翻过，边角已经卷起。</p>
+      <p class="bz-line" data-speaker="画本">长大以后，我要让更多人喜欢我的设计。</p>
+      <p class="bz-line" data-speaker="主角">这是我写的？</p>
+      <p class="bz-line" data-speaker="旁白">笔迹笨拙，却比现在的任何计划都要坚定。</p>
+      <div class="bz-choices">[[进入回忆]]</div>
+    </div>
+  </div>
+</div>
+
+
+:: 拒绝离开 {"position":"3300,400","size":"100,100"}
+<div class="bz-stage">
+  <div class="bz-scene">
+    <img class="bz-scene-art is-contain" src="Images/记忆碎片2.png" alt="拒绝离开">
+    <div class="bz-hud">
+      <span class="bz-time">选择</span>
+      <span class="bz-place">拒绝离开</span>
+    </div>
+    <div class="bz-dialogue">
+      <p class="bz-line" data-speaker="主角">我还没有准备好离开我的人生。</p>
+      <p class="bz-line" data-speaker="主角">如果回忆能停住，那我宁愿留在这里。</p>
+      <div class="bz-choices">[[结局3]]</div>
+    </div>
+  </div>
+</div>
+
+
+:: 拾取照片 {"position":"1375,250","size":"100,100"}
+<div class="bz-stage">
+  <div class="bz-scene">
+    <img class="bz-scene-art" src="Images/9家人的合照.jpg" alt="拾取照片">
+    <div class="bz-hud">
+      <span class="bz-time">00:50</span>
+      <span class="bz-place">旧照片</span>
+    </div>
+    <div class="bz-dialogue">
+      <p class="bz-line" data-speaker="旁白">照片里的人站得很近，笑容却被时间磨得模糊。</p>
+      <p class="bz-line" data-speaker="主角">我记得这一天。</p>
+      <p class="bz-line" data-speaker="主角">也记得我后来为什么不肯走出房间。</p>
+      <div class="bz-choices">[[回忆]]</div>
+    </div>
+  </div>
+</div>
+
+
+:: 拾取纸条 {"position":"1625,375","size":"100,100"}
+<div class="bz-stage">
+  <div class="bz-scene">
+    <img class="bz-scene-art" src="Images/《离开》拾取的纸条.PNG" alt="拾取纸条">
+    <div class="bz-hud">
+      <span class="bz-time">记忆 1</span>
+      <span class="bz-place">纸条</span>
+    </div>
+    <div class="bz-dialogue">
+      <p class="bz-line" data-speaker="纸条">记得吃饭。</p>
+      <p class="bz-line" data-speaker="纸条">我们永远在等你。</p>
+      <p class="bz-line" data-speaker="主角">他们一直都在等我先开门。</p>
+      <div class="bz-choices">[[回忆结束]]</div>
+    </div>
+  </div>
+</div>
+
+
+:: 拾取车票 {"position":"2000,250","size":"100,100"}
+<div class="bz-stage">
+  <div class="bz-scene">
+    <img class="bz-scene-art" src="Images/拾取车票“一去看海”.jpg" alt="拾取车票">
+    <div class="bz-hud">
+      <span class="bz-time">记忆 2</span>
+      <span class="bz-place">车站</span>
+    </div>
+    <div class="bz-dialogue">
+      <p class="bz-line" data-speaker="旁白">年轻的主角和朋友站在站台边，风吹得车票轻轻作响。</p>
+      <p class="bz-line" data-speaker="朋友">等以后有时间，我们一定一起去看海。</p>
+      <p class="bz-line" data-speaker="主角">说好了！</p>
+      <p class="bz-line" data-speaker="主角">一定！</p>
+      <div class="bz-choices">[[之后]]</div>
+    </div>
+  </div>
+</div>
+
+
+:: 拾起小时候的画 {"position":"2750,250","size":"100,100"}
+<div class="bz-stage">
+  <div class="bz-scene">
+    <img class="bz-scene-art" src="Images/进入回忆.jpg" alt="小时候的画">
+    <div class="bz-hud">
+      <span class="bz-time">记忆 3</span>
+      <span class="bz-place">找回梦想</span>
+    </div>
+    <div class="bz-dialogue">
+      <p class="bz-line" data-speaker="主角">我以为我失去了梦想。</p>
+      <p class="bz-line" data-speaker="主角">其实只是把它藏起来了。</p>
+      <p class="bz-line" data-speaker="旁白">画纸没有责怪他，只是安静地等他再次拿起笔。</p>
+      <div class="bz-choices">[[获得记忆碎片3]]</div>
+    </div>
+  </div>
+</div>
+
+
+:: 未命名片段 {"position":"2400,600","size":"100,100"}
+
+
+
+:: 游戏开始 {"position":"850,250","size":"100,100"}
+<div class="bz-stage">
+  <div class="bz-scene">
+    <img class="bz-scene-art" src="Images/3陌生的房间.jpg" alt="陌生房间">
+    <div class="bz-hud">
+      <span class="bz-time">00:60</span>
+      <span class="bz-place">陌生房间</span>
+    </div>
+    <div class="bz-time-float">
+      <img src="Images/00：60.jpg" alt="00:60 时间卡">
+    </div>
+    <div class="bz-dialogue">
+      <p class="bz-line" data-speaker="旁白">滴。滴。滴。</p>
+      <p class="bz-line" data-speaker="旁白">画面慢慢亮起，像有人把尘封的灯重新拧开。</p>
+      <p class="bz-line" data-speaker="主角">我睁开眼，发现自己躺在一间陌生的房间里。</p>
+      <p class="bz-line" data-speaker="旁白">房间很安静，墙上的时钟停止转动。桌子上放着一个怀表。</p>
+      <p class="bz-line" data-speaker="主角">这里不像医院，也不像梦。</p>
+      <div class="bz-choices">[[靠近怀表|秒表]]</div>
+    </div>
+  </div>
+</div>
+
+
+:: 留下记忆 {"position":"3300,250","size":"100,100"}
+<div class="bz-stage">
+  <div class="bz-scene">
+    <img class="bz-scene-art is-contain" src="Images/记忆碎片2.png" alt="留下记忆">
+    <div class="bz-hud">
+      <span class="bz-time">选择</span>
+      <span class="bz-place">留下记忆</span>
+    </div>
+    <div class="bz-dialogue">
+      <p class="bz-line" data-speaker="主角">这些遗憾，也是我的人生。</p>
+      <p class="bz-line" data-speaker="主角">如果它们让我成为现在的我，我就把它们一起留下。</p>
+      <div class="bz-choices">[[结局2]]</div>
+    </div>
+  </div>
+</div>
+
+
+:: 离开 {"position":"1625,250","size":"100,100"}
+<div class="bz-stage">
+  <div class="bz-scene">
+    <img class="bz-scene-art" src="Images/离开.jpg" alt="离开房间">
+    <div class="bz-hud">
+      <span class="bz-time">记忆 1</span>
+      <span class="bz-place">门外</span>
+    </div>
+    <div class="bz-dialogue">
+      <p class="bz-line" data-speaker="旁白">晚上。</p>
+      <p class="bz-line" data-speaker="旁白">桌上放着一杯水和一张纸条。</p>
+      <p class="bz-line" data-speaker="旁白">水已经不热了，纸条却像刚放下不久。</p>
+      <div class="bz-choices">[[拾取纸条]]</div>
+    </div>
+  </div>
+</div>
+
+
+:: 秒表 {"position":"975,250","size":"100,100"}
+<div class="bz-stage">
+  <div class="bz-scene">
+    <img class="bz-scene-art" src="Images/游戏开始：桌子上的表.jpg" alt="桌子上的怀表">
+    <div class="bz-hud">
+      <span class="bz-time">怀表</span>
+      <span class="bz-place">可交互物件</span>
+    </div>
+    <div class="bz-dialogue">
+      <p class="bz-line" data-speaker="旁白">怀表躺在桌面上，表盖半开，里面没有指针。</p>
+      <p class="bz-line" data-speaker="旁白">当主角伸手时，缺失的指针突然出现。</p>
+      <p class="bz-line" data-speaker="怀表">00:60</p>
+      <div class="bz-choices">[[触碰怀表|click countdown]]</div>
+    </div>
+  </div>
+</div>
+
+
+:: 结局 {"position":"3425,100","size":"100,100"}
+<div class="bz-stage">
+  <div class="bz-scene">
+    <img class="bz-scene-art" src="Images/结局1.jpg" alt="结局一">
+    <div class="bz-hud">
+      <span class="bz-time">结局</span>
+      <span class="bz-place">回到过去</span>
+    </div>
+    <div class="bz-dialogue">
+      <p class="bz-line" data-speaker="旁白">照片被重新拼好，碎片之间却仍然有细细的裂痕。</p>
+      <p class="bz-line" data-speaker="主角">也许重要的不是改变过去。</p>
+      <p class="bz-line" data-speaker="主角">而是终于愿意珍惜现在。</p>
+      <div class="bz-choices">[[走向最后一秒|00:01]]</div>
+    </div>
+  </div>
+</div>
+
+
+:: 结局2 {"position":"3425,250","size":"100,100"}
+<div class="bz-stage">
+  <div class="bz-scene">
+    <img class="bz-scene-art" src="Images/结局2.jpg" alt="结局二">
+    <div class="bz-hud">
+      <span class="bz-time">结局</span>
+      <span class="bz-place">留下记忆</span>
+    </div>
+    <div class="bz-dialogue">
+      <p class="bz-line" data-speaker="旁白">他收起所有记忆，连同那些刺痛一起放进怀表。</p>
+      <p class="bz-line" data-speaker="旁白">怀表变得很轻。</p>
+      <p class="bz-line" data-speaker="主角">原来遗憾不是要被抹掉的。</p>
+      <p class="bz-line" data-speaker="主角">它提醒我，我曾经真正在乎过。</p>
+      <div class="bz-choices">[[走向最后一秒|00:01]]</div>
+    </div>
+  </div>
+</div>
+
+
+:: 结局3 {"position":"3425,400","size":"100,100"}
+<div class="bz-stage">
+  <div class="bz-scene">
+    <img class="bz-scene-art" src="Images/结局3.jpg" alt="结局三">
+    <div class="bz-hud">
+      <span class="bz-time">结局</span>
+      <span class="bz-place">停留</span>
+    </div>
+    <div class="bz-dialogue">
+      <p class="bz-line" data-speaker="旁白">他永远停留在回忆里。</p>
+      <p class="bz-line" data-speaker="旁白">门一扇扇关上，怀表却再也没有归零。</p>
+      <p class="bz-line" data-speaker="神秘声音">有些人以为留住过去，就能不必离开。</p>
+      <p class="bz-line" data-speaker="神秘声音">可停下来的，从来不只是时间。</p>
+      <div class="bz-choices">[[走向最后一秒|00:01]]</div>
+    </div>
+  </div>
+</div>
+
+
+:: 获得记忆碎片 {"position":"1750,250","size":"100,100"}
+<div class="bz-stage">
+  <div class="bz-scene">
+    <img class="bz-scene-art bz-scene-art-door-echo" src="Images/三扇门.jpg" alt="三扇门">
+    <img class="bz-scene-art is-contain" src="Images/记忆碎片.png" alt="一句迟到的道歉">
+    <div class="bz-hud">
+      <span class="bz-time">00:45</span>
+      <span class="bz-memory-tag">记忆碎片 1/3</span>
+    </div>
+    <div class="bz-fragment-title">
+      <strong>获得记忆碎片</strong>
+      <span>一句迟到的道歉</span>
+    </div>
+    <div class="bz-dialogue">
+      <p class="bz-line" data-speaker="旁白">碎片落入怀表，表盘上多出一道温暖的刻痕。</p>
+      <p class="bz-line" data-speaker="神秘声音">下一扇门已经打开。</p>
+      <div class="bz-choices">[[进入第二扇门|00：40《错过的约定》]]</div>
+    </div>
+  </div>
+</div>
+
+
+:: 获得记忆碎片2 {"position":"2250,375","size":"100,100"}
+<div class="bz-stage">
+  <div class="bz-scene">
+    <img class="bz-scene-art bz-scene-art-door-echo" src="Images/三扇门.jpg" alt="三扇门">
+    <img class="bz-scene-art is-contain" src="Images/记忆碎片2.png" alt="没有完成的约定">
+    <div class="bz-hud">
+      <span class="bz-time">00:35</span>
+      <span class="bz-memory-tag">记忆碎片 2/3</span>
+    </div>
+    <div class="bz-fragment-title">
+      <strong>获得记忆碎片</strong>
+      <span>没有完成的约定</span>
+    </div>
+    <div class="bz-dialogue">
+      <p class="bz-line" data-speaker="旁白">车票化成细小的光，贴在怀表边缘。</p>
+      <p class="bz-line" data-speaker="主角">我不是忘了。</p>
+      <p class="bz-line" data-speaker="主角">我只是一直不敢承认还想去。</p>
+      <div class="bz-choices">[[进入第三扇门|00：30《放弃的梦想》]]</div>
+    </div>
+  </div>
+</div>
+
+
+:: 获得记忆碎片3 {"position":"2875,250","size":"100,100"}
+<div class="bz-stage">
+  <div class="bz-scene">
+    <img class="bz-scene-art bz-scene-art-door-echo" src="Images/三扇门.jpg" alt="三扇门">
+    <img class="bz-scene-art is-contain" src="Images/记忆碎片3.png" alt="曾经的自己">
+    <div class="bz-hud">
+      <span class="bz-time">00:20</span>
+      <span class="bz-memory-tag">记忆碎片 3/3</span>
+    </div>
+    <div class="bz-fragment-title">
+      <strong>获得记忆碎片</strong>
+      <span>曾经的自己</span>
+    </div>
+    <div class="bz-dialogue">
+      <p class="bz-line" data-speaker="旁白">最后一块碎片进入怀表，三道刻痕连成完整的圆。</p>
+      <p class="bz-line" data-speaker="神秘声音">现在，你可以回答最后的问题了。</p>
+      <div class="bz-choices">[[回到记忆核心|00:20]]</div>
+    </div>
+  </div>
+</div>
+
+
+:: 进入回忆 {"position":"2500,375","size":"100,100"}
+<div class="bz-stage">
+  <div class="bz-scene">
+    <img class="bz-scene-art" src="Images/进入回忆.jpg" alt="童年的画">
+    <div class="bz-hud">
+      <span class="bz-time">记忆 3</span>
+      <span class="bz-place">小时候</span>
+    </div>
+    <div class="bz-dialogue">
+      <p class="bz-line" data-speaker="旁白">小时候的主角趴在桌上画画，手肘沾满铅笔灰。</p>
+      <p class="bz-line" data-speaker="小主角">以后我要做一个很棒的作品！</p>
+      <p class="bz-line" data-speaker="小主角">希望长大后的我，还能喜欢现在的自己。</p>
+      <p class="bz-line" data-speaker="旁白">这句话像一枚折好的纸飞机，穿过许多年，落在他脚边。</p>
+      <div class="bz-choices">[[长大后]]</div>
+    </div>
+  </div>
+</div>
+
+
+:: 长大后 {"position":"2625,250","size":"100,100"}
+<div class="bz-stage">
+  <div class="bz-scene">
+    <img class="bz-scene-art" src="Images/长大后.JPG" alt="长大后的办公室">
+    <div class="bz-hud">
+      <span class="bz-time">记忆 3</span>
+      <span class="bz-place">长大后</span>
+    </div>
+    <div class="bz-dialogue">
+      <p class="bz-line" data-speaker="旁白">画面切换。长大后的主角坐在办公室，桌上堆满文件。</p>
+      <p class="bz-line" data-speaker="主角">什么时候开始……</p>
+      <p class="bz-line" data-speaker="主角">我忘记自己喜欢什么了？</p>
+      <p class="bz-line" data-speaker="主角">梦想啊……我早就忘了。</p>
+      <p class="bz-line" data-speaker="旁白">抽屉里，一张小时候的画露出半角。</p>
+      <div class="bz-choices">[[拾起小时候的画]]</div>
+    </div>
+  </div>
+</div>
