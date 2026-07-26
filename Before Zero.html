@@ -9,7 +9,7 @@
 </head>
 <body>
 <tw-story><noscript><tw-noscript>JavaScript needs to be enabled to play Before Zero.</tw-noscript></noscript></tw-story>
-<tw-storydata name="Before Zero" startnode="9" creator="Twine" creator-version="2.10.0" format="Harlowe" format-version="3.3.9" ifid="A61CD338-A3CF-40AB-BA7F-915D5441705F" options="" tags="" zoom="1" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">:root {
+<tw-storydata name="Before Zero" startnode="10" creator="Twine" creator-version="2.10.0" format="Harlowe" format-version="3.3.9" ifid="A61CD338-A3CF-40AB-BA7F-915D5441705F" options="" tags="" zoom="1" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">:root {
   --bz-ink: #1d1a16;
   --bz-paper: #f3ead8;
   --bz-paper-muted: #cfc1a7;
@@ -174,6 +174,22 @@ a {
   padding: clamp(4px, 1.6vw, 18px);
   box-sizing: border-box;
   background: transparent;
+}
+
+.bz-scene.bz-image-only {
+  background: #000;
+  box-shadow: none;
+}
+
+.bz-scene.bz-image-only::before,
+.bz-scene.bz-image-only::after {
+  display: none;
+}
+
+.bz-scene.bz-image-only .bz-scene-art {
+  object-fit: contain;
+  filter: none;
+  background: #000;
 }
 
 .bz-scene-art-door-echo {
@@ -1606,7 +1622,7 @@ a {
       &lt;div class=&quot;bz-choices&quot;&gt;[[重新选择]]&lt;/div&gt;
     &lt;/div&gt;
   &lt;/div&gt;
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="38" name="重新选择" tags="" position="3875,250" size="100,100">&lt;div class=&quot;bz-stage&quot;&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="2" name="重新选择" tags="" position="3875,250" size="100,100">&lt;div class=&quot;bz-stage&quot;&gt;
   &lt;div class=&quot;bz-scene&quot;&gt;
     &lt;img class=&quot;bz-scene-art&quot; src=&quot;Images/游戏结束最后一张.jpg&quot; alt=&quot;重新选择&quot;&gt;
     &lt;div class=&quot;bz-hud&quot;&gt;
@@ -1620,11 +1636,18 @@ a {
     &lt;/div&gt;
     &lt;div class=&quot;bz-dialogue&quot;&gt;
       &lt;p class=&quot;bz-line&quot; data-speaker=&quot;旁白&quot;&gt;怀表没有把你送回起点。&lt;/p&gt;
-      &lt;p class=&quot;bz-line&quot; data-speaker=&quot;旁白&quot;&gt;它只把最后的分岔，再一次放到你面前。&lt;/p&gt;
-      &lt;div class=&quot;bz-choices&quot;&gt;[[回到三选一|00:10]]&lt;/div&gt;
+    &lt;p class=&quot;bz-line&quot; data-speaker=&quot;旁白&quot;&gt;它只把最后的分岔，再一次放到你面前。&lt;/p&gt;
+    &lt;div class=&quot;bz-choices&quot;&gt;
+      [[回到三选一|00:10]]
+      [[游戏结束]]
     &lt;/div&gt;
   &lt;/div&gt;
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="2" name="00:01" tags="" position="3625,250" size="100,100">&lt;div class=&quot;bz-stage&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="39" name="游戏结束" tags="" position="4000,375" size="100,100">&lt;div class=&quot;bz-stage&quot;&gt;
+  &lt;div class=&quot;bz-scene bz-image-only&quot;&gt;
+    &lt;img class=&quot;bz-scene-art&quot; src=&quot;Images/游戏结束最后一张.jpg&quot; alt=&quot;游戏结束&quot;&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="3" name="00:01" tags="" position="3625,250" size="100,100">&lt;div class=&quot;bz-stage&quot;&gt;
   &lt;div class=&quot;bz-scene&quot;&gt;
     &lt;img class=&quot;bz-scene-art&quot; src=&quot;Images/00：01.jpg&quot; alt=&quot;最后一秒&quot;&gt;
     &lt;div class=&quot;bz-hud&quot;&gt;
@@ -1647,7 +1670,7 @@ a {
       &lt;div class=&quot;bz-choices&quot;&gt;[[让时间归零|00:00]]&lt;/div&gt;
     &lt;/div&gt;
   &lt;/div&gt;
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="3" name="00:10" tags="" position="3150,250" size="100,100">&lt;div class=&quot;bz-stage&quot;&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="4" name="00:10" tags="" position="3150,250" size="100,100">&lt;div class=&quot;bz-stage&quot;&gt;
   &lt;div class=&quot;bz-scene&quot;&gt;
     &lt;img class=&quot;bz-scene-art&quot; src=&quot;Images/00：10.jpg&quot; alt=&quot;最后选择&quot;&gt;
     &lt;div class=&quot;bz-hud&quot;&gt;
@@ -1669,7 +1692,7 @@ a {
       &lt;/div&gt;
     &lt;/div&gt;
   &lt;/div&gt;
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="4" name="00:20" tags="" position="3025,250" size="100,100">&lt;div class=&quot;bz-stage&quot;&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="5" name="00:20" tags="" position="3025,250" size="100,100">&lt;div class=&quot;bz-stage&quot;&gt;
   &lt;div class=&quot;bz-scene&quot;&gt;
     &lt;img class=&quot;bz-scene-art is-contain&quot; src=&quot;Images/记忆碎片2.png&quot; alt=&quot;记忆碎片&quot;&gt;
     &lt;div class=&quot;bz-hud&quot;&gt;
@@ -1689,7 +1712,7 @@ a {
       &lt;div class=&quot;bz-choices&quot;&gt;[[回答最后的问题|00:10]]&lt;/div&gt;
     &lt;/div&gt;
   &lt;/div&gt;
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="5" name="00：30《放弃的梦想》" tags="" position="2375,250" size="100,100">&lt;div class=&quot;bz-stage&quot;&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="6" name="00：30《放弃的梦想》" tags="" position="2375,250" size="100,100">&lt;div class=&quot;bz-stage&quot;&gt;
   &lt;div class=&quot;bz-scene&quot;&gt;
     &lt;img class=&quot;bz-scene-art&quot; src=&quot;Images/0030.JPG&quot; alt=&quot;堆满旧画本的房间&quot;&gt;
     &lt;div class=&quot;bz-hud&quot;&gt;
@@ -1707,7 +1730,7 @@ a {
       &lt;div class=&quot;bz-choices&quot;&gt;[[打开画本]]&lt;/div&gt;
     &lt;/div&gt;
   &lt;/div&gt;
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="6" name="00：40《错过的约定》" tags="" position="1875,250" size="100,100">&lt;div class=&quot;bz-stage&quot;&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="7" name="00：40《错过的约定》" tags="" position="1875,250" size="100,100">&lt;div class=&quot;bz-stage&quot;&gt;
   &lt;div class=&quot;bz-scene&quot;&gt;
     &lt;img class=&quot;bz-scene-art&quot; src=&quot;Images/0040车站.jpg&quot; alt=&quot;没有列车进站的站台&quot;&gt;
     &lt;div class=&quot;bz-hud&quot;&gt;
@@ -1725,7 +1748,7 @@ a {
       &lt;div class=&quot;bz-choices&quot;&gt;[[拾取车票]]&lt;/div&gt;
     &lt;/div&gt;
   &lt;/div&gt;
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="7" name="00：50《未说出口的道歉》" tags="" position="1250,250" size="100,100">&lt;div class=&quot;bz-stage&quot;&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="8" name="00：50《未说出口的道歉》" tags="" position="1250,250" size="100,100">&lt;div class=&quot;bz-stage&quot;&gt;
   &lt;div class=&quot;bz-scene&quot;&gt;
     &lt;img class=&quot;bz-scene-art&quot; src=&quot;Images/00：50 小时候的家.jpg&quot; alt=&quot;小时候的家&quot;&gt;
     &lt;div class=&quot;bz-hud&quot;&gt;
@@ -1743,7 +1766,7 @@ a {
       &lt;div class=&quot;bz-choices&quot;&gt;[[拾取照片]]&lt;/div&gt;
     &lt;/div&gt;
   &lt;/div&gt;
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="8" name="?" tags="" position="975,500" size="100,100">&lt;div class=&quot;bz-stage&quot;&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="9" name="?" tags="" position="975,500" size="100,100">&lt;div class=&quot;bz-stage&quot;&gt;
   &lt;div class=&quot;bz-scene&quot;&gt;
     &lt;img class=&quot;bz-scene-art&quot; src=&quot;Images/游戏开始“墙上的表”.jpg&quot; alt=&quot;墙上的表&quot;&gt;
     &lt;div class=&quot;bz-hud&quot;&gt;
@@ -1758,14 +1781,14 @@ a {
       &lt;div class=&quot;bz-choices&quot;&gt;[[回答]]&lt;/div&gt;
     &lt;/div&gt;
   &lt;/div&gt;
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="9" name="Before Zero" tags="" position="600,250" size="100,100">&lt;div class=&quot;bz-stage&quot;&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="10" name="Before Zero" tags="" position="600,250" size="100,100">&lt;div class=&quot;bz-stage&quot;&gt;
   &lt;div class=&quot;bz-scene&quot;&gt;
     &lt;img class=&quot;bz-scene-art&quot; src=&quot;Images/游戏标题.jpg&quot; alt=&quot;Before Zero 标题&quot;&gt;
     &lt;div class=&quot;bz-title-card bz-title-card-image-only&quot;&gt;
       &lt;div class=&quot;bz-start&quot;&gt;[[进入故事|Game Start]]&lt;/div&gt;
     &lt;/div&gt;
   &lt;/div&gt;
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="10" name="Game Start" tags="" position="725,250" size="100,100">&lt;div class=&quot;bz-stage&quot;&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="11" name="Game Start" tags="" position="725,250" size="100,100">&lt;div class=&quot;bz-stage&quot;&gt;
   &lt;div class=&quot;bz-scene&quot;&gt;
     &lt;img class=&quot;bz-scene-art&quot; src=&quot;Images/游戏标题.jpg&quot; alt=&quot;游戏开始&quot;&gt;
     &lt;div class=&quot;bz-hud&quot;&gt;
@@ -1778,7 +1801,7 @@ a {
       &lt;div class=&quot;bz-choices&quot;&gt;[[游戏开始]]&lt;/div&gt;
     &lt;/div&gt;
   &lt;/div&gt;
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="11" name="click countdown" tags="" position="975,375" size="100,100">&lt;div class=&quot;bz-stage&quot;&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="12" name="click countdown" tags="" position="975,375" size="100,100">&lt;div class=&quot;bz-stage&quot;&gt;
   &lt;div class=&quot;bz-scene&quot;&gt;
     &lt;img class=&quot;bz-scene-art&quot; src=&quot;Images/游戏开始：桌子上的表.jpg&quot; alt=&quot;桌上的怀表&quot;&gt;
     &lt;div class=&quot;bz-hud&quot;&gt;
@@ -1793,7 +1816,7 @@ a {
       &lt;div class=&quot;bz-choices&quot;&gt;[[追问声音|?]]&lt;/div&gt;
     &lt;/div&gt;
   &lt;/div&gt;
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="12" name="之后" tags="" position="2125,250" size="100,100">&lt;div class=&quot;bz-stage&quot;&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="13" name="之后" tags="" position="2125,250" size="100,100">&lt;div class=&quot;bz-stage&quot;&gt;
   &lt;div class=&quot;bz-scene&quot;&gt;
     &lt;img class=&quot;bz-scene-art&quot; src=&quot;Images/00：40.jpg&quot; alt=&quot;倒计时四十秒&quot;&gt;
     &lt;div class=&quot;bz-hud&quot;&gt;
@@ -1808,7 +1831,7 @@ a {
       &lt;div class=&quot;bz-choices&quot;&gt;[[多年后]]&lt;/div&gt;
     &lt;/div&gt;
   &lt;/div&gt;
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="13" name="前往" tags="" position="1125,250" size="100,100">&lt;div class=&quot;bz-stage&quot;&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="14" name="前往" tags="" position="1125,250" size="100,100">&lt;div class=&quot;bz-stage&quot;&gt;
   &lt;div class=&quot;bz-scene&quot;&gt;
     &lt;img class=&quot;bz-scene-art&quot; src=&quot;Images/三扇门.jpg&quot; alt=&quot;三扇门&quot;&gt;
     &lt;div class=&quot;bz-hud&quot;&gt;
@@ -1823,7 +1846,7 @@ a {
       &lt;div class=&quot;bz-choices&quot;&gt;[[进入第一扇门|00：50《未说出口的道歉》]]&lt;/div&gt;
     &lt;/div&gt;
   &lt;/div&gt;
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="14" name="回到过去" tags="" position="3300,100" size="100,100">&lt;div class=&quot;bz-stage&quot;&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="15" name="回到过去" tags="" position="3300,100" size="100,100">&lt;div class=&quot;bz-stage&quot;&gt;
   &lt;div class=&quot;bz-scene&quot;&gt;
     &lt;img class=&quot;bz-scene-art is-contain&quot; src=&quot;Images/记忆碎片.png&quot; alt=&quot;回到过去&quot;&gt;
     &lt;div class=&quot;bz-hud&quot;&gt;
@@ -1836,7 +1859,7 @@ a {
       &lt;div class=&quot;bz-choices&quot;&gt;[[结局]]&lt;/div&gt;
     &lt;/div&gt;
   &lt;/div&gt;
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="15" name="回忆" tags="" position="1500,250" size="100,100">&lt;div class=&quot;bz-stage&quot;&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="16" name="回忆" tags="" position="1500,250" size="100,100">&lt;div class=&quot;bz-stage&quot;&gt;
   &lt;div class=&quot;bz-scene&quot;&gt;
     &lt;img class=&quot;bz-scene-art&quot; src=&quot;Images/00：50 小时候的家.jpg&quot; alt=&quot;小时候的家&quot;&gt;
     &lt;div class=&quot;bz-hud&quot;&gt;
@@ -1851,7 +1874,7 @@ a {
       &lt;div class=&quot;bz-choices&quot;&gt;[[离开]]&lt;/div&gt;
     &lt;/div&gt;
   &lt;/div&gt;
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="16" name="回忆结束" tags="" position="1625,500" size="100,100">&lt;div class=&quot;bz-stage&quot;&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="17" name="回忆结束" tags="" position="1625,500" size="100,100">&lt;div class=&quot;bz-stage&quot;&gt;
   &lt;div class=&quot;bz-scene&quot;&gt;
     &lt;img class=&quot;bz-scene-art&quot; src=&quot;Images/离开.jpg&quot; alt=&quot;纸条与水杯&quot;&gt;
     &lt;div class=&quot;bz-hud&quot;&gt;
@@ -1866,7 +1889,7 @@ a {
       &lt;div class=&quot;bz-choices&quot;&gt;[[获得记忆碎片]]&lt;/div&gt;
     &lt;/div&gt;
   &lt;/div&gt;
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="17" name="回答" tags="" position="975,625" size="100,100">&lt;div class=&quot;bz-stage&quot;&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="18" name="回答" tags="" position="975,625" size="100,100">&lt;div class=&quot;bz-stage&quot;&gt;
   &lt;div class=&quot;bz-scene&quot;&gt;
     &lt;img class=&quot;bz-scene-art&quot; src=&quot;Images/三扇门.jpg&quot; alt=&quot;通往记忆的门&quot;&gt;
     &lt;div class=&quot;bz-hud&quot;&gt;
@@ -1881,7 +1904,7 @@ a {
       &lt;div class=&quot;bz-choices&quot;&gt;[[前往]]&lt;/div&gt;
     &lt;/div&gt;
   &lt;/div&gt;
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="18" name="多年后" tags="" position="2250,250" size="100,100">&lt;div class=&quot;bz-stage&quot;&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="19" name="多年后" tags="" position="2250,250" size="100,100">&lt;div class=&quot;bz-stage&quot;&gt;
   &lt;div class=&quot;bz-scene&quot;&gt;
     &lt;img class=&quot;bz-scene-art&quot; src=&quot;Images/多年后.jpg&quot; alt=&quot;没有发出的消息&quot;&gt;
     &lt;div class=&quot;bz-hud&quot;&gt;
@@ -1896,7 +1919,7 @@ a {
       &lt;div class=&quot;bz-choices&quot;&gt;[[获得记忆碎片2]]&lt;/div&gt;
     &lt;/div&gt;
   &lt;/div&gt;
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="19" name="打开画本" tags="" position="2500,250" size="100,100">&lt;div class=&quot;bz-stage&quot;&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="20" name="打开画本" tags="" position="2500,250" size="100,100">&lt;div class=&quot;bz-stage&quot;&gt;
   &lt;div class=&quot;bz-scene&quot;&gt;
     &lt;img class=&quot;bz-scene-art&quot; src=&quot;Images/打开画本.jpg&quot; alt=&quot;打开画本&quot;&gt;
     &lt;div class=&quot;bz-hud&quot;&gt;
@@ -1911,7 +1934,7 @@ a {
       &lt;div class=&quot;bz-choices&quot;&gt;[[进入回忆]]&lt;/div&gt;
     &lt;/div&gt;
   &lt;/div&gt;
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="20" name="拒绝离开" tags="" position="3300,400" size="100,100">&lt;div class=&quot;bz-stage&quot;&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="21" name="拒绝离开" tags="" position="3300,400" size="100,100">&lt;div class=&quot;bz-stage&quot;&gt;
   &lt;div class=&quot;bz-scene&quot;&gt;
     &lt;img class=&quot;bz-scene-art is-contain&quot; src=&quot;Images/记忆碎片2.png&quot; alt=&quot;拒绝离开&quot;&gt;
     &lt;div class=&quot;bz-hud&quot;&gt;
@@ -1924,7 +1947,7 @@ a {
       &lt;div class=&quot;bz-choices&quot;&gt;[[结局3]]&lt;/div&gt;
     &lt;/div&gt;
   &lt;/div&gt;
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="21" name="拾取照片" tags="" position="1375,250" size="100,100">&lt;div class=&quot;bz-stage&quot;&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="22" name="拾取照片" tags="" position="1375,250" size="100,100">&lt;div class=&quot;bz-stage&quot;&gt;
   &lt;div class=&quot;bz-scene&quot;&gt;
     &lt;img class=&quot;bz-scene-art&quot; src=&quot;Images/9家人的合照.jpg&quot; alt=&quot;拾取照片&quot;&gt;
     &lt;div class=&quot;bz-hud&quot;&gt;
@@ -1938,7 +1961,7 @@ a {
       &lt;div class=&quot;bz-choices&quot;&gt;[[回忆]]&lt;/div&gt;
     &lt;/div&gt;
   &lt;/div&gt;
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="22" name="拾取纸条" tags="" position="1625,375" size="100,100">&lt;div class=&quot;bz-stage&quot;&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="23" name="拾取纸条" tags="" position="1625,375" size="100,100">&lt;div class=&quot;bz-stage&quot;&gt;
   &lt;div class=&quot;bz-scene&quot;&gt;
     &lt;img class=&quot;bz-scene-art&quot; src=&quot;Images/《离开》拾取的纸条.PNG&quot; alt=&quot;拾取纸条&quot;&gt;
     &lt;div class=&quot;bz-hud&quot;&gt;
@@ -1952,7 +1975,7 @@ a {
       &lt;div class=&quot;bz-choices&quot;&gt;[[回忆结束]]&lt;/div&gt;
     &lt;/div&gt;
   &lt;/div&gt;
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="23" name="拾取车票" tags="" position="2000,250" size="100,100">&lt;div class=&quot;bz-stage&quot;&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="24" name="拾取车票" tags="" position="2000,250" size="100,100">&lt;div class=&quot;bz-stage&quot;&gt;
   &lt;div class=&quot;bz-scene&quot;&gt;
     &lt;img class=&quot;bz-scene-art&quot; src=&quot;Images/拾取车票“一去看海”.jpg&quot; alt=&quot;拾取车票&quot;&gt;
     &lt;div class=&quot;bz-hud&quot;&gt;
@@ -1967,7 +1990,7 @@ a {
       &lt;div class=&quot;bz-choices&quot;&gt;[[之后]]&lt;/div&gt;
     &lt;/div&gt;
   &lt;/div&gt;
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="24" name="拾起小时候的画" tags="" position="2750,250" size="100,100">&lt;div class=&quot;bz-stage&quot;&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="25" name="拾起小时候的画" tags="" position="2750,250" size="100,100">&lt;div class=&quot;bz-stage&quot;&gt;
   &lt;div class=&quot;bz-scene&quot;&gt;
     &lt;img class=&quot;bz-scene-art&quot; src=&quot;Images/进入回忆.jpg&quot; alt=&quot;小时候的画&quot;&gt;
     &lt;div class=&quot;bz-hud&quot;&gt;
@@ -1981,7 +2004,7 @@ a {
       &lt;div class=&quot;bz-choices&quot;&gt;[[获得记忆碎片3]]&lt;/div&gt;
     &lt;/div&gt;
   &lt;/div&gt;
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="25" name="未命名片段" tags="" position="2400,600" size="100,100"></tw-passagedata><tw-passagedata pid="26" name="游戏开始" tags="" position="850,250" size="100,100">&lt;div class=&quot;bz-stage&quot;&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="26" name="未命名片段" tags="" position="2400,600" size="100,100"></tw-passagedata><tw-passagedata pid="27" name="游戏开始" tags="" position="850,250" size="100,100">&lt;div class=&quot;bz-stage&quot;&gt;
   &lt;div class=&quot;bz-scene&quot;&gt;
     &lt;img class=&quot;bz-scene-art&quot; src=&quot;Images/3陌生的房间.jpg&quot; alt=&quot;陌生房间&quot;&gt;
     &lt;div class=&quot;bz-hud&quot;&gt;
@@ -2000,7 +2023,7 @@ a {
       &lt;div class=&quot;bz-choices&quot;&gt;[[靠近怀表|秒表]]&lt;/div&gt;
     &lt;/div&gt;
   &lt;/div&gt;
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="27" name="留下记忆" tags="" position="3300,250" size="100,100">&lt;div class=&quot;bz-stage&quot;&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="28" name="留下记忆" tags="" position="3300,250" size="100,100">&lt;div class=&quot;bz-stage&quot;&gt;
   &lt;div class=&quot;bz-scene&quot;&gt;
     &lt;img class=&quot;bz-scene-art is-contain&quot; src=&quot;Images/记忆碎片2.png&quot; alt=&quot;留下记忆&quot;&gt;
     &lt;div class=&quot;bz-hud&quot;&gt;
@@ -2013,7 +2036,7 @@ a {
       &lt;div class=&quot;bz-choices&quot;&gt;[[结局2]]&lt;/div&gt;
     &lt;/div&gt;
   &lt;/div&gt;
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="28" name="离开" tags="" position="1625,250" size="100,100">&lt;div class=&quot;bz-stage&quot;&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="29" name="离开" tags="" position="1625,250" size="100,100">&lt;div class=&quot;bz-stage&quot;&gt;
   &lt;div class=&quot;bz-scene&quot;&gt;
     &lt;img class=&quot;bz-scene-art&quot; src=&quot;Images/离开.jpg&quot; alt=&quot;离开房间&quot;&gt;
     &lt;div class=&quot;bz-hud&quot;&gt;
@@ -2027,7 +2050,7 @@ a {
       &lt;div class=&quot;bz-choices&quot;&gt;[[拾取纸条]]&lt;/div&gt;
     &lt;/div&gt;
   &lt;/div&gt;
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="29" name="秒表" tags="" position="975,250" size="100,100">&lt;div class=&quot;bz-stage&quot;&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="30" name="秒表" tags="" position="975,250" size="100,100">&lt;div class=&quot;bz-stage&quot;&gt;
   &lt;div class=&quot;bz-scene&quot;&gt;
     &lt;img class=&quot;bz-scene-art&quot; src=&quot;Images/游戏开始：桌子上的表.jpg&quot; alt=&quot;桌子上的怀表&quot;&gt;
     &lt;div class=&quot;bz-hud&quot;&gt;
@@ -2041,7 +2064,7 @@ a {
       &lt;div class=&quot;bz-choices&quot;&gt;[[触碰怀表|click countdown]]&lt;/div&gt;
     &lt;/div&gt;
   &lt;/div&gt;
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="30" name="结局" tags="" position="3425,100" size="100,100">&lt;div class=&quot;bz-stage&quot;&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="31" name="结局" tags="" position="3425,100" size="100,100">&lt;div class=&quot;bz-stage&quot;&gt;
   &lt;div class=&quot;bz-scene&quot;&gt;
     &lt;img class=&quot;bz-scene-art&quot; src=&quot;Images/结局1.jpg&quot; alt=&quot;结局一&quot;&gt;
     &lt;div class=&quot;bz-hud&quot;&gt;
@@ -2055,7 +2078,7 @@ a {
       &lt;div class=&quot;bz-choices&quot;&gt;[[走向最后一秒|00:01]]&lt;/div&gt;
     &lt;/div&gt;
   &lt;/div&gt;
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="31" name="结局2" tags="" position="3425,250" size="100,100">&lt;div class=&quot;bz-stage&quot;&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="32" name="结局2" tags="" position="3425,250" size="100,100">&lt;div class=&quot;bz-stage&quot;&gt;
   &lt;div class=&quot;bz-scene&quot;&gt;
     &lt;img class=&quot;bz-scene-art&quot; src=&quot;Images/结局2.jpg&quot; alt=&quot;结局二&quot;&gt;
     &lt;div class=&quot;bz-hud&quot;&gt;
@@ -2070,7 +2093,7 @@ a {
       &lt;div class=&quot;bz-choices&quot;&gt;[[走向最后一秒|00:01]]&lt;/div&gt;
     &lt;/div&gt;
   &lt;/div&gt;
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="32" name="结局3" tags="" position="3425,400" size="100,100">&lt;div class=&quot;bz-stage&quot;&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="33" name="结局3" tags="" position="3425,400" size="100,100">&lt;div class=&quot;bz-stage&quot;&gt;
   &lt;div class=&quot;bz-scene&quot;&gt;
     &lt;img class=&quot;bz-scene-art&quot; src=&quot;Images/结局3.jpg&quot; alt=&quot;结局三&quot;&gt;
     &lt;div class=&quot;bz-hud&quot;&gt;
@@ -2085,7 +2108,7 @@ a {
       &lt;div class=&quot;bz-choices&quot;&gt;[[走向最后一秒|00:01]]&lt;/div&gt;
     &lt;/div&gt;
   &lt;/div&gt;
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="33" name="获得记忆碎片" tags="" position="1750,250" size="100,100">&lt;div class=&quot;bz-stage&quot;&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="34" name="获得记忆碎片" tags="" position="1750,250" size="100,100">&lt;div class=&quot;bz-stage&quot;&gt;
   &lt;div class=&quot;bz-scene&quot;&gt;
     &lt;img class=&quot;bz-scene-art bz-scene-art-door-echo&quot; src=&quot;Images/三扇门.jpg&quot; alt=&quot;三扇门&quot;&gt;
     &lt;img class=&quot;bz-scene-art is-contain&quot; src=&quot;Images/记忆碎片.png&quot; alt=&quot;一句迟到的道歉&quot;&gt;
@@ -2103,7 +2126,7 @@ a {
       &lt;div class=&quot;bz-choices&quot;&gt;[[进入第二扇门|00：40《错过的约定》]]&lt;/div&gt;
     &lt;/div&gt;
   &lt;/div&gt;
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="34" name="获得记忆碎片2" tags="" position="2250,375" size="100,100">&lt;div class=&quot;bz-stage&quot;&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="35" name="获得记忆碎片2" tags="" position="2250,375" size="100,100">&lt;div class=&quot;bz-stage&quot;&gt;
   &lt;div class=&quot;bz-scene&quot;&gt;
     &lt;img class=&quot;bz-scene-art bz-scene-art-door-echo&quot; src=&quot;Images/三扇门.jpg&quot; alt=&quot;三扇门&quot;&gt;
     &lt;img class=&quot;bz-scene-art is-contain&quot; src=&quot;Images/记忆碎片2.png&quot; alt=&quot;没有完成的约定&quot;&gt;
@@ -2122,7 +2145,7 @@ a {
       &lt;div class=&quot;bz-choices&quot;&gt;[[进入第三扇门|00：30《放弃的梦想》]]&lt;/div&gt;
     &lt;/div&gt;
   &lt;/div&gt;
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="35" name="获得记忆碎片3" tags="" position="2875,250" size="100,100">&lt;div class=&quot;bz-stage&quot;&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="36" name="获得记忆碎片3" tags="" position="2875,250" size="100,100">&lt;div class=&quot;bz-stage&quot;&gt;
   &lt;div class=&quot;bz-scene&quot;&gt;
     &lt;img class=&quot;bz-scene-art bz-scene-art-door-echo&quot; src=&quot;Images/三扇门.jpg&quot; alt=&quot;三扇门&quot;&gt;
     &lt;img class=&quot;bz-scene-art is-contain&quot; src=&quot;Images/记忆碎片3.png&quot; alt=&quot;曾经的自己&quot;&gt;
@@ -2140,7 +2163,7 @@ a {
       &lt;div class=&quot;bz-choices&quot;&gt;[[回到记忆核心|00:20]]&lt;/div&gt;
     &lt;/div&gt;
   &lt;/div&gt;
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="36" name="进入回忆" tags="" position="2500,375" size="100,100">&lt;div class=&quot;bz-stage&quot;&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="37" name="进入回忆" tags="" position="2500,375" size="100,100">&lt;div class=&quot;bz-stage&quot;&gt;
   &lt;div class=&quot;bz-scene&quot;&gt;
     &lt;img class=&quot;bz-scene-art&quot; src=&quot;Images/进入回忆.jpg&quot; alt=&quot;童年的画&quot;&gt;
     &lt;div class=&quot;bz-hud&quot;&gt;
@@ -2155,7 +2178,7 @@ a {
       &lt;div class=&quot;bz-choices&quot;&gt;[[长大后]]&lt;/div&gt;
     &lt;/div&gt;
   &lt;/div&gt;
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="37" name="长大后" tags="" position="2625,250" size="100,100">&lt;div class=&quot;bz-stage&quot;&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="38" name="长大后" tags="" position="2625,250" size="100,100">&lt;div class=&quot;bz-stage&quot;&gt;
   &lt;div class=&quot;bz-scene&quot;&gt;
     &lt;img class=&quot;bz-scene-art&quot; src=&quot;Images/长大后.JPG&quot; alt=&quot;长大后的办公室&quot;&gt;
     &lt;div class=&quot;bz-hud&quot;&gt;

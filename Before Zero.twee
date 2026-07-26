@@ -180,6 +180,22 @@ a {
   background: transparent;
 }
 
+.bz-scene.bz-image-only {
+  background: #000;
+  box-shadow: none;
+}
+
+.bz-scene.bz-image-only::before,
+.bz-scene.bz-image-only::after {
+  display: none;
+}
+
+.bz-scene.bz-image-only .bz-scene-art {
+  object-fit: contain;
+  filter: none;
+  background: #000;
+}
+
 .bz-scene-art-door-echo {
   inset: auto;
   top: clamp(54px, 7vh, 88px);
@@ -1637,8 +1653,19 @@ a {
     <div class="bz-dialogue">
       <p class="bz-line" data-speaker="旁白">怀表没有把你送回起点。</p>
       <p class="bz-line" data-speaker="旁白">它只把最后的分岔，再一次放到你面前。</p>
-      <div class="bz-choices">[[回到三选一|00:10]]</div>
+      <div class="bz-choices">
+        [[回到三选一|00:10]]
+        [[游戏结束]]
+      </div>
     </div>
+  </div>
+</div>
+
+
+:: 游戏结束 {"position":"4000,375","size":"100,100"}
+<div class="bz-stage">
+  <div class="bz-scene bz-image-only">
+    <img class="bz-scene-art" src="Images/游戏结束最后一张.jpg" alt="游戏结束">
   </div>
 </div>
 
