@@ -57,7 +57,7 @@ tw-story {
     linear-gradient(245deg, rgba(210, 169, 88, 0.12), transparent 38%),
     repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.018) 0 2px, transparent 2px 14px),
     linear-gradient(135deg, #161410 0%, #2b2925 45%, #141312 100%);
-  font-family: "Microsoft YaHei", "PingFang SC", "Noto Sans SC", "Source Han Sans SC", system-ui, sans-serif;
+  font-family: "Bodoni 72", "Bodoni 72 Smallcaps", "Bodoni 72 Oldstyle", "Bodoni 72 Book", "Times New Roman", Georgia, "Microsoft YaHei", "PingFang SC", serif;
 }
 
 tw-story::before,
@@ -1630,8 +1630,8 @@ a {
     </div>
     <div class="bz-dialogue">
       <p class="bz-line" data-speaker="Pocket Watch">00:00</p>
-      <p class="bz-line" data-speaker="Narrator">A life is not measured by the time left, but by the moments it once held.</p>
-      <p class="bz-line" data-speaker="Narrator">Life is not only about finishing what you set out to do; it is also about finding yourself along the way.</p>
+      <p class="bz-line">A life is not measured by the time left, but by the moments it once held.</p>
+      <p class="bz-line">Life is not only about finishing what you set out to do; it is also about finding yourself along the way.</p>
       <div class="bz-choices">[[Choose Again]]</div>
     </div>
   </div>
@@ -1652,8 +1652,8 @@ a {
       <span>Choose Again</span>
     </div>
     <div class="bz-dialogue">
-      <p class="bz-line" data-speaker="Narrator">The pocket watch does not send you back to the beginning.</p>
-      <p class="bz-line" data-speaker="Narrator">It only places the final fork before you once more.</p>
+      <p class="bz-line">The pocket watch does not send you back to the beginning.</p>
+      <p class="bz-line">It only places the final fork before you once more.</p>
       <div class="bz-choices">
         [[Return to the Three Choices|00:10]]
         [[Game Over]]
@@ -1688,10 +1688,10 @@ a {
       <p class="bz-line" data-speaker="Pocket Watch">The second hand stops on its final mark.</p>
       <p class="bz-line" data-speaker="Mysterious Voice">One final question.</p>
       <p class="bz-line" data-speaker="Mysterious Voice">What do you want to leave behind?</p>
-      <p class="bz-line" data-speaker="Narrator">The protagonist looks at the three memories: a photo, a ticket, and a drawing, all rising gently in the light.</p>
-      <p class="bz-line" data-speaker="Protagonist">Not the past.</p>
-      <p class="bz-line" data-speaker="Protagonist">Not regret.</p>
-      <p class="bz-line" data-speaker="Protagonist">The moments that made me who I am now.</p>
+      <p class="bz-line">Elliot looks at the three memories: a photo, a ticket, and a drawing, all rising gently in the light.</p>
+      <p class="bz-line" data-speaker="Elliot">Not the past.</p>
+      <p class="bz-line" data-speaker="Elliot">Not regret.</p>
+      <p class="bz-line" data-speaker="Elliot">The moments that made me who I am now.</p>
       <div class="bz-choices">[[Let Time Reach Zero|00:00]]</div>
     </div>
   </div>
@@ -1738,7 +1738,7 @@ a {
       <span>Memory Convergence</span>
     </div>
     <div class="bz-dialogue">
-      <p class="bz-line" data-speaker="Narrator">Three memory fragments drift in the air as light slowly seals the cracks.</p>
+      <p class="bz-line">Three memory fragments drift in the air as light slowly seals the cracks.</p>
       <p class="bz-line" data-speaker="Mysterious Voice">You have seen your own past.</p>
       <p class="bz-line" data-speaker="Mysterious Voice">Now tell me.</p>
       <p class="bz-line" data-speaker="Mysterious Voice">What would you change?</p>
@@ -1760,10 +1760,10 @@ a {
       <img src="Images/00：30.jpg" alt="00:30 Time Card">
     </div>
     <div class="bz-dialogue">
-      <p class="bz-line" data-speaker="Narrator">Behind the third door is a room filled with afternoon light.</p>
-      <p class="bz-line" data-speaker="Narrator">Sketchbooks, models, and old certificates lie across the desk, dust gathered along their edges.</p>
-      <p class="bz-line" data-speaker="Protagonist">These things...</p>
-      <p class="bz-line" data-speaker="Protagonist">I haven't seen them in such a long time.</p>
+      <p class="bz-line">Behind the third door is a room filled with afternoon light.</p>
+      <p class="bz-line">Sketchbooks, models, and old certificates lie across the desk, dust gathered along their edges.</p>
+      <p class="bz-line" data-speaker="Elliot">These things...</p>
+      <p class="bz-line" data-speaker="Elliot">I haven't seen them in such a long time.</p>
       <div class="bz-choices">[[Open the Sketchbook]]</div>
     </div>
   </div>
@@ -1782,10 +1782,10 @@ a {
       <img src="Images/00：40.jpg" alt="00:40 Time Card">
     </div>
     <div class="bz-dialogue">
-      <p class="bz-line" data-speaker="Narrator">Behind the second door is a platform where no train ever arrives.</p>
-      <p class="bz-line" data-speaker="Narrator">An old ticket rests on the bench, its destination rubbed pale from being folded again and again.</p>
-      <p class="bz-line" data-speaker="Protagonist">This is...</p>
-      <p class="bz-line" data-speaker="Protagonist">The place we promised to meet.</p>
+      <p class="bz-line">Behind the second door is a platform where no train ever arrives.</p>
+      <p class="bz-line">An old ticket rests on the bench, its destination rubbed pale from being folded again and again.</p>
+      <p class="bz-line" data-speaker="Elliot">This is...</p>
+      <p class="bz-line" data-speaker="Elliot">The place we promised to meet.</p>
       <div class="bz-choices">[[Pick Up the Ticket]]</div>
     </div>
   </div>
@@ -1804,10 +1804,10 @@ a {
       <img src="Images/00：50.jpg" alt="00:50 Time Card">
     </div>
     <div class="bz-dialogue">
-      <p class="bz-line" data-speaker="Narrator">When the first door opens, the air carries the familiar smell of dinner.</p>
-      <p class="bz-line" data-speaker="Narrator">The house is quiet. On the table lies only a family photo.</p>
-      <p class="bz-line" data-speaker="Protagonist">Here...</p>
-      <p class="bz-line" data-speaker="Protagonist">I think I've been here before.</p>
+      <p class="bz-line">When the first door opens, the air carries the familiar smell of dinner.</p>
+      <p class="bz-line">The house is quiet. On the table lies only a family photo.</p>
+      <p class="bz-line" data-speaker="Elliot">Here...</p>
+      <p class="bz-line" data-speaker="Elliot">I think I've been here before.</p>
       <div class="bz-choices">[[Pick Up the Photo]]</div>
     </div>
   </div>
@@ -1823,8 +1823,8 @@ a {
       <span class="bz-place">The Stopped Room</span>
     </div>
     <div class="bz-dialogue">
-      <p class="bz-line" data-speaker="Protagonist">One minute?</p>
-      <p class="bz-line" data-speaker="Protagonist">What does that mean?</p>
+      <p class="bz-line" data-speaker="Elliot">One minute?</p>
+      <p class="bz-line" data-speaker="Elliot">What does that mean?</p>
       <p class="bz-line" data-speaker="Mysterious Voice">Time is not being given to you so you can run away.</p>
       <p class="bz-line" data-speaker="Mysterious Voice">It is here so you can finally see what you have never finished looking at.</p>
       <div class="bz-choices">[[Answer]]</div>
@@ -1853,8 +1853,8 @@ a {
       <span class="bz-place">Prologue</span>
     </div>
     <div class="bz-dialogue">
-      <p class="bz-line" data-speaker="Narrator">If you could look back for only one more minute, who would come to mind first?</p>
-      <p class="bz-line" data-speaker="Narrator">If you could take only one thing with you, would it be an answer, or a regret?</p>
+      <p class="bz-line">If you could look back for only one more minute, who would come to mind first?</p>
+      <p class="bz-line">If you could take only one thing with you, would it be an answer, or a regret?</p>
       <div class="bz-choices">[[Start the Game|Game Begins]]</div>
     </div>
   </div>
@@ -1870,10 +1870,10 @@ a {
       <span class="bz-place">Pocket Watch Activated</span>
     </div>
     <div class="bz-dialogue">
-      <p class="bz-line" data-speaker="Protagonist">...Where am I?</p>
-      <p class="bz-line" data-speaker="Protagonist">Why am I here?</p>
+      <p class="bz-line" data-speaker="Elliot">...Where am I?</p>
+      <p class="bz-line" data-speaker="Elliot">Why am I here?</p>
       <p class="bz-line" data-speaker="Mysterious Voice">You have one minute.</p>
-      <p class="bz-line" data-speaker="Narrator">The pocket watch gives a faint sound, like a countdown and a warning at once.</p>
+      <p class="bz-line">The pocket watch gives a faint sound, like a countdown and a warning at once.</p>
       <div class="bz-choices">[[Question the Voice|?]]</div>
     </div>
   </div>
@@ -1889,10 +1889,10 @@ a {
       <span class="bz-place">Years Later</span>
     </div>
     <div class="bz-dialogue">
-      <p class="bz-line" data-speaker="Narrator">Time jumps many years ahead.</p>
-      <p class="bz-line" data-speaker="Narrator">After an argument, an unsent message remains on the phone.</p>
+      <p class="bz-line">Time jumps many years ahead.</p>
+      <p class="bz-line">After an argument, an unsent message remains on the phone.</p>
       <p class="bz-line" data-speaker="Phone Draft">How have you been?</p>
-      <p class="bz-line" data-speaker="Narrator">The send button glows, but it feels an ocean away.</p>
+      <p class="bz-line">The send button glows, but it feels an ocean away.</p>
       <div class="bz-choices">[[Years Later]]</div>
     </div>
   </div>
@@ -1911,7 +1911,7 @@ a {
       <p class="bz-line" data-speaker="Mysterious Voice">Enter these three doors in order.</p>
       <p class="bz-line" data-speaker="Mysterious Voice">This is not a punishment.</p>
       <p class="bz-line" data-speaker="Mysterious Voice">It is so you can see what you truly want to keep.</p>
-      <p class="bz-line" data-speaker="Narrator">The number on the first door glows faintly in the dark.</p>
+      <p class="bz-line">The number on the first door glows faintly in the dark.</p>
       <div class="bz-choices">[[Enter the First Door|00:50 - The Unspoken Apology]]</div>
     </div>
   </div>
@@ -1927,8 +1927,8 @@ a {
       <span class="bz-place">Return to the Past</span>
     </div>
     <div class="bz-dialogue">
-      <p class="bz-line" data-speaker="Protagonist">If I could start over...</p>
-      <p class="bz-line" data-speaker="Protagonist">I want to go back to when there was still time to say it.</p>
+      <p class="bz-line" data-speaker="Elliot">If I could start over...</p>
+      <p class="bz-line" data-speaker="Elliot">I want to go back to when there was still time to say it.</p>
       <div class="bz-choices">[[Ending 1]]</div>
     </div>
   </div>
@@ -1945,9 +1945,9 @@ a {
     </div>
     <div class="bz-dialogue">
       <p class="bz-line" data-speaker="Parents">Stop playing for a while. Come eat.</p>
-      <p class="bz-line" data-speaker="Child">No!</p>
-      <p class="bz-line" data-speaker="Child">You don't understand me at all!</p>
-      <p class="bz-line" data-speaker="Narrator">The door slams shut, but no scolding comes from the other side.</p>
+      <p class="bz-line" data-speaker="little Elliot">No!</p>
+      <p class="bz-line" data-speaker="little Elliot">You don't understand me at all!</p>
+      <p class="bz-line">The door slams shut, but no scolding comes from the other side.</p>
       <div class="bz-choices">[[Leave]]</div>
     </div>
   </div>
@@ -1963,10 +1963,10 @@ a {
       <span class="bz-place">Understanding</span>
     </div>
     <div class="bz-dialogue">
-      <p class="bz-line" data-speaker="Protagonist">So...</p>
-      <p class="bz-line" data-speaker="Protagonist">They were never angry with me.</p>
-      <p class="bz-line" data-speaker="Protagonist">I was the one sulking, too stubborn to be the first to soften.</p>
-      <p class="bz-line" data-speaker="Narrator">The apology left unspoken finally finds an echo.</p>
+      <p class="bz-line" data-speaker="Elliot">So...</p>
+      <p class="bz-line" data-speaker="Elliot">They were never angry with me.</p>
+      <p class="bz-line" data-speaker="Elliot">I was the one sulking, too stubborn to be the first to soften.</p>
+      <p class="bz-line">The apology left unspoken finally finds an echo.</p>
       <div class="bz-choices">[[Gain Memory Fragment 1|Memory Fragment 1]]</div>
     </div>
   </div>
@@ -1984,7 +1984,7 @@ a {
     <div class="bz-dialogue">
       <p class="bz-line" data-speaker="Mysterious Voice">When the timer reaches zero, you will leave this place.</p>
       <p class="bz-line" data-speaker="Mysterious Voice">But before you go, you still have a chance to see a few things.</p>
-      <p class="bz-line" data-speaker="Protagonist">Those things... are they what I left behind?</p>
+      <p class="bz-line" data-speaker="Elliot">Those things... are they what I left behind?</p>
       <p class="bz-line" data-speaker="Mysterious Voice">Perhaps they are the things you thought no longer mattered.</p>
       <div class="bz-choices">[[Proceed]]</div>
     </div>
@@ -2001,10 +2001,10 @@ a {
       <span class="bz-place">Unsent Message</span>
     </div>
     <div class="bz-dialogue">
-      <p class="bz-line" data-speaker="Narrator">The protagonist never pressed send.</p>
-      <p class="bz-line" data-speaker="Protagonist">I never actually forgot that promise.</p>
-      <p class="bz-line" data-speaker="Protagonist">I was only afraid that facing it again would mean losing my friend all over again.</p>
-      <p class="bz-line" data-speaker="Narrator">On the back of the ticket, the words still read, "Let's go see the sea together."</p>
+      <p class="bz-line">Elliot never pressed send.</p>
+      <p class="bz-line" data-speaker="Elliot">I never actually forgot that promise.</p>
+      <p class="bz-line" data-speaker="Elliot">I was only afraid that facing it again would mean losing my friend all over again.</p>
+      <p class="bz-line">On the back of the ticket, the words still read, "Let's go see the sea together."</p>
       <div class="bz-choices">[[Gain Memory Fragment 2|Memory Fragment 2]]</div>
     </div>
   </div>
@@ -2020,10 +2020,10 @@ a {
       <span class="bz-place">Old Sketchbook</span>
     </div>
     <div class="bz-dialogue">
-      <p class="bz-line" data-speaker="Narrator">The first page of the sketchbook has been turned so often its corners have curled.</p>
+      <p class="bz-line">The first page of the sketchbook has been turned so often its corners have curled.</p>
       <p class="bz-line" data-speaker="Sketchbook">When I grow up, I want more people to love my designs.</p>
-      <p class="bz-line" data-speaker="Protagonist">Did I write this?</p>
-      <p class="bz-line" data-speaker="Narrator">The handwriting is clumsy, yet more certain than any plan he has now.</p>
+      <p class="bz-line" data-speaker="Elliot">Did I write this?</p>
+      <p class="bz-line">The handwriting is clumsy, yet more certain than any plan he has now.</p>
       <div class="bz-choices">[[Enter the Memory]]</div>
     </div>
   </div>
@@ -2039,8 +2039,8 @@ a {
       <span class="bz-place">Refuse to Leave</span>
     </div>
     <div class="bz-dialogue">
-      <p class="bz-line" data-speaker="Protagonist">I am not ready to leave my life behind.</p>
-      <p class="bz-line" data-speaker="Protagonist">If a memory can be made to stop, I would rather stay here.</p>
+      <p class="bz-line" data-speaker="Elliot">I am not ready to leave my life behind.</p>
+      <p class="bz-line" data-speaker="Elliot">If a memory can be made to stop, I would rather stay here.</p>
       <div class="bz-choices">[[Ending 3]]</div>
     </div>
   </div>
@@ -2056,9 +2056,9 @@ a {
       <span class="bz-place">Old Photo</span>
     </div>
     <div class="bz-dialogue">
-      <p class="bz-line" data-speaker="Narrator">The people in the photo stand close together, their smiles blurred by time.</p>
-      <p class="bz-line" data-speaker="Protagonist">I remember this day.</p>
-      <p class="bz-line" data-speaker="Protagonist">And I remember why I refused to leave my room afterward.</p>
+      <p class="bz-line">The people in the photo stand close together, their smiles blurred by time.</p>
+      <p class="bz-line" data-speaker="Elliot">I remember this day.</p>
+      <p class="bz-line" data-speaker="Elliot">And I remember why I refused to leave my room afterward.</p>
       <div class="bz-choices">[[Memory 1]]</div>
     </div>
   </div>
@@ -2076,7 +2076,7 @@ a {
     <div class="bz-dialogue">
       <p class="bz-line" data-speaker="Note">Remember to eat.</p>
       <p class="bz-line" data-speaker="Note">We will always be waiting for you.</p>
-      <p class="bz-line" data-speaker="Protagonist">They were always waiting for me to open the door first.</p>
+      <p class="bz-line" data-speaker="Elliot">They were always waiting for me to open the door first.</p>
       <div class="bz-choices">[[End the Memory|Memory's End]]</div>
     </div>
   </div>
@@ -2092,10 +2092,10 @@ a {
       <span class="bz-place">Station</span>
     </div>
     <div class="bz-dialogue">
-      <p class="bz-line" data-speaker="Narrator">A younger protagonist and a friend stand by the platform as the ticket rustles in the wind.</p>
+      <p class="bz-line">A younger Elliot and a friend stand by the platform as the ticket rustles in the wind.</p>
       <p class="bz-line" data-speaker="Friend">When we have time someday, we have to go see the sea together.</p>
-      <p class="bz-line" data-speaker="Protagonist">Promise!</p>
-      <p class="bz-line" data-speaker="Protagonist">Definitely!</p>
+      <p class="bz-line" data-speaker="Elliot">Promise!</p>
+      <p class="bz-line" data-speaker="Elliot">Definitely!</p>
       <div class="bz-choices">[[Later]]</div>
     </div>
   </div>
@@ -2111,9 +2111,9 @@ a {
       <span class="bz-place">Dream Recovered</span>
     </div>
     <div class="bz-dialogue">
-      <p class="bz-line" data-speaker="Protagonist">I thought I had lost my dream.</p>
-      <p class="bz-line" data-speaker="Protagonist">Really, I had only hidden it away.</p>
-      <p class="bz-line" data-speaker="Narrator">The paper does not blame him; it simply waits for him to pick up the pen again.</p>
+      <p class="bz-line" data-speaker="Elliot">I thought I had lost my dream.</p>
+      <p class="bz-line" data-speaker="Elliot">Really, I had only hidden it away.</p>
+      <p class="bz-line">The paper does not blame him; it simply waits for him to pick up the pen again.</p>
       <div class="bz-choices">[[Gain Memory Fragment 3|Memory Fragment 3]]</div>
     </div>
   </div>
@@ -2136,11 +2136,11 @@ a {
       <img src="Images/00：60.jpg" alt="00:60 Time Card">
     </div>
     <div class="bz-dialogue">
-      <p class="bz-line" data-speaker="Narrator">Tick. Tick. Tick.</p>
-      <p class="bz-line" data-speaker="Narrator">The scene slowly brightens, as if someone has turned on a lamp long covered in dust.</p>
-      <p class="bz-line" data-speaker="Protagonist">I open my eyes and find myself lying in a strange room.</p>
-      <p class="bz-line" data-speaker="Narrator">The room is silent. The clock on the wall has stopped, and a pocket watch lies on the table.</p>
-      <p class="bz-line" data-speaker="Protagonist">This does not feel like a hospital, or a dream.</p>
+      <p class="bz-line">Tick. Tick. Tick.</p>
+      <p class="bz-line">The scene slowly brightens, as if someone has turned on a lamp long covered in dust.</p>
+      <p class="bz-line" data-speaker="Elliot">I open my eyes and find myself lying in a strange room.</p>
+      <p class="bz-line">The room is silent. The clock on the wall has stopped, and a pocket watch lies on the table.</p>
+      <p class="bz-line" data-speaker="Elliot">This does not feel like a hospital, or a dream.</p>
       <div class="bz-choices">[[Approach the Pocket Watch|Pocket Watch]]</div>
     </div>
   </div>
@@ -2156,8 +2156,8 @@ a {
       <span class="bz-place">Keep the Memories</span>
     </div>
     <div class="bz-dialogue">
-      <p class="bz-line" data-speaker="Protagonist">These regrets are part of my life too.</p>
-      <p class="bz-line" data-speaker="Protagonist">If they helped make me who I am now, I will keep them with me.</p>
+      <p class="bz-line" data-speaker="Elliot">These regrets are part of my life too.</p>
+      <p class="bz-line" data-speaker="Elliot">If they helped make me who I am now, I will keep them with me.</p>
       <div class="bz-choices">[[Ending 2]]</div>
     </div>
   </div>
@@ -2173,9 +2173,9 @@ a {
       <span class="bz-place">Outside the Door</span>
     </div>
     <div class="bz-dialogue">
-      <p class="bz-line" data-speaker="Narrator">Night.</p>
-      <p class="bz-line" data-speaker="Narrator">A glass of water and a note sit on the table.</p>
-      <p class="bz-line" data-speaker="Narrator">The water is no longer warm, but the note looks as if it was set down moments ago.</p>
+      <p class="bz-line">Night.</p>
+      <p class="bz-line">A glass of water and a note sit on the table.</p>
+      <p class="bz-line">The water is no longer warm, but the note looks as if it was set down moments ago.</p>
       <div class="bz-choices">[[Pick Up the Note]]</div>
     </div>
   </div>
@@ -2191,8 +2191,8 @@ a {
       <span class="bz-place">Interactable Object</span>
     </div>
     <div class="bz-dialogue">
-      <p class="bz-line" data-speaker="Narrator">The pocket watch lies on the table, its lid half open, with no hands inside.</p>
-      <p class="bz-line" data-speaker="Narrator">When the protagonist reaches for it, the missing hands suddenly appear.</p>
+      <p class="bz-line">The pocket watch lies on the table.</p>
+      <p class="bz-line">When Elliot reaches for it, the missing hands suddenly appear.</p>
       <p class="bz-line" data-speaker="Pocket Watch">00:60</p>
       <div class="bz-choices">[[Touch the Pocket Watch|Click Countdown]]</div>
     </div>
@@ -2209,9 +2209,9 @@ a {
       <span class="bz-place">Return to the Past</span>
     </div>
     <div class="bz-dialogue">
-      <p class="bz-line" data-speaker="Narrator">The photo is pieced back together, but fine cracks still run between the fragments.</p>
-      <p class="bz-line" data-speaker="Protagonist">Maybe what matters is not changing the past.</p>
-      <p class="bz-line" data-speaker="Protagonist">It is finally being willing to cherish the present.</p>
+      <p class="bz-line">The photo is pieced back together, but fine cracks still run between the fragments.</p>
+      <p class="bz-line" data-speaker="Elliot">Maybe what matters is not changing the past.</p>
+      <p class="bz-line" data-speaker="Elliot">It is finally being willing to cherish the present.</p>
       <div class="bz-choices">[[Step Into the Final Second|00:01]]</div>
     </div>
   </div>
@@ -2227,10 +2227,10 @@ a {
       <span class="bz-place">Keep the Memories</span>
     </div>
     <div class="bz-dialogue">
-      <p class="bz-line" data-speaker="Narrator">He gathers up every memory and places them in the pocket watch, the pain included.</p>
-      <p class="bz-line" data-speaker="Narrator">The pocket watch becomes very light.</p>
-      <p class="bz-line" data-speaker="Protagonist">Regret was never something that had to be erased.</p>
-      <p class="bz-line" data-speaker="Protagonist">It reminds me that I once truly cared.</p>
+      <p class="bz-line">He gathers up every memory and places them in the pocket watch, the pain included.</p>
+      <p class="bz-line">The pocket watch becomes very light.</p>
+      <p class="bz-line" data-speaker="Elliot">Regret was never something that had to be erased.</p>
+      <p class="bz-line" data-speaker="Elliot">It reminds me that I once truly cared.</p>
       <div class="bz-choices">[[Step Into the Final Second|00:01]]</div>
     </div>
   </div>
@@ -2246,8 +2246,8 @@ a {
       <span class="bz-place">Staying</span>
     </div>
     <div class="bz-dialogue">
-      <p class="bz-line" data-speaker="Narrator">He remains in memory forever.</p>
-      <p class="bz-line" data-speaker="Narrator">One door after another closes, yet the pocket watch never reaches zero again.</p>
+      <p class="bz-line">He remains in memory forever.</p>
+      <p class="bz-line">One door after another closes, yet the pocket watch never reaches zero again.</p>
       <p class="bz-line" data-speaker="Mysterious Voice">Some believe that if they can hold on to the past, they will never have to leave.</p>
       <p class="bz-line" data-speaker="Mysterious Voice">But when something stops, it is never only time.</p>
       <div class="bz-choices">[[Step Into the Final Second|00:01]]</div>
@@ -2270,7 +2270,7 @@ a {
       <span>A Belated Apology</span>
     </div>
     <div class="bz-dialogue">
-      <p class="bz-line" data-speaker="Narrator">The fragment falls into the pocket watch, leaving a warm notch on its face.</p>
+      <p class="bz-line">The fragment falls into the pocket watch, leaving a warm notch on its face.</p>
       <p class="bz-line" data-speaker="Mysterious Voice">The next door has opened.</p>
       <div class="bz-choices">[[Enter the Second Door|00:40 - The Missed Promise]]</div>
     </div>
@@ -2292,9 +2292,9 @@ a {
       <span>An Unkept Promise</span>
     </div>
     <div class="bz-dialogue">
-      <p class="bz-line" data-speaker="Narrator">The ticket breaks into flecks of light and settles along the rim of the pocket watch.</p>
-      <p class="bz-line" data-speaker="Protagonist">I did not forget.</p>
-      <p class="bz-line" data-speaker="Protagonist">I was only afraid to admit I still wanted to go.</p>
+      <p class="bz-line">The ticket breaks into flecks of light and settles along the rim of the pocket watch.</p>
+      <p class="bz-line" data-speaker="Elliot">I did not forget.</p>
+      <p class="bz-line" data-speaker="Elliot">I was only afraid to admit I still wanted to go.</p>
       <div class="bz-choices">[[Enter the Third Door|00:30 - The Dream Left Behind]]</div>
     </div>
   </div>
@@ -2315,7 +2315,7 @@ a {
       <span>The Self He Once Was</span>
     </div>
     <div class="bz-dialogue">
-      <p class="bz-line" data-speaker="Narrator">The final fragment enters the pocket watch, and three notches form a complete circle.</p>
+      <p class="bz-line">The final fragment enters the pocket watch, and three notches form a complete circle.</p>
       <p class="bz-line" data-speaker="Mysterious Voice">Now you can answer the final question.</p>
       <div class="bz-choices">[[Return to the Memory Core|00:20]]</div>
     </div>
@@ -2332,10 +2332,10 @@ a {
       <span class="bz-place">Childhood</span>
     </div>
     <div class="bz-dialogue">
-      <p class="bz-line" data-speaker="Narrator">As a child, the protagonist lies over the desk drawing, elbows smudged with pencil dust.</p>
-      <p class="bz-line" data-speaker="Child">Someday I'm going to make something amazing!</p>
-      <p class="bz-line" data-speaker="Child">I hope the grown-up me can still like who I am now.</p>
-      <p class="bz-line" data-speaker="Narrator">The sentence folds itself like a paper airplane, crosses the years, and lands at his feet.</p>
+      <p class="bz-line">As a child, Elliot lies over the desk drawing, elbows smudged with pencil dust.</p>
+      <p class="bz-line" data-speaker="little Elliot">Someday I'm going to make something amazing!</p>
+      <p class="bz-line" data-speaker="little Elliot">I hope the grown-up me can still like who I am now.</p>
+      <p class="bz-line">The sentence folds itself like a paper airplane, crosses the years, and lands at his feet.</p>
       <div class="bz-choices">[[Grown Up]]</div>
     </div>
   </div>
@@ -2351,11 +2351,11 @@ a {
       <span class="bz-place">Grown Up</span>
     </div>
     <div class="bz-dialogue">
-      <p class="bz-line" data-speaker="Narrator">The scene shifts. The grown-up protagonist sits in an office, paperwork piled across the desk.</p>
-      <p class="bz-line" data-speaker="Protagonist">When did it start...</p>
-      <p class="bz-line" data-speaker="Protagonist">When did I forget what I loved?</p>
-      <p class="bz-line" data-speaker="Protagonist">My dream... I forgot it a long time ago.</p>
-      <p class="bz-line" data-speaker="Narrator">Inside the drawer, the corner of a childhood drawing peeks out.</p>
+      <p class="bz-line">The scene shifts. The grown-up Elliot sits in an office, paperwork piled across the desk.</p>
+      <p class="bz-line" data-speaker="Elliot">When did it start...</p>
+      <p class="bz-line" data-speaker="Elliot">When did I forget what I loved?</p>
+      <p class="bz-line" data-speaker="Elliot">My dream... I forgot it a long time ago.</p>
+      <p class="bz-line">Inside the drawer, the corner of a childhood drawing peeks out.</p>
       <div class="bz-choices">[[Pick Up the Childhood Drawing]]</div>
     </div>
   </div>

@@ -57,7 +57,7 @@ tw-story {
     linear-gradient(245deg, rgba(210, 169, 88, 0.12), transparent 38%),
     repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.018) 0 2px, transparent 2px 14px),
     linear-gradient(135deg, #161410 0%, #2b2925 45%, #141312 100%);
-  font-family: "Microsoft YaHei", "PingFang SC", "Noto Sans SC", "Source Han Sans SC", system-ui, sans-serif;
+  font-family: "Bodoni 72", "Bodoni 72 Smallcaps", "Bodoni 72 Oldstyle", "Bodoni 72 Book", "Times New Roman", Georgia, "Microsoft YaHei", "PingFang SC", serif;
 }
 
 tw-story::before,
@@ -1630,8 +1630,8 @@ a {
     </div>
     <div class="bz-dialogue">
       <p class="bz-line" data-speaker="怀表">00:00</p>
-      <p class="bz-line" data-speaker="旁白">人生不是由剩余的时间决定，而是由曾经拥有的瞬间组成。</p>
-      <p class="bz-line" data-speaker="旁白">人生并不是只完成目标，也是在过程中找到自己。</p>
+      <p class="bz-line">人生不是由剩余的时间决定，而是由曾经拥有的瞬间组成。</p>
+      <p class="bz-line">人生并不是只完成目标，也是在过程中找到自己。</p>
       <div class="bz-choices">[[重新选择]]</div>
     </div>
   </div>
@@ -1652,8 +1652,8 @@ a {
       <span>重新选择</span>
     </div>
     <div class="bz-dialogue">
-      <p class="bz-line" data-speaker="旁白">怀表没有把你送回起点。</p>
-      <p class="bz-line" data-speaker="旁白">它只把最后的分岔，再一次放到你面前。</p>
+      <p class="bz-line">怀表没有把你送回起点。</p>
+      <p class="bz-line">它只把最后的分岔，再一次放到你面前。</p>
       <div class="bz-choices">
         [[回到三选一|00:10]]
         [[游戏结束]]
@@ -1688,10 +1688,10 @@ a {
       <p class="bz-line" data-speaker="怀表">秒针停在最后一格。</p>
       <p class="bz-line" data-speaker="神秘声音">最后一个问题。</p>
       <p class="bz-line" data-speaker="神秘声音">你想留下什么？</p>
-      <p class="bz-line" data-speaker="旁白">主角看着三块记忆。照片、车票、画纸，在光里轻轻浮起。</p>
-      <p class="bz-line" data-speaker="主角">不是过去。</p>
-      <p class="bz-line" data-speaker="主角">不是遗憾。</p>
-      <p class="bz-line" data-speaker="主角">而是那些让我成为现在的我的瞬间。</p>
+      <p class="bz-line">Elliot看着三块记忆。照片、车票、画纸，在光里轻轻浮起。</p>
+      <p class="bz-line" data-speaker="Elliot">不是过去。</p>
+      <p class="bz-line" data-speaker="Elliot">不是遗憾。</p>
+      <p class="bz-line" data-speaker="Elliot">而是那些让我成为现在的我的瞬间。</p>
       <div class="bz-choices">[[让时间归零|00:00]]</div>
     </div>
   </div>
@@ -1738,7 +1738,7 @@ a {
       <span>记忆收束</span>
     </div>
     <div class="bz-dialogue">
-      <p class="bz-line" data-speaker="旁白">三块记忆碎片漂浮在空中，裂缝里的光慢慢合拢。</p>
+      <p class="bz-line">三块记忆碎片漂浮在空中，裂缝里的光慢慢合拢。</p>
       <p class="bz-line" data-speaker="神秘声音">你已经看到了自己的过去。</p>
       <p class="bz-line" data-speaker="神秘声音">现在告诉我。</p>
       <p class="bz-line" data-speaker="神秘声音">你想改变什么？</p>
@@ -1760,10 +1760,10 @@ a {
       <img src="Images/00：30.jpg" alt="00:30 时间卡">
     </div>
     <div class="bz-dialogue">
-      <p class="bz-line" data-speaker="旁白">第三扇门后，是一间被午后阳光塞满的房间。</p>
-      <p class="bz-line" data-speaker="旁白">桌上摊着画本、模型和旧奖状，灰尘停在它们边缘。</p>
-      <p class="bz-line" data-speaker="主角">这些东西……</p>
-      <p class="bz-line" data-speaker="主角">我已经很久没有见过了。</p>
+      <p class="bz-line">第三扇门后，是一间被午后阳光塞满的房间。</p>
+      <p class="bz-line">桌上摊着画本、模型和旧奖状，灰尘停在它们边缘。</p>
+      <p class="bz-line" data-speaker="Elliot">这些东西……</p>
+      <p class="bz-line" data-speaker="Elliot">我已经很久没有见过了。</p>
       <div class="bz-choices">[[打开画本]]</div>
     </div>
   </div>
@@ -1782,10 +1782,10 @@ a {
       <img src="Images/00：40.jpg" alt="00:40 时间卡">
     </div>
     <div class="bz-dialogue">
-      <p class="bz-line" data-speaker="旁白">第二扇门后，是一座没有列车进站的站台。</p>
-      <p class="bz-line" data-speaker="旁白">长椅上放着一张旧车票，目的地被揉得发白。</p>
-      <p class="bz-line" data-speaker="主角">这里是……</p>
-      <p class="bz-line" data-speaker="主角">我们约好的地方。</p>
+      <p class="bz-line">第二扇门后，是一座没有列车进站的站台。</p>
+      <p class="bz-line">长椅上放着一张旧车票，目的地被揉得发白。</p>
+      <p class="bz-line" data-speaker="Elliot">这里是……</p>
+      <p class="bz-line" data-speaker="Elliot">我们约好的地方。</p>
       <div class="bz-choices">[[拾取车票]]</div>
     </div>
   </div>
@@ -1804,10 +1804,10 @@ a {
       <img src="Images/00：50.jpg" alt="00:50 时间卡">
     </div>
     <div class="bz-dialogue">
-      <p class="bz-line" data-speaker="旁白">第一扇门打开时，空气里有熟悉的饭菜香。</p>
-      <p class="bz-line" data-speaker="旁白">屋子里很安静，桌上只放着一张家人的合照。</p>
-      <p class="bz-line" data-speaker="主角">这里……</p>
-      <p class="bz-line" data-speaker="主角">我好像来过。</p>
+      <p class="bz-line">第一扇门打开时，空气里有熟悉的饭菜香。</p>
+      <p class="bz-line">屋子里很安静，桌上只放着一张家人的合照。</p>
+      <p class="bz-line" data-speaker="Elliot">这里……</p>
+      <p class="bz-line" data-speaker="Elliot">我好像来过。</p>
       <div class="bz-choices">[[拾取照片]]</div>
     </div>
   </div>
@@ -1823,8 +1823,8 @@ a {
       <span class="bz-place">停止的房间</span>
     </div>
     <div class="bz-dialogue">
-      <p class="bz-line" data-speaker="主角">一分钟？</p>
-      <p class="bz-line" data-speaker="主角">什么意思？</p>
+      <p class="bz-line" data-speaker="Elliot">一分钟？</p>
+      <p class="bz-line" data-speaker="Elliot">什么意思？</p>
       <p class="bz-line" data-speaker="神秘声音">时间不是给你逃走的。</p>
       <p class="bz-line" data-speaker="神秘声音">它只是让你看清楚，自己一直没有看完的东西。</p>
       <div class="bz-choices">[[回答]]</div>
@@ -1853,8 +1853,8 @@ a {
       <span class="bz-place">序章</span>
     </div>
     <div class="bz-dialogue">
-      <p class="bz-line" data-speaker="旁白">如果只能再回头看一分钟，你会先想起谁？</p>
-      <p class="bz-line" data-speaker="旁白">如果只能带走一件东西，你会带走答案，还是带走遗憾？</p>
+      <p class="bz-line">如果只能再回头看一分钟，你会先想起谁？</p>
+      <p class="bz-line">如果只能带走一件东西，你会带走答案，还是带走遗憾？</p>
       <div class="bz-choices">[[游戏开始]]</div>
     </div>
   </div>
@@ -1870,10 +1870,10 @@ a {
       <span class="bz-place">怀表启动</span>
     </div>
     <div class="bz-dialogue">
-      <p class="bz-line" data-speaker="主角">……这是哪里？</p>
-      <p class="bz-line" data-speaker="主角">我为什么会在这里？</p>
+      <p class="bz-line" data-speaker="Elliot">……这是哪里？</p>
+      <p class="bz-line" data-speaker="Elliot">我为什么会在这里？</p>
       <p class="bz-line" data-speaker="神秘声音">你还有一分钟。</p>
-      <p class="bz-line" data-speaker="旁白">怀表发出很轻的声响，像在倒数，又像在提醒。</p>
+      <p class="bz-line">怀表发出很轻的声响，像在倒数，又像在提醒。</p>
       <div class="bz-choices">[[追问声音|?]]</div>
     </div>
   </div>
@@ -1889,10 +1889,10 @@ a {
       <span class="bz-place">多年之后</span>
     </div>
     <div class="bz-dialogue">
-      <p class="bz-line" data-speaker="旁白">时间跳到很多年后。</p>
-      <p class="bz-line" data-speaker="旁白">一次争吵后，手机里留着一条一直没有发出的信息。</p>
+      <p class="bz-line">时间跳到很多年后。</p>
+      <p class="bz-line">一次争吵后，手机里留着一条一直没有发出的信息。</p>
       <p class="bz-line" data-speaker="手机草稿">最近还好吗？</p>
-      <p class="bz-line" data-speaker="旁白">发送键亮着，却像隔着一整片海。</p>
+      <p class="bz-line">发送键亮着，却像隔着一整片海。</p>
       <div class="bz-choices">[[多年后]]</div>
     </div>
   </div>
@@ -1911,7 +1911,7 @@ a {
       <p class="bz-line" data-speaker="神秘声音">依次进入这三扇门。</p>
       <p class="bz-line" data-speaker="神秘声音">不是为了惩罚你。</p>
       <p class="bz-line" data-speaker="神秘声音">是为了让你看见，自己真正想留下的是什么。</p>
-      <p class="bz-line" data-speaker="旁白">第一扇门上的数字，在黑暗里微微发亮。</p>
+      <p class="bz-line">第一扇门上的数字，在黑暗里微微发亮。</p>
       <div class="bz-choices">[[进入第一扇门|00：50《未说出口的道歉》]]</div>
     </div>
   </div>
@@ -1927,8 +1927,8 @@ a {
       <span class="bz-place">回到过去</span>
     </div>
     <div class="bz-dialogue">
-      <p class="bz-line" data-speaker="主角">如果可以重新开始……</p>
-      <p class="bz-line" data-speaker="主角">我想回到还来得及说出口的时候。</p>
+      <p class="bz-line" data-speaker="Elliot">如果可以重新开始……</p>
+      <p class="bz-line" data-speaker="Elliot">我想回到还来得及说出口的时候。</p>
       <div class="bz-choices">[[结局]]</div>
     </div>
   </div>
@@ -1945,9 +1945,9 @@ a {
     </div>
     <div class="bz-dialogue">
       <p class="bz-line" data-speaker="父母">不要一直玩了，出来吃饭吧。</p>
-      <p class="bz-line" data-speaker="小主角">我不要！</p>
-      <p class="bz-line" data-speaker="小主角">你们根本不懂我！</p>
-      <p class="bz-line" data-speaker="旁白">门被重重关上，门外却没有责骂声。</p>
+      <p class="bz-line" data-speaker="little Elliot">我不要！</p>
+      <p class="bz-line" data-speaker="little Elliot">你们根本不懂我！</p>
+      <p class="bz-line">门被重重关上，门外却没有责骂声。</p>
       <div class="bz-choices">[[离开]]</div>
     </div>
   </div>
@@ -1963,10 +1963,10 @@ a {
       <span class="bz-place">理解</span>
     </div>
     <div class="bz-dialogue">
-      <p class="bz-line" data-speaker="主角">原来……</p>
-      <p class="bz-line" data-speaker="主角">他们从来没有生我的气。</p>
-      <p class="bz-line" data-speaker="主角">只是我一直在赌气，不想先低头。</p>
-      <p class="bz-line" data-speaker="旁白">那句没有说出口的道歉，终于找到了回声。</p>
+      <p class="bz-line" data-speaker="Elliot">原来……</p>
+      <p class="bz-line" data-speaker="Elliot">他们从来没有生我的气。</p>
+      <p class="bz-line" data-speaker="Elliot">只是我一直在赌气，不想先低头。</p>
+      <p class="bz-line">那句没有说出口的道歉，终于找到了回声。</p>
       <div class="bz-choices">[[获得记忆碎片]]</div>
     </div>
   </div>
@@ -1984,7 +1984,7 @@ a {
     <div class="bz-dialogue">
       <p class="bz-line" data-speaker="神秘声音">当时间归零，你会离开这里。</p>
       <p class="bz-line" data-speaker="神秘声音">但在离开之前，你还有机会见到一些东西。</p>
-      <p class="bz-line" data-speaker="主角">那些东西……是我丢下的吗？</p>
+      <p class="bz-line" data-speaker="Elliot">那些东西……是我丢下的吗？</p>
       <p class="bz-line" data-speaker="神秘声音">也许是你以为已经不重要的东西。</p>
       <div class="bz-choices">[[前往]]</div>
     </div>
@@ -2001,10 +2001,10 @@ a {
       <span class="bz-place">没有发出的消息</span>
     </div>
     <div class="bz-dialogue">
-      <p class="bz-line" data-speaker="旁白">主角一直没有按下发送。</p>
-      <p class="bz-line" data-speaker="主角">原来我从来没有忘记这段约定。</p>
-      <p class="bz-line" data-speaker="主角">只是害怕再次面对，会重新失去朋友。</p>
-      <p class="bz-line" data-speaker="旁白">车票的背面，仍然写着“一起去看海”。</p>
+      <p class="bz-line">Elliot一直没有按下发送。</p>
+      <p class="bz-line" data-speaker="Elliot">原来我从来没有忘记这段约定。</p>
+      <p class="bz-line" data-speaker="Elliot">只是害怕再次面对，会重新失去朋友。</p>
+      <p class="bz-line">车票的背面，仍然写着“一起去看海”。</p>
       <div class="bz-choices">[[获得记忆碎片2]]</div>
     </div>
   </div>
@@ -2020,10 +2020,10 @@ a {
       <span class="bz-place">旧画本</span>
     </div>
     <div class="bz-dialogue">
-      <p class="bz-line" data-speaker="旁白">画本的第一页被反复翻过，边角已经卷起。</p>
+      <p class="bz-line">画本的第一页被反复翻过，边角已经卷起。</p>
       <p class="bz-line" data-speaker="画本">长大以后，我要让更多人喜欢我的设计。</p>
-      <p class="bz-line" data-speaker="主角">这是我写的？</p>
-      <p class="bz-line" data-speaker="旁白">笔迹笨拙，却比现在的任何计划都要坚定。</p>
+      <p class="bz-line" data-speaker="Elliot">这是我写的？</p>
+      <p class="bz-line">笔迹笨拙，却比现在的任何计划都要坚定。</p>
       <div class="bz-choices">[[进入回忆]]</div>
     </div>
   </div>
@@ -2039,8 +2039,8 @@ a {
       <span class="bz-place">拒绝离开</span>
     </div>
     <div class="bz-dialogue">
-      <p class="bz-line" data-speaker="主角">我还没有准备好离开我的人生。</p>
-      <p class="bz-line" data-speaker="主角">如果回忆能停住，那我宁愿留在这里。</p>
+      <p class="bz-line" data-speaker="Elliot">我还没有准备好离开我的人生。</p>
+      <p class="bz-line" data-speaker="Elliot">如果回忆能停住，那我宁愿留在这里。</p>
       <div class="bz-choices">[[结局3]]</div>
     </div>
   </div>
@@ -2056,9 +2056,9 @@ a {
       <span class="bz-place">旧照片</span>
     </div>
     <div class="bz-dialogue">
-      <p class="bz-line" data-speaker="旁白">照片里的人站得很近，笑容却被时间磨得模糊。</p>
-      <p class="bz-line" data-speaker="主角">我记得这一天。</p>
-      <p class="bz-line" data-speaker="主角">也记得我后来为什么不肯走出房间。</p>
+      <p class="bz-line">照片里的人站得很近，笑容却被时间磨得模糊。</p>
+      <p class="bz-line" data-speaker="Elliot">我记得这一天。</p>
+      <p class="bz-line" data-speaker="Elliot">也记得我后来为什么不肯走出房间。</p>
       <div class="bz-choices">[[回忆]]</div>
     </div>
   </div>
@@ -2076,7 +2076,7 @@ a {
     <div class="bz-dialogue">
       <p class="bz-line" data-speaker="纸条">记得吃饭。</p>
       <p class="bz-line" data-speaker="纸条">我们永远在等你。</p>
-      <p class="bz-line" data-speaker="主角">他们一直都在等我先开门。</p>
+      <p class="bz-line" data-speaker="Elliot">他们一直都在等我先开门。</p>
       <div class="bz-choices">[[回忆结束]]</div>
     </div>
   </div>
@@ -2092,10 +2092,10 @@ a {
       <span class="bz-place">车站</span>
     </div>
     <div class="bz-dialogue">
-      <p class="bz-line" data-speaker="旁白">年轻的主角和朋友站在站台边，风吹得车票轻轻作响。</p>
+      <p class="bz-line">年轻的Elliot和朋友站在站台边，风吹得车票轻轻作响。</p>
       <p class="bz-line" data-speaker="朋友">等以后有时间，我们一定一起去看海。</p>
-      <p class="bz-line" data-speaker="主角">说好了！</p>
-      <p class="bz-line" data-speaker="主角">一定！</p>
+      <p class="bz-line" data-speaker="Elliot">说好了！</p>
+      <p class="bz-line" data-speaker="Elliot">一定！</p>
       <div class="bz-choices">[[之后]]</div>
     </div>
   </div>
@@ -2111,9 +2111,9 @@ a {
       <span class="bz-place">找回梦想</span>
     </div>
     <div class="bz-dialogue">
-      <p class="bz-line" data-speaker="主角">我以为我失去了梦想。</p>
-      <p class="bz-line" data-speaker="主角">其实只是把它藏起来了。</p>
-      <p class="bz-line" data-speaker="旁白">画纸没有责怪他，只是安静地等他再次拿起笔。</p>
+      <p class="bz-line" data-speaker="Elliot">我以为我失去了梦想。</p>
+      <p class="bz-line" data-speaker="Elliot">其实只是把它藏起来了。</p>
+      <p class="bz-line">画纸没有责怪他，只是安静地等他再次拿起笔。</p>
       <div class="bz-choices">[[获得记忆碎片3]]</div>
     </div>
   </div>
@@ -2136,11 +2136,11 @@ a {
       <img src="Images/00：60.jpg" alt="00:60 时间卡">
     </div>
     <div class="bz-dialogue">
-      <p class="bz-line" data-speaker="旁白">滴。滴。滴。</p>
-      <p class="bz-line" data-speaker="旁白">画面慢慢亮起，像有人把尘封的灯重新拧开。</p>
-      <p class="bz-line" data-speaker="主角">我睁开眼，发现自己躺在一间陌生的房间里。</p>
-      <p class="bz-line" data-speaker="旁白">房间很安静，墙上的时钟停止转动。桌子上放着一个怀表。</p>
-      <p class="bz-line" data-speaker="主角">这里不像医院，也不像梦。</p>
+      <p class="bz-line">滴。滴。滴。</p>
+      <p class="bz-line">画面慢慢亮起，像有人把尘封的灯重新拧开。</p>
+      <p class="bz-line" data-speaker="Elliot">我睁开眼，发现自己躺在一间陌生的房间里。</p>
+      <p class="bz-line">房间很安静，墙上的时钟停止转动。桌子上放着一个怀表。</p>
+      <p class="bz-line" data-speaker="Elliot">这里不像医院，也不像梦。</p>
       <div class="bz-choices">[[靠近怀表|秒表]]</div>
     </div>
   </div>
@@ -2156,8 +2156,8 @@ a {
       <span class="bz-place">留下记忆</span>
     </div>
     <div class="bz-dialogue">
-      <p class="bz-line" data-speaker="主角">这些遗憾，也是我的人生。</p>
-      <p class="bz-line" data-speaker="主角">如果它们让我成为现在的我，我就把它们一起留下。</p>
+      <p class="bz-line" data-speaker="Elliot">这些遗憾，也是我的人生。</p>
+      <p class="bz-line" data-speaker="Elliot">如果它们让我成为现在的我，我就把它们一起留下。</p>
       <div class="bz-choices">[[结局2]]</div>
     </div>
   </div>
@@ -2173,9 +2173,9 @@ a {
       <span class="bz-place">门外</span>
     </div>
     <div class="bz-dialogue">
-      <p class="bz-line" data-speaker="旁白">晚上。</p>
-      <p class="bz-line" data-speaker="旁白">桌上放着一杯水和一张纸条。</p>
-      <p class="bz-line" data-speaker="旁白">水已经不热了，纸条却像刚放下不久。</p>
+      <p class="bz-line">晚上。</p>
+      <p class="bz-line">桌上放着一杯水和一张纸条。</p>
+      <p class="bz-line">水已经不热了，纸条却像刚放下不久。</p>
       <div class="bz-choices">[[拾取纸条]]</div>
     </div>
   </div>
@@ -2191,8 +2191,8 @@ a {
       <span class="bz-place">可交互物件</span>
     </div>
     <div class="bz-dialogue">
-      <p class="bz-line" data-speaker="旁白">怀表躺在桌面上，表盖半开，里面没有指针。</p>
-      <p class="bz-line" data-speaker="旁白">当主角伸手时，缺失的指针突然出现。</p>
+      <p class="bz-line">怀表躺在桌面上。</p>
+      <p class="bz-line">当Elliot伸手时，缺失的指针突然出现。</p>
       <p class="bz-line" data-speaker="怀表">00:60</p>
       <div class="bz-choices">[[触碰怀表|click countdown]]</div>
     </div>
@@ -2209,9 +2209,9 @@ a {
       <span class="bz-place">回到过去</span>
     </div>
     <div class="bz-dialogue">
-      <p class="bz-line" data-speaker="旁白">照片被重新拼好，碎片之间却仍然有细细的裂痕。</p>
-      <p class="bz-line" data-speaker="主角">也许重要的不是改变过去。</p>
-      <p class="bz-line" data-speaker="主角">而是终于愿意珍惜现在。</p>
+      <p class="bz-line">照片被重新拼好，碎片之间却仍然有细细的裂痕。</p>
+      <p class="bz-line" data-speaker="Elliot">也许重要的不是改变过去。</p>
+      <p class="bz-line" data-speaker="Elliot">而是终于愿意珍惜现在。</p>
       <div class="bz-choices">[[走向最后一秒|00:01]]</div>
     </div>
   </div>
@@ -2227,10 +2227,10 @@ a {
       <span class="bz-place">留下记忆</span>
     </div>
     <div class="bz-dialogue">
-      <p class="bz-line" data-speaker="旁白">他收起所有记忆，连同那些刺痛一起放进怀表。</p>
-      <p class="bz-line" data-speaker="旁白">怀表变得很轻。</p>
-      <p class="bz-line" data-speaker="主角">原来遗憾不是要被抹掉的。</p>
-      <p class="bz-line" data-speaker="主角">它提醒我，我曾经真正在乎过。</p>
+      <p class="bz-line">他收起所有记忆，连同那些刺痛一起放进怀表。</p>
+      <p class="bz-line">怀表变得很轻。</p>
+      <p class="bz-line" data-speaker="Elliot">原来遗憾不是要被抹掉的。</p>
+      <p class="bz-line" data-speaker="Elliot">它提醒我，我曾经真正在乎过。</p>
       <div class="bz-choices">[[走向最后一秒|00:01]]</div>
     </div>
   </div>
@@ -2246,8 +2246,8 @@ a {
       <span class="bz-place">停留</span>
     </div>
     <div class="bz-dialogue">
-      <p class="bz-line" data-speaker="旁白">他永远停留在回忆里。</p>
-      <p class="bz-line" data-speaker="旁白">门一扇扇关上，怀表却再也没有归零。</p>
+      <p class="bz-line">他永远停留在回忆里。</p>
+      <p class="bz-line">门一扇扇关上，怀表却再也没有归零。</p>
       <p class="bz-line" data-speaker="神秘声音">有些人以为留住过去，就能不必离开。</p>
       <p class="bz-line" data-speaker="神秘声音">可停下来的，从来不只是时间。</p>
       <div class="bz-choices">[[走向最后一秒|00:01]]</div>
@@ -2270,7 +2270,7 @@ a {
       <span>一句迟到的道歉</span>
     </div>
     <div class="bz-dialogue">
-      <p class="bz-line" data-speaker="旁白">碎片落入怀表，表盘上多出一道温暖的刻痕。</p>
+      <p class="bz-line">碎片落入怀表，表盘上多出一道温暖的刻痕。</p>
       <p class="bz-line" data-speaker="神秘声音">下一扇门已经打开。</p>
       <div class="bz-choices">[[进入第二扇门|00：40《错过的约定》]]</div>
     </div>
@@ -2292,9 +2292,9 @@ a {
       <span>没有完成的约定</span>
     </div>
     <div class="bz-dialogue">
-      <p class="bz-line" data-speaker="旁白">车票化成细小的光，贴在怀表边缘。</p>
-      <p class="bz-line" data-speaker="主角">我不是忘了。</p>
-      <p class="bz-line" data-speaker="主角">我只是一直不敢承认还想去。</p>
+      <p class="bz-line">车票化成细小的光，贴在怀表边缘。</p>
+      <p class="bz-line" data-speaker="Elliot">我不是忘了。</p>
+      <p class="bz-line" data-speaker="Elliot">我只是一直不敢承认还想去。</p>
       <div class="bz-choices">[[进入第三扇门|00：30《放弃的梦想》]]</div>
     </div>
   </div>
@@ -2315,7 +2315,7 @@ a {
       <span>曾经的自己</span>
     </div>
     <div class="bz-dialogue">
-      <p class="bz-line" data-speaker="旁白">最后一块碎片进入怀表，三道刻痕连成完整的圆。</p>
+      <p class="bz-line">最后一块碎片进入怀表，三道刻痕连成完整的圆。</p>
       <p class="bz-line" data-speaker="神秘声音">现在，你可以回答最后的问题了。</p>
       <div class="bz-choices">[[回到记忆核心|00:20]]</div>
     </div>
@@ -2332,10 +2332,10 @@ a {
       <span class="bz-place">小时候</span>
     </div>
     <div class="bz-dialogue">
-      <p class="bz-line" data-speaker="旁白">小时候的主角趴在桌上画画，手肘沾满铅笔灰。</p>
-      <p class="bz-line" data-speaker="小主角">以后我要做一个很棒的作品！</p>
-      <p class="bz-line" data-speaker="小主角">希望长大后的我，还能喜欢现在的自己。</p>
-      <p class="bz-line" data-speaker="旁白">这句话像一枚折好的纸飞机，穿过许多年，落在他脚边。</p>
+      <p class="bz-line">小时候的Elliot趴在桌上画画，手肘沾满铅笔灰。</p>
+      <p class="bz-line" data-speaker="little Elliot">以后我要做一个很棒的作品！</p>
+      <p class="bz-line" data-speaker="little Elliot">希望长大后的我，还能喜欢现在的自己。</p>
+      <p class="bz-line">这句话像一枚折好的纸飞机，穿过许多年，落在他脚边。</p>
       <div class="bz-choices">[[长大后]]</div>
     </div>
   </div>
@@ -2351,11 +2351,11 @@ a {
       <span class="bz-place">长大后</span>
     </div>
     <div class="bz-dialogue">
-      <p class="bz-line" data-speaker="旁白">画面切换。长大后的主角坐在办公室，桌上堆满文件。</p>
-      <p class="bz-line" data-speaker="主角">什么时候开始……</p>
-      <p class="bz-line" data-speaker="主角">我忘记自己喜欢什么了？</p>
-      <p class="bz-line" data-speaker="主角">梦想啊……我早就忘了。</p>
-      <p class="bz-line" data-speaker="旁白">抽屉里，一张小时候的画露出半角。</p>
+      <p class="bz-line">画面切换。长大后的Elliot坐在办公室，桌上堆满文件。</p>
+      <p class="bz-line" data-speaker="Elliot">什么时候开始……</p>
+      <p class="bz-line" data-speaker="Elliot">我忘记自己喜欢什么了？</p>
+      <p class="bz-line" data-speaker="Elliot">梦想啊……我早就忘了。</p>
+      <p class="bz-line">抽屉里，一张小时候的画露出半角。</p>
       <div class="bz-choices">[[拾起小时候的画]]</div>
     </div>
   </div>
