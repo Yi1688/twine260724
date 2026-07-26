@@ -516,14 +516,14 @@ a {
 .bz-dialogue {
   position: absolute;
   left: 50%;
-  bottom: clamp(64px, 8vh, 92px);
+  bottom: clamp(86px, 10vh, 118px);
   z-index: 5;
   width: min(860px, calc(100% - 260px));
   height: 176px;
   min-height: 0;
   max-height: 176px;
   box-sizing: border-box;
-  padding: 42px 82px 58px;
+  padding: 42px 82px 72px;
   color: var(--bz-ink);
   background: transparent;
   border: 0;
@@ -695,7 +695,7 @@ a {
 .bz-choices {
   position: absolute;
   left: 50%;
-  bottom: 10px;
+  bottom: -10px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -749,12 +749,12 @@ a {
 }
 
 .bz-dialogue.is-complete {
-  padding-bottom: 58px;
+  padding-bottom: 72px;
 }
 
 .bz-dialogue.is-complete .bz-dialogue-text {
   min-height: 32px;
-  padding-bottom: 10px;
+  padding-bottom: 18px;
 }
 
 .bz-choice-panel {
@@ -969,7 +969,8 @@ a {
     height: 132px;
     min-height: 0;
     max-height: 132px;
-    padding: 24px 30px 44px;
+    bottom: clamp(74px, 10vh, 96px);
+    padding: 24px 30px 54px;
   }
 
   .bz-dialogue.is-frame-2 {
@@ -1004,7 +1005,7 @@ a {
 
   .bz-choices {
     width: calc(100% - 56px);
-    bottom: 1px;
+    bottom: -8px;
   }
 
   .bz-choice-panel {
